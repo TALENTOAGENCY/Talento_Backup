@@ -2,10 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { 
   Menu, 
   X, 
-  ArrowRight, 
-  Users, 
-  Target, 
-  Award, 
   CheckCircle, 
   Mail, 
   Phone, 
@@ -20,18 +16,15 @@ import {
   AlertCircle,
   Settings,
   LogOut,
-  ChevronDown
-} from 'lucide-react';
+  Search,
+  ChevronDown} from 'lucide-react';
 import { DatabaseService } from './services/database';
 import { AuthForm } from './components/AuthForm';
 import { ForgotPassword } from './components/ForgotPassword';
 import { DashboardPage } from './pages/DashboardPage';
 import { CareersPage } from './pages/CareersPage';
 import type { CandidateApplication, ContactForm, AuthUser, UserProfile } from './lib/supabase';
-import { CalendlyButton } from './components/CalendlyButton';
-
 type ViewType = 'home' | 'auth' | 'forgot-password' | 'dashboard' | 'careers';
-
 function App() {
   const [currentView, setCurrentView] = useState<ViewType>('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -105,13 +98,6 @@ function App() {
     }
   };
 
-  const handleNavigation = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsMenuOpen(false);
-  };
 
   const handleBackFromCareers = () => {
     setCurrentView('home');
@@ -264,11 +250,11 @@ function App() {
         initialEditMode={initialDashboardEditMode}
         onBack={() => setCurrentView('home')}
         onSignOut={handleSignOut}
-        onProfileUpdate={(updatedProfile) => setUserProfile(updatedProfile)}
+        onProfileUpdate={(updatedProfile: React.SetStateAction<UserProfile | null>) => setUserProfile(updatedProfile)}
       />
     );
   }
-
+  
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -284,8 +270,8 @@ function App() {
               <a href="#home" className="text-gray-700 hover:text-talento-600 px-3 py-2 text-base md:text-lg font-medium transition-colors">Home</a>
               <a href="#about" className="text-gray-700 hover:text-talento-600 px-3 py-2 text-base md:text-lg font-medium transition-colors">About</a>
               <button
-                onClick={() => setCurrentView('careers')}
-                className="text-gray-700 hover:text-talento-600 px-3 py-2 text-base md:text-lg font-medium transition-colors"
+                onClick={() => window.open('https://app.talento.agency/', '_blank')}
+                className="text-gray-700 hover:text-talento-600 px-3 py-2 text-base md:text-lg font-medium transition-colors"                
               >
                 Careers
               </button>
@@ -374,11 +360,13 @@ function App() {
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
               <a href="#home" className="text-gray-900 hover:text-talento-600 block px-3 py-2 text-base font-medium">Home</a>
               <button
-                onClick={() => setCurrentView('careers')}
-                className="text-gray-700 hover:text-talento-600 px-3 py-2 text-sm font-medium transition-colors w-full text-left"
-              >
-                Careers
-              </button>
+  onClick={() => {
+    window.location.href = 'https://app.talento.agency/';
+  }}
+  className="flex items-center w-full text-left text-gray-700 px-3 py-2 text-base font-medium hover:bg-gray-50 transition-colors"
+>
+  Careers
+</button>
               <a href="#about" className="text-gray-700 hover:text-talento-600 block px-3 py-2 text-base font-medium">About</a>
               <a href="#contact" className="text-gray-700 hover:text-talento-600 block px-3 py-2 text-base font-medium">Contact</a>
               <a href="#apply" className="text-gray-700 hover:text-talento-600 block px-3 py-2 text-base font-medium">Apply</a>
@@ -452,56 +440,134 @@ function App() {
         )}
       </nav>
       
-      {/* Hero Section - FIXED MOBILE GAP */}
+      
       <section
-        id="home"
-        className="relative bg-gradient-to-br from-slate-50 to-talento-50 pt-24 pb-16 md:pt-32 md:pb-0 lg:py-24 lg:min-h-screen"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center lg:items-center justify-between gap-0 lg:gap-16">
-            
-            {/* Left Content */}
-            <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left mb-0 pb-0">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight">
-                Scale your team with<br />
-                <span className="text-talento-600">high quality, vetted</span><br />
-                professionals
-              </h1>
-              <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-6 md:mb-10 max-w-2xl lg:max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                From dynamic start-ups to multinational corporations, exceptional leadership is the key to success. 
-                <strong className="font-semibold"> TALENTO</strong> specializes in cultivating that leadership through strategic talent acquisition.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <button
-                  onClick={() => handleNavigation('apply')}
-                  className="bg-talento-600 hover:bg-talento-700 text-white px-6 py-3 md:px-8 md:py-4 rounded-lg font-semibold transition-colors flex items-center justify-center"
-                >
-                  Apply Now
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </button>
-                <a 
-                  href="https://calendly.com/talentoagency2/30min" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-talento-600 text-white px-6 py-3 md:px-8 md:py-4 rounded-lg font-medium hover:bg-talento-700 transition-colors"
-                >
-                  Schedule a Consultation
-                </a>
-              </div>
-            </div>
-            
-            {/* Right Image */}
-            <div className="w-full lg:w-1/2 flex justify-center lg:justify-end items-center mt-0 pt-0">
-              <img
-                src="/talento.hero.webp"
-                alt="Talento Hero"
-                className="w-[80%] sm:w-[70%] md:w-[60%] lg:w-full max-w-md h-auto object-contain m-0"
-              />
-            </div>
+  id="home"
+  className="relative bg-gradient-to-br from-slate-50 to-talento-50 pt-24 pb-16 md:pt-32 md:pb-0 lg:py-24 lg:min-h-screen overflow-hidden"
+>
+  {/* Animated background pattern */}
+  <div className="absolute inset-0 opacity-10">
+    <div className="absolute top-0 left-0 w-96 h-96 bg-talento-200 rounded-full filter blur-3xl animate-pulse"></div>
+    <div className="absolute bottom-0 right-0 w-96 h-96 bg-talento-300 rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+  </div>
+  
+  {/* Animated connection lines - hidden on mobile for performance */}
+  <div className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none">
+    <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.2" />
+          <stop offset="100%" stopColor="#3B82F6" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+      <path d="M100,200 Q400,100 700,200" stroke="url(#gradient)" strokeWidth="2" fill="none" className="animate-draw" />
+      <path d="M100,300 Q400,400 700,300" stroke="url(#gradient)" strokeWidth="2" fill="none" className="animate-draw" style={{ animationDelay: '1s' }} />
+    </svg>
+  </div>
+
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div className="flex flex-col lg:flex-row items-center justify-between gap-0 lg:gap-16">
+
+      {/* Left Content */}
+      <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left mb-12 lg:mb-0 pb-0">
+        <div className="mb-4">
+          <span className="inline-block px-4 py-1 bg-talento-100 text-talento-700 rounded-full text-sm font-medium mb-4">
+            Connecting Talent with Opportunity
+          </span>
+        </div>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight">
+          Scale your team with<br />
+          <span className="text-talento-600">high quality, vetted</span><br />
+          professionals
+        </h1>
+        <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-6 md:mb-10 max-w-2xl lg:max-w-xl mx-auto lg:mx-0 leading-relaxed">
+          From dynamic start-ups to multinational corporations, exceptional leadership is the key to success. 
+          <strong className="font-semibold"> TALENTO</strong> specializes in cultivating that leadership through strategic talent acquisition.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 lg:mb-10">
+        <button
+  onClick={() => window.open('https://app.talento.agency/', '_blank')}
+  className="group relative overflow-hidden bg-talento-600 hover:bg-talento-700 text-white px-6 py-3 md:px-8 md:py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+>
+  <span className="relative z-10 flex items-center">
+    <Search className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
+    Explore Careers
+  </span>
+  <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+</button>
+          <a 
+            href="https://calendly.com/talentoagency2/30min" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="group relative overflow-hidden bg-white hover:bg-gray-50 text-talento-600 border border-talento-200 px-6 py-3 md:px-8 md:py-4 rounded-lg font-medium transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg transform hover:-translate-y-1"
+          >
+            <span className="relative z-10 flex items-center">
+              Schedule a Consultation
+              <svg className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            </span>
+          </a>
+        </div>
+        
+        {/* Stats bar - responsive */}
+        <div className="grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0">
+          <div className="text-center lg:text-left">
+            <div className="text-2xl font-bold text-gray-900">500+</div>
+            <div className="text-sm text-gray-600">Placements</div>
+          </div>
+          <div className="text-center lg:text-left">
+            <div className="text-2xl font-bold text-gray-900">95%</div>
+            <div className="text-sm text-gray-600">Success Rate</div>
+          </div>
+          <div className="text-center lg:text-left">
+            <div className="text-2xl font-bold text-gray-900">15+</div>
+            <div className="text-sm text-gray-600">Industries</div>
           </div>
         </div>
-      </section>
-      
+      </div>
+
+{/* Right Image - with professional animation */}
+<div className="relative w-full lg:w-1/2 flex justify-center lg:justify-end items-center mt-0 lg:mt-0">
+
+  {/* Animated nodes - hidden on mobile */}
+  <div className="hidden lg:block absolute inset-0 pointer-events-none">
+    <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-talento-400 rounded-full animate-pulse"></div>
+    <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-talento-400 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+    <div className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-talento-400 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+    <div className="absolute bottom-1/4 right-1/3 w-3 h-3 bg-talento-400 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+  </div>
+
+  {/* Image container with enhanced animation effects */}
+  <div className="relative p-1 sm:p-2 lg:p-1 rounded-3xl shadow-2xl bg-gradient-to-br from-white/70 to-white/30 backdrop-blur-md border border-white/50 w-[85%] sm:w-[75%] md:w-[65%] lg:w-full overflow-hidden">
+
+    {/* Gradient overlay for depth */}
+    <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-talento-100/30 to-transparent"></div>
+
+    {/* Animated glowing ring behind image */}
+    <div className="absolute -inset-6 rounded-full bg-gradient-to-tr from-talento-300/40 via-talento-200/30 to-transparent blur-3xl animate-pulse-slow"></div>
+
+    {/* Subtle orbit animation elements */}
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div className="w-[200px] h-[200px] sm:w-[260px] sm:h-[260px] border border-talento-300/20 rounded-full animate-spin-slow"></div>
+      <div className="absolute w-[140px] h-[140px] sm:w-[200px] sm:h-[200px] border border-talento-400/10 rounded-full animate-reverse-spin-slow"></div>
+    </div>
+
+    {/* Main image */}
+    <div className="relative overflow-hidden rounded-3xl z-10">
+      <img
+        src="/talento.hero.webp"
+        alt="Talento Hero"
+        className="w-full h-auto object-contain rounded-3xl transition-transform duration-700 hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent rounded-3xl"></div>
+    </div>
+    </div>
+</div>
+    </div>
+  </div>
+</section>
+
       {/* Services Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Section Header */}
