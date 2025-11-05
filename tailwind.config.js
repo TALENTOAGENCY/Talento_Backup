@@ -1,11 +1,13 @@
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-  darkMode: 'class',
+module.exports = {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  darkMode: 'class', // This is important for the dark mode to work
   theme: {
     extend: {
       colors: {
-        'talento': {
+        talento: {
+          // Define your talento color palette
           50: '#f0f4f5',
           100: '#dae6ea',
           200: '#b8cfd6',
@@ -21,4 +23,4 @@ export default {
     },
   },
   plugins: [],
-};
+}

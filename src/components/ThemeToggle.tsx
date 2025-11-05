@@ -1,15 +1,26 @@
 import { useEffect, useState } from 'react';
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+  const [theme, setTheme] = useState(() => {
+    // Check for saved theme preference or default to light mode
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('theme') || 'light';
+    }
+    return 'light';
+  });
 
   useEffect(() => {
+    // Apply theme to document element
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
-    localStorage.setItem('theme', theme);
+    
+    // Save theme preference to localStorage
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('theme', theme);
+    }
   }, [theme]);
 
   const handleThemeSwitch = () => {
@@ -19,7 +30,8 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={handleThemeSwitch}
-      className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-200"
+      className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-talento-500 dark:focus:ring-offset-gray-800 transition-colors duration-200"
+      aria-label="Toggle theme"
     >
       {theme === 'dark' ? (
         <svg
