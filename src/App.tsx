@@ -262,7 +262,7 @@ return (
 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div className="flex justify-between items-center h-16">
 <div className="flex items-center">
-<img src="/logo.jpg" alt="TALENTO" className="h-10 w-auto" />
+<img src="/logo.png" alt="TALENTO" className="h-10 w-auto" />
 </div>
 
 {/* Desktop Navigation */}
@@ -840,7 +840,7 @@ As a boutique firm, we provide personalized attention and deep industry expertis
 <div className="text-talento-100">Client Satisfaction</div>
 </div>
 <div className="text-center">
-<div className="text-3xl font-bold mb-2">50+</div>
+<div className="text-3xl font-bold mb-2">10+</div>
 <div className="text-talento-100">Partner Companies</div>
 </div>
 <div className="text-center">
@@ -1258,7 +1258,7 @@ Submitting Application...
 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
 <div className="col-span-1 md:col-span-2">
-<img src="/logo.jpg" alt="TALENTO" className="h-10 w-auto mb-4" />
+<img src="/logo.png" alt="TALENTO" className="h-10 w-auto mb-4" />
 <p className="text-gray-300 dark:text-gray-400 leading-relaxed max-w-md">
 TALENTO is a boutique headhunting firm specializing in executive search and leadership recruitment. We connect exceptional talent with forward-thinking organizations.
 </p>
