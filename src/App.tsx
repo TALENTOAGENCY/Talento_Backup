@@ -270,7 +270,7 @@ return (
 <a href="#home" className="text-gray-700 dark:text-gray-200 hover:text-talento-600 dark:hover:text-talento-400 px-3 py-2 text-base md:text-lg font-medium transition-colors">Home</a>
 <a href="#about" className="text-gray-700 dark:text-gray-200 hover:text-talento-600 dark:hover:text-talento-400 px-3 py-2 text-base md:text-lg font-medium transition-colors">About</a>
 <button
-onClick={() => window.open('https://app.talento.agency/', '_blank')}
+onClick={() => window.open('https://job.talento.agency/', '_blank')}
 className="text-gray-700 dark:text-gray-200 hover:text-talento-600 dark:hover:text-talento-400 px-3 py-2 text-base md:text-lg font-medium transition-colors"
 >
 Careers
