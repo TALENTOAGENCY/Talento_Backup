@@ -370,7 +370,7 @@ className="text-gray-700 dark:text-gray-200 hover:text-talento-600 dark:hover:te
 <a href="#home" className="text-gray-900 dark:text-gray-100 hover:text-talento-600 dark:hover:text-talento-400 block px-3 py-2 text-base font-medium">Home</a>
 <button
 onClick={() => {
-window.location.href = 'https://app.talento.agency/';
+window.location.href = 'https://job.talento.agency/';
 }}
 className="flex items-center w-full text-left text-gray-700 dark:text-gray-200 px-3 py-2 text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
 >
@@ -495,7 +495,7 @@ From dynamic start-ups to multinational corporations, exceptional leadership is 
 </p>
 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 lg:mb-10">
 <button
-onClick={() => window.open('https://app.talento.agency/', '_blank')}
+onClick={() => window.open('https://job.talento.agency/', '_blank')}
 className="group relative overflow-hidden bg-talento-600 hover:bg-talento-700 text-white px-6 py-3 md:px-8 md:py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1"
 >
 <span className="relative z-10 flex items-center">
