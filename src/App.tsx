@@ -1279,7 +1279,7 @@ TALENTO is a boutique headhunting firm specializing in executive search and lead
 <ul className="space-y-2 text-gray-300 dark:text-gray-400">
 <li>info@talento.agency</li>
 <li>+880-19730-591514</li>
-<li>Uttara, Dhaka-1230, Bangladesh</li>
+<li>Plot 37, Floor 3, Road 11, Block H, Banani, Dhaka-1213</li>
 </ul>
 </div>
 </div>
