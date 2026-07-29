@@ -884,8 +884,8 @@ Ready to find exceptional talent? Contact us to discuss how we can help you buil
 <Phone className="h-6 w-6 text-talento-600 dark:text-talento-400 mt-1 mr-4 flex-shrink-0" />
 <div>
 <h4 className="font-semibold text-gray-900 dark:text-white">Phone</h4>
-<p className="text-gray-600 dark:text-gray-300">+880-19730-591514</p>
-<p className="text-gray-600 dark:text-gray-300">+880-01341-749853</p>
+<p className="text-gray-600 dark:text-gray-300">+880-1973-591514</p>
+<p className="text-gray-600 dark:text-gray-300">+880-1341-749853</p>
 </div>
 </div>
 
@@ -1278,7 +1278,7 @@ TALENTO is a boutique headhunting firm specializing in executive search and lead
 <h3 className="text-lg font-semibold mb-4">Contact</h3>
 <ul className="space-y-2 text-gray-300 dark:text-gray-400">
 <li>info@talento.agency</li>
-<li>+880-19730-591514</li>
+<li>+880-1973-591514</li>
 <li>Plot 37, Floor 3, Road 11, Block H, Banani, Dhaka-1213</li>
 </ul>
 </div>
