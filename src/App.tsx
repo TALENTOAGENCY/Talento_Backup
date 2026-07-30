@@ -874,9 +874,9 @@ Ready to find exceptional talent? Contact us to discuss how we can help you buil
 <Mail className="h-6 w-6 text-talento-600 dark:text-talento-400 mt-1 mr-4 flex-shrink-0" />
 <div>
 <h4 className="font-semibold text-gray-900 dark:text-white">Email</h4>
-<p className="text-gray-600 dark:text-gray-300">info@talento.agency</p>
-<p className="text-gray-600 dark:text-gray-300">hire.rubz@talento.agency</p>
-<p className="text-gray-600 dark:text-gray-300">hire.tuli@talento.agency</p>
+<p className="text-gray-600 dark:text-gray-300">info@talento.com</p>
+<p className="text-gray-600 dark:text-gray-300">rubz@talento-glb.com</p>
+<p className="text-gray-600 dark:text-gray-300">tuli@talento.com</p>
 </div>
 </div>
 
@@ -884,8 +884,8 @@ Ready to find exceptional talent? Contact us to discuss how we can help you buil
 <Phone className="h-6 w-6 text-talento-600 dark:text-talento-400 mt-1 mr-4 flex-shrink-0" />
 <div>
 <h4 className="font-semibold text-gray-900 dark:text-white">Phone</h4>
-<p className="text-gray-600 dark:text-gray-300">+880-1973-591514</p>
-<p className="text-gray-600 dark:text-gray-300">+880-1341-749853</p>
+<p className="text-gray-600 dark:text-gray-300">+880 1973 591514</p>
+<p className="text-gray-600 dark:text-gray-300">+880 1341 749853</p>
 </div>
 </div>
 
@@ -1071,7 +1071,7 @@ required
 value={candidateForm.phone}
 onChange={(e) => setCandidateForm({...candidateForm, phone: e.target.value})}
 className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-talento-500 focus:border-transparent transition-colors"
-placeholder="+880 1234-567890"
+placeholder="+880 1234 567890"
 />
 </div>
 
@@ -1277,8 +1277,8 @@ TALENTO is a boutique headhunting firm specializing in executive search and lead
 <div>
 <h3 className="text-lg font-semibold mb-4">Contact</h3>
 <ul className="space-y-2 text-gray-300 dark:text-gray-400">
-<li>info@talento.agency</li>
-<li>+880-1973-591514</li>
+<li>info@talento.com</li>
+<li>+880 1973 591514</li>
 <li>Plot 37, Floor 3, Road 11, Block H, Banani, Dhaka-1213</li>
 </ul>
 </div>
