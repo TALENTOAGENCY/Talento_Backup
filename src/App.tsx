@@ -1285,7 +1285,7 @@ TALENTO is a boutique headhunting firm specializing in executive search and lead
 </div>
 
 <div className="border-t border-gray-800 dark:border-gray-700 mt-8 pt-8 text-center text-gray-400 dark:text-gray-500">
-<p>&copy; 2024 TALENTO. All rights reserved.</p>
+<p>&copy; 2026 TALENTO. All rights reserved.</p>
 </div>
 </div>
 </footer>
