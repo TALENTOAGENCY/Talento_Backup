@@ -874,9 +874,9 @@ Ready to find exceptional talent? Contact us to discuss how we can help you buil
 <Mail className="h-6 w-6 text-talento-600 dark:text-talento-400 mt-1 mr-4 flex-shrink-0" />
 <div>
 <h4 className="font-semibold text-gray-900 dark:text-white">Email</h4>
-<p className="text-gray-600 dark:text-gray-300">info@talento.com</p>
+<p className="text-gray-600 dark:text-gray-300">info@talento-glb.com</p>
 <p className="text-gray-600 dark:text-gray-300">rubz@talento-glb.com</p>
-<p className="text-gray-600 dark:text-gray-300">tuli@talento.com</p>
+<p className="text-gray-600 dark:text-gray-300">tuli@talento-glb.com</p>
 </div>
 </div>
 
@@ -1277,7 +1277,7 @@ TALENTO is a boutique headhunting firm specializing in executive search and lead
 <div>
 <h3 className="text-lg font-semibold mb-4">Contact</h3>
 <ul className="space-y-2 text-gray-300 dark:text-gray-400">
-<li>info@talento.com</li>
+<li>info@talento-glb.com</li>
 <li>+880 1973 591514</li>
 <li>Plot 37, Floor 3, Road 11, Block H, Banani, Dhaka-1213</li>
 </ul>
