@@ -30,6 +30,8 @@ import { ServicesPage } from './pages/ServicesPage';
 import { ServiceDetailPage } from './pages/ServiceDetailPage';
 import { IndustriesPage } from './pages/IndustriesPage';
 import { IndustryDetailPage } from './pages/IndustryDetailPage';
+import { RolesPage } from './pages/RolesPage';
+import { RoleDetailPage } from './pages/RoleDetailPage';
 import ThemeToggle from './components/ThemeToggle';
 import { SEO } from './components/SEO';
 import { organizationSchema, websiteSchema, servicesSchema } from './lib/schemas';
@@ -40,12 +42,24 @@ import { locationsData } from './data/locations';
 import { caseStudiesData } from './data/caseStudies';
 import type { CandidateApplication, ContactForm, AuthUser, UserProfile } from './lib/supabase';
 
-type ViewType = 'home' | 'auth' | 'forgot-password' | 'dashboard' | 'careers' | 'services' | 'service-detail' | 'industries' | 'industry-detail';
+type ViewType =
+  | 'home'
+  | 'auth'
+  | 'forgot-password'
+  | 'dashboard'
+  | 'careers'
+  | 'services'
+  | 'service-detail'
+  | 'industries'
+  | 'industry-detail'
+  | 'roles'
+  | 'role-detail';
 
 function App() {
   const [currentView, setCurrentView] = useState<ViewType>('home');
   const [selectedServiceSlug, setSelectedServiceSlug] = useState<string>('executive-search');
   const [selectedIndustrySlug, setSelectedIndustrySlug] = useState<string>('technology');
+  const [selectedRoleSlug, setSelectedRoleSlug] = useState<string>('software-engineers');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [user, setUser] = useState<AuthUser | null>(null);
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
@@ -114,6 +128,14 @@ function App() {
         setSelectedIndustrySlug(slug);
         setCurrentView('industry-detail');
       }
+    } else if (path === '/roles' || path === '/roles/') {
+      setCurrentView('roles');
+    } else if (path.startsWith('/roles/')) {
+      const slug = path.replace('/roles/', '').replace(/\/$/, '');
+      if (slug) {
+        setSelectedRoleSlug(slug);
+        setCurrentView('role-detail');
+      }
     } else if (path === '/careers' || path === '/careers/') {
       setCurrentView('careers');
     }
@@ -149,6 +171,23 @@ function App() {
     window.history.pushState({}, '', `/industries/${slug}`);
     setSelectedIndustrySlug(slug);
     setCurrentView('industry-detail');
+    setIsMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigateToRoles = (e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    window.history.pushState({}, '', '/roles');
+    setCurrentView('roles');
+    setIsMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigateToRoleDetail = (slug: string, e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    window.history.pushState({}, '', `/roles/${slug}`);
+    setSelectedRoleSlug(slug);
+    setCurrentView('role-detail');
     setIsMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -402,6 +441,26 @@ function App() {
     );
   }
 
+  if (currentView === 'roles') {
+    return (
+      <RolesPage
+        onBackToHome={handleBackToHome}
+        onNavigateRole={handleNavigateToRoleDetail}
+      />
+    );
+  }
+
+  if (currentView === 'role-detail') {
+    return (
+      <RoleDetailPage
+        slug={selectedRoleSlug}
+        onBackToRoles={handleNavigateToRoles}
+        onBackToHome={handleBackToHome}
+        onNavigateRole={handleNavigateToRoleDetail}
+      />
+    );
+  }
+
   if (currentView === 'dashboard' && user) {
     return (
       <DashboardPage
@@ -458,10 +517,11 @@ function App() {
                 Industries
               </a>
               <a
-                href="#roles"
+                href="/roles"
+                onClick={handleNavigateToRoles}
                 className="text-gray-700 dark:text-gray-200 hover:text-talento-600 dark:hover:text-talento-400 text-sm font-medium transition-colors"
               >
-                Leadership Roles
+                Roles
               </a>
               <a
                 href="#process"
@@ -586,11 +646,11 @@ function App() {
                 Industries
               </a>
               <a
-                href="#roles"
-                onClick={() => setIsMenuOpen(false)}
+                href="/roles"
+                onClick={handleNavigateToRoles}
                 className="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-200"
               >
-                Leadership Roles
+                Roles
               </a>
               <a
                 href="#process"
@@ -1723,12 +1783,18 @@ function App() {
             {/* Col 3: Industries */}
             <div>
               <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-4">
-                Industry Verticals
+                <a href="/industries" onClick={handleNavigateToIndustries} className="hover:text-talento-400 transition-colors">
+                  Industry Verticals
+                </a>
               </h3>
               <ul className="space-y-2 text-xs text-gray-400">
                 {industriesData.map((i) => (
                   <li key={i.id}>
-                    <a href="#industries" className="hover:text-white transition-colors">
+                    <a
+                      href={`/industries/${i.slug}`}
+                      onClick={(e) => handleNavigateToIndustryDetail(i.slug, e)}
+                      className="hover:text-white transition-colors"
+                    >
                       {i.name}
                     </a>
                   </li>
@@ -1736,18 +1802,25 @@ function App() {
               </ul>
             </div>
 
-            {/* Col 4: Roles & Locations */}
+            {/* Col 4: Roles */}
             <div>
               <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-4">
-                Key Corridors & Roles
+                <a href="/roles" onClick={handleNavigateToRoles} className="hover:text-talento-400 transition-colors">
+                  Talent Functions
+                </a>
               </h3>
               <ul className="space-y-2 text-xs text-gray-400">
-                <li><a href="#roles" className="hover:text-white">Chief Technology Officer (CTO)</a></li>
-                <li><a href="#roles" className="hover:text-white">Chief Executive Officer (CEO)</a></li>
-                <li><a href="#roles" className="hover:text-white">Chief Operating Officer (COO)</a></li>
-                <li><a href="#global" className="hover:text-white">Bangladesh Talent Hub</a></li>
-                <li><a href="#global" className="hover:text-white">UAE / GCC Corridor</a></li>
-                <li><a href="#global" className="hover:text-white">Singapore / APAC</a></li>
+                {rolesData.slice(0, 6).map((r) => (
+                  <li key={r.id}>
+                    <a
+                      href={`/roles/${r.slug}`}
+                      onClick={(e) => handleNavigateToRoleDetail(r.slug, e)}
+                      className="hover:text-white transition-colors"
+                    >
+                      {r.name}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -1755,9 +1828,10 @@ function App() {
           <div className="border-t border-gray-800/80 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
             <p>&copy; 2026 TALENTO Agency. All rights reserved. Boutique Executive Search & Talent Advisory.</p>
             <div className="flex items-center space-x-6 mt-4 sm:mt-0">
-              <a href="#home" className="hover:text-gray-400">Home</a>
-              <a href="#services" className="hover:text-gray-400">Services</a>
-              <a href="#industries" className="hover:text-gray-400">Industries</a>
+              <a href="#home" onClick={handleBackToHome} className="hover:text-gray-400">Home</a>
+              <a href="/services" onClick={handleNavigateToServices} className="hover:text-gray-400">Services</a>
+              <a href="/industries" onClick={handleNavigateToIndustries} className="hover:text-gray-400">Industries</a>
+              <a href="/roles" onClick={handleNavigateToRoles} className="hover:text-gray-400">Roles</a>
               <a href="#contact" className="hover:text-gray-400">Contact</a>
             </div>
           </div>

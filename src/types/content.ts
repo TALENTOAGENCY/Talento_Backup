@@ -77,12 +77,16 @@ export interface IndustryEntity extends BaseContentEntity {
 
 // 3. Roles Model
 export interface RoleEntity extends BaseContentEntity {
-  seniorityLevel: 'C-Suite' | 'Executive / VP' | 'Director' | 'Lead / Specialist';
+  seniorityLevel: 'C-Suite' | 'Executive / VP' | 'Director' | 'Lead / Specialist' | 'Multi-Level';
   department: string;
   coreCompetencies: string[];
   vettingCriteria: string[];
   averageTimeToHire?: string;
   typicalSalaryRange?: string;
+  typicalResponsibilities?: string[];
+  keySkills?: string[];
+  seniorityLevels?: Array<{ level: string; title: string; description: string }>;
+  talentoApproach?: Array<{ title: string; description: string }>;
 }
 
 // 4. Locations Model
