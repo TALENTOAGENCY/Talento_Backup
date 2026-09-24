@@ -69,6 +69,10 @@ export interface IndustryEntity extends BaseContentEntity {
   marketChallenges: string[];
   specializedPractices: string[];
   talentPoolSize?: string;
+  hiringChallenges?: Array<{ title: string; description: string }>;
+  talentRequirements?: string[];
+  talentoApproach?: Array<{ title: string; description: string }>;
+  recruitmentServices?: string[];
 }
 
 // 3. Roles Model

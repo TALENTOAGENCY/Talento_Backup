@@ -1,4 +1,4 @@
-import { InsightEntity } from '../types/content';
+﻿import { InsightEntity } from '../types/content';
 
 export const insightsData: InsightEntity[] = [
   {
@@ -10,7 +10,7 @@ export const insightsData: InsightEntity[] = [
     shortDescription: 'In-depth compensation benchmarks, equity packages, and hiring trends for tech leadership and senior software engineers in Bangladesh.',
     longDescription: [
       'As competition for senior engineering talent intensifies across South Asia and global remote markets, having accurate, localized compensation intelligence is essential.',
-      'TALENTO’s 2026 Tech Salary Report synthesizes proprietary data from over 3,500 interviews and 150+ executive placements in Dhaka and emerging tech corridors.'
+      'TALENTOâ€™s 2026 Tech Salary Report synthesizes proprietary data from over 3,500 interviews and 150+ executive placements in Dhaka and emerging tech corridors.'
     ],
     heroContent: {
       headline: 'Bangladesh Tech Salary & Compensation Benchmark Report 2026',
@@ -69,7 +69,7 @@ export const insightsData: InsightEntity[] = [
       }
     ],
     relatedServices: ['c-suite-talent-hunt', 'executive-search'],
-    relatedIndustries: ['tech-startups'],
+    relatedIndustries: ['technology'],
     relatedRoles: ['chief-technology-officer-cto', 'vp-engineering', 'head-of-product'],
     relatedLocations: ['bangladesh', 'singapore'],
     cta: {
@@ -81,15 +81,15 @@ export const insightsData: InsightEntity[] = [
     },
     seo: {
       title: 'Bangladesh Tech Salary Report 2026 | TALENTO Compensation Benchmarks',
-      description: 'Explore 2026 tech salaries, CTO compensation, and engineering pay bands in Bangladesh with TALENTO’s proprietary report.',
+      description: 'Explore 2026 tech salaries, CTO compensation, and engineering pay bands in Bangladesh with TALENTOâ€™s proprietary report.',
       keywords: ['Bangladesh tech salary 2026', 'CTO salary Dhaka', 'software engineer salary Bangladesh', 'compensation benchmark report']
     }
   },
   {
     id: 'ins-how-to-hire-startup-cto',
     slug: 'how-to-hire-a-startup-cto-founders-guide',
-    name: 'How to Hire a Startup CTO: A Founder’s Executive Search Guide',
-    title: 'How to Hire a Startup CTO: Complete Founder’s Guide | TALENTO Insights',
+    name: 'How to Hire a Startup CTO: A Founderâ€™s Executive Search Guide',
+    title: 'How to Hire a Startup CTO: Complete Founderâ€™s Guide | TALENTO Insights',
     metaDescription: 'Step-by-step guide for startup founders on hiring a Chief Technology Officer (CTO). Vetting criteria, interview frameworks, equity negotiation, and common pitfalls.',
     shortDescription: 'A practical roadmap for founders to define the CTO role, assess technical depth, negotiate equity, and execute a flawless executive search.',
     longDescription: [
@@ -142,19 +142,19 @@ export const insightsData: InsightEntity[] = [
       }
     ],
     relatedServices: ['c-suite-talent-hunt', 'executive-search'],
-    relatedIndustries: ['tech-startups'],
+    relatedIndustries: ['technology'],
     relatedRoles: ['chief-technology-officer-cto', 'vp-engineering'],
     relatedLocations: ['bangladesh', 'singapore', 'uae'],
     cta: {
       title: 'Need Help Sourcing Your Next CTO?',
-      description: 'Let TALENTO’s tech executive search practice manage your confidential CTO search.',
+      description: 'Let TALENTOâ€™s tech executive search practice manage your confidential CTO search.',
       buttonText: 'Schedule CTO Search Strategy Call',
       buttonHref: '/contact',
       variant: 'primary'
     },
     seo: {
       title: 'How to Hire a Startup CTO | TALENTO Executive Search Guide',
-      description: 'Learn how to hire, vet, and compensate a Chief Technology Officer for your startup with TALENTO’s comprehensive hiring guide.',
+      description: 'Learn how to hire, vet, and compensate a Chief Technology Officer for your startup with TALENTOâ€™s comprehensive hiring guide.',
       keywords: ['how to hire a CTO', 'startup CTO search', 'CTO interview questions', 'hire technical cofounder']
     }
   }

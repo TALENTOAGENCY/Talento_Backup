@@ -1,4 +1,4 @@
-import { LocationEntity } from '../types/content';
+﻿import { LocationEntity } from '../types/content';
 
 export const locationsData: LocationEntity[] = [
   {
@@ -9,7 +9,7 @@ export const locationsData: LocationEntity[] = [
     metaDescription: 'Leading executive search and talent advisory in Dhaka, Bangladesh. Headhunting C-suite executives, senior tech leaders, and industrial heads.',
     shortDescription: 'Premier executive search, C-suite headhunting, and specialized talent recruitment headquarters in Dhaka, Bangladesh.',
     longDescription: [
-      'Bangladesh is one of South Asia’s fastest-growing economies, driven by massive manufacturing scale, rapid digital adoption, and a burgeoning tech ecosystem.',
+      'Bangladesh is one of South Asiaâ€™s fastest-growing economies, driven by massive manufacturing scale, rapid digital adoption, and a burgeoning tech ecosystem.',
       'Headquartered in Dhaka, TALENTO is the trusted executive search partner for top multinational corporations, leading conglomerates, financial institutions, and venture-funded startups across Bangladesh.'
     ],
     heroContent: {
@@ -17,7 +17,7 @@ export const locationsData: LocationEntity[] = [
       subheadline: 'Connecting high-growth enterprises and multinationals with top executive leadership across Dhaka and Bangladesh.',
       badge: 'Headquarters & South Asia Hub',
       highlights: [
-        'Decades of collective executive mapping across Bangladesh’s top corporate groups',
+        'Decades of collective executive mapping across Bangladeshâ€™s top corporate groups',
         'Physical presence in Dhaka with local corporate governance expertise',
         'Cross-border search connecting Bangladeshi diaspora executives with home market opportunities'
       ]
@@ -41,7 +41,7 @@ export const locationsData: LocationEntity[] = [
     ],
     faqs: [
       {
-        question: 'Where is TALENTO’s primary office located in Dhaka?',
+        question: 'Where is TALENTOâ€™s primary office located in Dhaka?',
         answer: 'Our main talent advisory and executive search office is located in Gulshan 2, Dhaka.'
       },
       {
@@ -50,10 +50,10 @@ export const locationsData: LocationEntity[] = [
       }
     ],
     relatedServices: ['c-suite-talent-hunt', 'executive-search', 'interim-impact-recruitment', 'specialist-talent-sourcing'],
-    relatedIndustries: ['apparel-textiles', 'tech-startups', 'fmcg-marketplaces', 'healthcare-life-sciences'],
+    relatedIndustries: ['apparel', 'technology', 'fmcg', 'healthcare'],
     relatedRoles: ['chief-executive-officer-ceo', 'chief-technology-officer-cto', 'chief-operating-officer-coo', 'chief-financial-officer-cfo'],
     cta: {
-      title: 'Partner with Bangladesh’s Premier Search Firm',
+      title: 'Partner with Bangladeshâ€™s Premier Search Firm',
       description: 'Schedule a confidential executive consultation with our Dhaka advisory team.',
       buttonText: 'Contact Dhaka Office',
       buttonHref: '/contact',
@@ -61,7 +61,7 @@ export const locationsData: LocationEntity[] = [
     },
     seo: {
       title: 'Executive Search & Headhunting in Bangladesh | TALENTO Dhaka',
-      description: 'Find senior executives and tech leaders in Dhaka, Bangladesh with TALENTO’s executive recruitment practice.',
+      description: 'Find senior executives and tech leaders in Dhaka, Bangladesh with TALENTOâ€™s executive recruitment practice.',
       keywords: ['executive search Bangladesh', 'headhunters in Dhaka', 'C-suite recruitment Bangladesh', 'hire CTO Dhaka', 'TALENTO Bangladesh']
     }
   },
@@ -108,7 +108,7 @@ export const locationsData: LocationEntity[] = [
       }
     ],
     relatedServices: ['executive-search', 'c-suite-talent-hunt', 'on-demand-freelancer-search'],
-    relatedIndustries: ['tech-startups', 'fmcg-marketplaces'],
+    relatedIndustries: ['technology', 'fmcg'],
     relatedRoles: ['chief-technology-officer-cto', 'chief-financial-officer-cfo', 'head-of-product'],
     cta: {
       title: 'Hire Senior Leadership for UAE & GCC',
@@ -129,14 +129,14 @@ export const locationsData: LocationEntity[] = [
     name: 'Singapore & Southeast Asia',
     title: 'Executive Search & Tech Headhunting in Singapore | TALENTO',
     metaDescription: 'Executive headhunting and talent solutions for Singapore tech startups, regional headquarters, and APAC enterprises.',
-    shortDescription: 'Executive search and engineering headhunting for Southeast Asia’s premier financial and technology hub.',
+    shortDescription: 'Executive search and engineering headhunting for Southeast Asiaâ€™s premier financial and technology hub.',
     longDescription: [
       'Singapore remains the definitive innovation and venture capital hub for Southeast Asia, attracting global enterprises and high-growth scale-ups.',
       'TALENTO assists Singapore-based headquarters in sourcing regional C-suite leaders and distributed engineering talent across the APAC region.'
     ],
     heroContent: {
       headline: 'Executive Search & Talent Acquisition in Singapore',
-      subheadline: 'Connecting Southeast Asia’s innovation leaders with high-impact executive and technical talent.',
+      subheadline: 'Connecting Southeast Asiaâ€™s innovation leaders with high-impact executive and technical talent.',
       badge: 'APAC & Southeast Asia Hub',
       highlights: [
         'Proven track record with Singapore-headquartered venture portfolio companies',
@@ -166,7 +166,7 @@ export const locationsData: LocationEntity[] = [
       }
     ],
     relatedServices: ['executive-search', 'specialist-talent-sourcing', 'interim-impact-recruitment'],
-    relatedIndustries: ['tech-startups', 'healthcare-life-sciences'],
+    relatedIndustries: ['technology', 'healthcare'],
     relatedRoles: ['chief-technology-officer-cto', 'vp-engineering', 'head-of-product'],
     cta: {
       title: 'Connect with Singapore Search Practice',
@@ -224,7 +224,7 @@ export const locationsData: LocationEntity[] = [
       }
     ],
     relatedServices: ['executive-search', 'c-suite-talent-hunt', 'interim-impact-recruitment'],
-    relatedIndustries: ['apparel-textiles', 'fmcg-marketplaces', 'ngo-international-development'],
+    relatedIndustries: ['apparel', 'fmcg', 'ngo-international-organizations'],
     relatedRoles: ['chief-executive-officer-ceo', 'chief-operating-officer-coo', 'chief-financial-officer-cfo'],
     cta: {
       title: 'Connect with Our UK Advisory Team',
@@ -281,7 +281,7 @@ export const locationsData: LocationEntity[] = [
       }
     ],
     relatedServices: ['specialist-talent-sourcing', 'on-demand-freelancer-search', 'executive-search'],
-    relatedIndustries: ['tech-startups', 'healthcare-life-sciences'],
+    relatedIndustries: ['technology', 'healthcare'],
     relatedRoles: ['chief-technology-officer-cto', 'vp-engineering', 'head-of-product'],
     cta: {
       title: 'Accelerate US Engineering Velocity',

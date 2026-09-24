@@ -1,4 +1,4 @@
-import { RoleEntity } from '../types/content';
+﻿import { RoleEntity } from '../types/content';
 
 export const rolesData: RoleEntity[] = [
   {
@@ -50,7 +50,7 @@ export const rolesData: RoleEntity[] = [
       }
     ],
     relatedServices: ['c-suite-talent-hunt', 'executive-search', 'interim-impact-recruitment'],
-    relatedIndustries: ['tech-startups', 'fmcg-marketplaces', 'healthcare-life-sciences'],
+    relatedIndustries: ['technology', 'fmcg', 'healthcare'],
     relatedLocations: ['bangladesh', 'singapore', 'uae', 'united-states'],
     cta: {
       title: 'Appoint Your Next Chief Technology Officer',
@@ -61,7 +61,7 @@ export const rolesData: RoleEntity[] = [
     },
     seo: {
       title: 'Chief Technology Officer (CTO) Executive Search | TALENTO Headhunting',
-      description: 'Find and recruit experienced Chief Technology Officers (CTO) with TALENTO’s specialized tech leadership search practice.',
+      description: 'Find and recruit experienced Chief Technology Officers (CTO) with TALENTOâ€™s specialized tech leadership search practice.',
       keywords: ['hire CTO', 'CTO executive search', 'Chief Technology Officer recruitment', 'headhunt tech leader', 'TALENTO CTO search']
     }
   },
@@ -110,7 +110,7 @@ export const rolesData: RoleEntity[] = [
       }
     ],
     relatedServices: ['c-suite-talent-hunt', 'executive-search'],
-    relatedIndustries: ['tech-startups', 'apparel-textiles', 'fmcg-marketplaces', 'healthcare-life-sciences', 'ngo-international-development'],
+    relatedIndustries: ['technology', 'apparel', 'fmcg', 'healthcare', 'ngo-international-organizations'],
     relatedLocations: ['bangladesh', 'singapore', 'uae', 'united-kingdom'],
     cta: {
       title: 'Confidential CEO Search Consultation',
@@ -133,7 +133,7 @@ export const rolesData: RoleEntity[] = [
     metaDescription: 'Headhunting modern Chief Financial Officers, VPs of Finance, and Treasurers with expertise in capital allocation, IPO readiness, and fiscal governance.',
     shortDescription: 'Executive headhunting for strategic Chief Financial Officers who combine fiscal rigor with growth capital allocation and strategic business partnership.',
     longDescription: [
-      'Today’s CFO is a co-pilot to the CEO—driving capital efficiency, fundraising, automated financial controls, and risk governance.',
+      'Todayâ€™s CFO is a co-pilot to the CEOâ€”driving capital efficiency, fundraising, automated financial controls, and risk governance.',
       'TALENTO identifies financial leaders with proven track records across venture financing, banking relationships, tax optimization, and public market readiness.'
     ],
     heroContent: {
@@ -170,7 +170,7 @@ export const rolesData: RoleEntity[] = [
       }
     ],
     relatedServices: ['c-suite-talent-hunt', 'executive-search', 'interim-impact-recruitment'],
-    relatedIndustries: ['tech-startups', 'apparel-textiles', 'fmcg-marketplaces'],
+    relatedIndustries: ['technology', 'apparel', 'fmcg'],
     relatedLocations: ['bangladesh', 'singapore', 'uae', 'united-kingdom'],
     cta: {
       title: 'Secure Your Financial Leadership',
@@ -229,7 +229,7 @@ export const rolesData: RoleEntity[] = [
       }
     ],
     relatedServices: ['c-suite-talent-hunt', 'executive-search'],
-    relatedIndustries: ['apparel-textiles', 'fmcg-marketplaces', 'tech-startups'],
+    relatedIndustries: ['apparel', 'fmcg', 'technology'],
     relatedLocations: ['bangladesh', 'uae', 'singapore'],
     cta: {
       title: 'Appoint an Operational Leader',
@@ -288,7 +288,7 @@ export const rolesData: RoleEntity[] = [
       }
     ],
     relatedServices: ['executive-search', 'specialist-talent-sourcing'],
-    relatedIndustries: ['tech-startups', 'fmcg-marketplaces'],
+    relatedIndustries: ['technology', 'fmcg'],
     relatedLocations: ['bangladesh', 'singapore', 'uae', 'united-states'],
     cta: {
       title: 'Scale Your Engineering Leadership',
@@ -347,7 +347,7 @@ export const rolesData: RoleEntity[] = [
       }
     ],
     relatedServices: ['executive-search', 'specialist-talent-sourcing'],
-    relatedIndustries: ['tech-startups', 'fmcg-marketplaces', 'healthcare-life-sciences'],
+    relatedIndustries: ['technology', 'fmcg', 'healthcare'],
     relatedLocations: ['bangladesh', 'singapore', 'uae'],
     cta: {
       title: 'Find Your Next Product Leader',

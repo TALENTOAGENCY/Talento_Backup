@@ -28,6 +28,8 @@ import { DashboardPage } from './pages/DashboardPage';
 import { CareersPage } from './pages/CareersPage';
 import { ServicesPage } from './pages/ServicesPage';
 import { ServiceDetailPage } from './pages/ServiceDetailPage';
+import { IndustriesPage } from './pages/IndustriesPage';
+import { IndustryDetailPage } from './pages/IndustryDetailPage';
 import ThemeToggle from './components/ThemeToggle';
 import { SEO } from './components/SEO';
 import { organizationSchema, websiteSchema, servicesSchema } from './lib/schemas';
@@ -38,11 +40,12 @@ import { locationsData } from './data/locations';
 import { caseStudiesData } from './data/caseStudies';
 import type { CandidateApplication, ContactForm, AuthUser, UserProfile } from './lib/supabase';
 
-type ViewType = 'home' | 'auth' | 'forgot-password' | 'dashboard' | 'careers' | 'services' | 'service-detail';
+type ViewType = 'home' | 'auth' | 'forgot-password' | 'dashboard' | 'careers' | 'services' | 'service-detail' | 'industries' | 'industry-detail';
 
 function App() {
   const [currentView, setCurrentView] = useState<ViewType>('home');
   const [selectedServiceSlug, setSelectedServiceSlug] = useState<string>('executive-search');
+  const [selectedIndustrySlug, setSelectedIndustrySlug] = useState<string>('technology');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [user, setUser] = useState<AuthUser | null>(null);
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
@@ -103,6 +106,14 @@ function App() {
         setSelectedServiceSlug(slug);
         setCurrentView('service-detail');
       }
+    } else if (path === '/industries' || path === '/industries/') {
+      setCurrentView('industries');
+    } else if (path.startsWith('/industries/')) {
+      const slug = path.replace('/industries/', '').replace(/\/$/, '');
+      if (slug) {
+        setSelectedIndustrySlug(slug);
+        setCurrentView('industry-detail');
+      }
     } else if (path === '/careers' || path === '/careers/') {
       setCurrentView('careers');
     }
@@ -121,6 +132,23 @@ function App() {
     window.history.pushState({}, '', `/services/${slug}`);
     setSelectedServiceSlug(slug);
     setCurrentView('service-detail');
+    setIsMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigateToIndustries = (e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    window.history.pushState({}, '', '/industries');
+    setCurrentView('industries');
+    setIsMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigateToIndustryDetail = (slug: string, e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    window.history.pushState({}, '', `/industries/${slug}`);
+    setSelectedIndustrySlug(slug);
+    setCurrentView('industry-detail');
     setIsMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -354,6 +382,26 @@ function App() {
     );
   }
 
+  if (currentView === 'industries') {
+    return (
+      <IndustriesPage
+        onBackToHome={handleBackToHome}
+        onNavigateIndustry={handleNavigateToIndustryDetail}
+      />
+    );
+  }
+
+  if (currentView === 'industry-detail') {
+    return (
+      <IndustryDetailPage
+        slug={selectedIndustrySlug}
+        onBackToIndustries={handleNavigateToIndustries}
+        onBackToHome={handleBackToHome}
+        onNavigateIndustry={handleNavigateToIndustryDetail}
+      />
+    );
+  }
+
   if (currentView === 'dashboard' && user) {
     return (
       <DashboardPage
@@ -403,7 +451,8 @@ function App() {
                 Services
               </a>
               <a
-                href="#industries"
+                href="/industries"
+                onClick={handleNavigateToIndustries}
                 className="text-gray-700 dark:text-gray-200 hover:text-talento-600 dark:hover:text-talento-400 text-sm font-medium transition-colors"
               >
                 Industries
@@ -530,8 +579,8 @@ function App() {
                 Services
               </a>
               <a
-                href="#industries"
-                onClick={() => setIsMenuOpen(false)}
+                href="/industries"
+                onClick={handleNavigateToIndustries}
                 className="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-200"
               >
                 Industries

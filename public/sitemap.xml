@@ -63,6 +63,57 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Main Industries Directory -->
+  <url>
+    <loc>https://www.talento.agency/industries</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Individual Industry Practice Pages -->
+  <url>
+    <loc>https://www.talento.agency/industries/technology</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/industries/apparel</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/industries/healthcare</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/industries/fmcg</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/industries/hospitality</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/industries/ngo-international-organizations</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Core Pages -->
   <url>
     <loc>https://www.talento.agency/careers</loc>

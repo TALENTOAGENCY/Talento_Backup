@@ -1,4 +1,4 @@
-import { CaseStudyEntity } from '../types/content';
+﻿import { CaseStudyEntity } from '../types/content';
 
 export const caseStudiesData: CaseStudyEntity[] = [
   {
@@ -40,7 +40,7 @@ export const caseStudiesData: CaseStudyEntity[] = [
       'Increased engineering sprint delivery velocity by 180% and reduced platform latency by 65%'
     ],
     clientTestimonial: {
-      quote: 'TALENTO understood our technical depth requirements from day one. They did not send generic resumes—they delivered an executive shortlist of world-class leaders who could step into the boardroom and the server room with equal confidence.',
+      quote: 'TALENTO understood our technical depth requirements from day one. They did not send generic resumesâ€”they delivered an executive shortlist of world-class leaders who could step into the boardroom and the server room with equal confidence.',
       clientRole: 'Chief Executive Officer & Founder',
       companyType: 'Series-A Fintech Platform'
     },
@@ -51,7 +51,7 @@ export const caseStudiesData: CaseStudyEntity[] = [
       }
     ],
     relatedServices: ['c-suite-talent-hunt', 'executive-search'],
-    relatedIndustries: ['tech-startups'],
+    relatedIndustries: ['technology'],
     relatedRoles: ['chief-technology-officer-cto', 'vp-engineering'],
     relatedLocations: ['bangladesh', 'singapore'],
     cta: {
@@ -106,7 +106,7 @@ export const caseStudiesData: CaseStudyEntity[] = [
       'Delivered a 12% boost in overall equipment effectiveness (OEE) within 9 months'
     ],
     clientTestimonial: {
-      quote: 'TALENTO’s understanding of the garment manufacturing sector and industrial engineering leadership is unmatched. Their discreet search delivered a leader who modernized our entire production ecosystem.',
+      quote: 'TALENTOâ€™s understanding of the garment manufacturing sector and industrial engineering leadership is unmatched. Their discreet search delivered a leader who modernized our entire production ecosystem.',
       clientRole: 'Managing Director & Board Chairman',
       companyType: 'Apparel Export Conglomerate'
     },
@@ -117,7 +117,7 @@ export const caseStudiesData: CaseStudyEntity[] = [
       }
     ],
     relatedServices: ['executive-search', 'c-suite-talent-hunt', 'interim-impact-recruitment'],
-    relatedIndustries: ['apparel-textiles'],
+    relatedIndustries: ['apparel'],
     relatedRoles: ['chief-operating-officer-coo', 'chief-executive-officer-ceo'],
     relatedLocations: ['bangladesh', 'united-kingdom'],
     cta: {
