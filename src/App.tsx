@@ -23,7 +23,9 @@ import { AuthForm } from './components/AuthForm';
 import { ForgotPassword } from './components/ForgotPassword';
 import { DashboardPage } from './pages/DashboardPage';
 import { CareersPage } from './pages/CareersPage';
-import ThemeToggle from './components/ThemeToggle'; // Fixed import
+import ThemeToggle from './components/ThemeToggle';
+import { SEO } from './components/SEO';
+import { organizationSchema, websiteSchema, servicesSchema } from './lib/schemas';
 import type { CandidateApplication, ContactForm, AuthUser, UserProfile } from './lib/supabase';
 type ViewType = 'home' | 'auth' | 'forgot-password' | 'dashboard' | 'careers';
 function App() {
@@ -92,7 +94,7 @@ if (profileResult.success && profileResult.data) {
 setUserProfile(profileResult.data);
 }
 }
-} catch (error) {
+} catch {
 // Silently handle auth check errors
 } finally {
 setIsCheckingAuth(false);
@@ -129,7 +131,7 @@ setTimeout(() => setContactSuccess(false), 5000);
 } else {
 setContactError(result.error || 'Failed to submit contact form');
 }
-} catch (error) {
+} catch {
 setContactError('An unexpected error occurred');
 } finally {
 setIsSubmittingContact(false);
@@ -179,7 +181,7 @@ setTimeout(() => setApplicationSuccess(false), 5000);
 } else {
 setApplicationError(result.error || 'Failed to submit application');
 }
-} catch (error) {
+} catch {
 setApplicationError('An unexpected error occurred');
 } finally {
 setIsSubmittingApplication(false);
@@ -257,12 +259,24 @@ onProfileUpdate={(updatedProfile: React.SetStateAction<UserProfile | null>) => s
 
 return (
 <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
+<SEO
+  title="Boutique Headhunting Agency | Executive Search & Leadership Recruitment"
+  description="TALENTO is a boutique headhunting firm specializing in executive search, leadership recruitment, and strategic talent acquisition across tech, healthcare, FMCG, apparel, and emerging industries."
+  canonicalUrl="https://www.talento.agency/"
+  schemas={[organizationSchema, websiteSchema, servicesSchema]}
+/>
 {/* Navigation */}
-<nav className="bg-white dark:bg-gray-800 shadow-sm fixed w-full z-50 transition-colors duration-200">
-<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<header className="bg-white dark:bg-gray-800 shadow-sm fixed w-full z-50 transition-colors duration-200">
+<nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main Navigation">
 <div className="flex justify-between items-center h-16">
 <div className="flex items-center">
-<img src="/logo.png" alt="TALENTO" className="h-10 w-auto" />
+<img
+  src="/logo.png"
+  alt="TALENTO - Boutique Headhunting Agency"
+  width="120"
+  height="40"
+  className="h-10 w-auto"
+/>
 </div>
 
 {/* Desktop Navigation */}
@@ -270,7 +284,7 @@ return (
 <a href="#home" className="text-gray-700 dark:text-gray-200 hover:text-talento-600 dark:hover:text-talento-400 px-3 py-2 text-base md:text-lg font-medium transition-colors">Home</a>
 <a href="#about" className="text-gray-700 dark:text-gray-200 hover:text-talento-600 dark:hover:text-talento-400 px-3 py-2 text-base md:text-lg font-medium transition-colors">About</a>
 <button
-onClick={() => window.open('https://job.talento.agency/', '_blank')}
+onClick={() => setCurrentView('careers')}
 className="text-gray-700 dark:text-gray-200 hover:text-talento-600 dark:hover:text-talento-400 px-3 py-2 text-base md:text-lg font-medium transition-colors"
 >
 Careers
@@ -356,10 +370,10 @@ Sign In
 <button
 onClick={() => setIsMenuOpen(!isMenuOpen)}
 className="text-gray-700 dark:text-gray-200 hover:text-talento-600 dark:hover:text-talento-400 p-2"
+aria-label={isMenuOpen ? "Close menu" : "Open menu"}
 >
 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
 </button>
-</div>
 </div>
 </div>
 
@@ -448,6 +462,8 @@ Sign In
 </div>
 )}
 </nav>
+</header>
+<main>
 
 
 <section
@@ -566,7 +582,9 @@ Schedule a Consultation
 <div className="relative overflow-hidden rounded-3xl z-10">
 <img
 src="/talento.hero.webp"
-alt="Talento Hero"
+alt="TALENTO Executive Search and Leadership Recruitment"
+width="560"
+height="560"
 className="w-full h-auto object-contain rounded-3xl transition-transform duration-700 hover:scale-105"
 />
 <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent rounded-3xl"></div>
@@ -578,7 +596,7 @@ className="w-full h-auto object-contain rounded-3xl transition-transform duratio
 </section>
 
 {/* Services Section */}
-<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-white dark:bg-gray-900 transition-colors duration-200">
+<section id="services" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-white dark:bg-gray-900 transition-colors duration-200">
 {/* Section Header */}
 <div className="text-center mb-16">
 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Our Specialized Services</h2>
@@ -676,7 +694,7 @@ Comprehensive talent acquisition solutions tailored to your organization's uniqu
 <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-center">Flexible talent solutions for project-based requirements</p>
 </div>
 </div>
-</div>
+</section>
 
 <section id="industries" className="py-16 bg-gray-50 dark:bg-gray-800 transition-colors duration-200">
 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1253,12 +1271,20 @@ Submitting Application...
 </div>
 </section>
 
+</main>
+
 {/* Footer */}
 <footer className="bg-gray-900 dark:bg-black text-white py-12 transition-colors duration-200">
 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
 <div className="col-span-1 md:col-span-2">
-<img src="/logo.png" alt="TALENTO" className="h-10 w-auto mb-4" />
+<img
+  src="/logo.png"
+  alt="TALENTO Logo"
+  width="120"
+  height="40"
+  className="h-10 w-auto mb-4"
+/>
 <p className="text-gray-300 dark:text-gray-400 leading-relaxed max-w-md">
 TALENTO is a boutique headhunting firm specializing in executive search and leadership recruitment. We connect exceptional talent with forward-thinking organizations.
 </p>

@@ -87,7 +87,7 @@
 }
 
 @layer components {
-  /* Dark mode component styles */
+  /* Animation utilities */
   .animate-float {
     animation: float 3s ease-in-out infinite;
   }
@@ -127,14 +127,4 @@
     overflow: hidden;
     line-clamp: 2;
   }
-}
-
-/* Additional dark mode utilities if needed */
-.dark {
-  /* Custom dark mode styles that aren't covered by Tailwind */
-}
-
-/* Smooth transitions for theme switching */
-* {
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
