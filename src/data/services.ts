@@ -15,7 +15,7 @@ export const servicesData: ServiceEntity[] = [
     heroContent: {
       headline: 'Securing Transformational Executive Leadership',
       subheadline: 'Confidential, partner-led retained search for CEOs, Board Directors, and C-suite officers.',
-      badge: 'Retained Executive Search',
+      badge: 'Retained Executive Search Practice',
       highlights: ['95% Placement Success Rate', 'Average 14-Day Shortlist Window', 'Strict Non-Disclosure Protocols'],
       primaryCTA: {
         title: 'Retain an Executive Search Partner',
@@ -24,6 +24,34 @@ export const servicesData: ServiceEntity[] = [
         buttonHref: '/contact'
       }
     },
+    clientProblems: [
+      'High-risk leadership transitions where a bad hire damages market valuation and team morale',
+      'Confidential searches where incumbent leaders cannot know a replacement is underway',
+      'Lack of access to passive Tier-1 executives who ignore conventional recruiters and job boards',
+      'Complex executive compensation structuring across equity, LTIPs, and cross-border currency regulations'
+    ],
+    talentoApproach: [
+      {
+        title: 'Confidential Market Mapping',
+        description: 'We map entire target competitor ecosystems anonymously, engaging top performers through peer-level executive dialogue.'
+      },
+      {
+        title: 'Deep Competency & Governance Vetting',
+        description: 'Multi-dimensional evaluation covering capital stewardship, culture building, and 360-degree board reference audits.'
+      },
+      {
+        title: 'Board-Level Offer Alignment',
+        description: 'Advising on equity milestones, non-compete clauses, and executive retention frameworks for seamless succession.'
+      }
+    ],
+    rolesCovered: [
+      'Chief Executive Officer (CEO)',
+      'Chief Technology Officer (CTO)',
+      'Chief Financial Officer (CFO)',
+      'Chief Operating Officer (COO)',
+      'Managing Director & Country Head',
+      'Independent Board Directors'
+    ],
     engagementModel: 'Retained Search',
     searchTimeline: '3–5 weeks to calibrated shortlist',
     guaranteePeriod: '12-Month Replacement Guarantee',
@@ -71,9 +99,9 @@ export const servicesData: ServiceEntity[] = [
       }
     ],
     relatedServices: ['leadership-recruitment', 'talent-advisory'],
-    relatedIndustries: ['tech-startups', 'apparel-textiles', 'healthcare-life-sciences', 'fmcg-marketplaces'],
+    relatedIndustries: ['tech-startups', 'apparel-textiles', 'healthcare-life-sciences', 'fmcg-marketplaces', 'ngo-international-development'],
     relatedRoles: ['chief-executive-officer-ceo', 'chief-technology-officer-cto', 'chief-financial-officer-cfo', 'chief-operating-officer-coo'],
-    relatedLocations: ['bangladesh', 'uae', 'singapore'],
+    relatedLocations: ['bangladesh', 'uae', 'singapore', 'united-kingdom'],
     cta: {
       title: 'Discuss Your Executive Appointment',
       description: 'Connect with our Managing Partners for a confidential search consultation.',
@@ -85,6 +113,8 @@ export const servicesData: ServiceEntity[] = [
       title: 'Executive Search & Board Headhunting | TALENTO',
       description: 'Confidential executive search for Chief Executive Officers (CEO), Board Members, and C-suite leaders across South Asia and global markets.',
       canonicalUrl: 'https://www.talento.agency/services/executive-search',
+      ogImage: 'https://www.talento.agency/talento.hero.webp',
+      ogType: 'article',
       keywords: ['executive search firm', 'C-suite headhunting', 'board recruitment', 'CEO headhunter', 'TALENTO executive search']
     }
   },
@@ -102,7 +132,7 @@ export const servicesData: ServiceEntity[] = [
     heroContent: {
       headline: 'Empower Your Strategy with Proven Directors & VPs',
       subheadline: 'Headhunting high-impact senior leaders who transform operational vision into measurable outcomes.',
-      badge: 'Leadership Search',
+      badge: 'Leadership Search Vertical',
       highlights: ['Specialized Sector Teams', 'Comprehensive Competency Matrix', 'Average 14-Day Delivery'],
       primaryCTA: {
         title: 'Launch a Leadership Search',
@@ -111,6 +141,34 @@ export const servicesData: ServiceEntity[] = [
         buttonHref: '/contact'
       }
     },
+    clientProblems: [
+      'Executive bandwidth bottlenecks caused by vacancies in mission-critical Director/VP seats',
+      'Difficulty assessing whether functional managers can scale from managing 10 people to 100+ team members',
+      'High churn in operational leadership due to cultural mismatch with executive founders',
+      'Aggressive poaching by multinational competitors for top local functional heads'
+    ],
+    talentoApproach: [
+      {
+        title: 'Functional Competency Benchmarking',
+        description: 'We evaluate direct operational metrics (DORA metrics for tech, OEE for manufacturing, P&L for commercial).'
+      },
+      {
+        title: 'High-Touch Outbound Sourcing',
+        description: 'Direct headhunting of proven directors currently executing at market-leading organizations.'
+      },
+      {
+        title: 'Leadership Maturity Assessment',
+        description: 'Testing candidates on conflict resolution, stakeholder diplomacy, and crisis management.'
+      }
+    ],
+    rolesCovered: [
+      'VP of Engineering',
+      'Head of Product Management',
+      'Director of Operations / Plant Head',
+      'Commercial Director & Head of Sales',
+      'Director of Finance & FP&A',
+      'Head of People & CHRO'
+    ],
     engagementModel: 'Retained Search',
     searchTimeline: '2–4 weeks to presentation',
     guaranteePeriod: '6-Month Replacement Guarantee',
@@ -130,11 +188,15 @@ export const servicesData: ServiceEntity[] = [
       {
         question: 'What seniority levels does Leadership Recruitment cover?',
         answer: 'This service covers Vice Presidents (VP), Country Managers, General Managers, Functional Directors, and Heads of Departments.'
+      },
+      {
+        question: 'How do you test leadership maturity in candidate interviews?',
+        answer: 'We utilize structured behavioral event interviews (BEI) analyzing real historical initiatives, cross-functional roadblocks, and team attrition patterns.'
       }
     ],
     relatedServices: ['executive-search', 'specialist-recruitment', 'tech-recruitment'],
-    relatedIndustries: ['tech-startups', 'apparel-textiles', 'fmcg-marketplaces', 'hospitality'],
-    relatedRoles: ['vp-engineering', 'head-of-product', 'chief-operating-officer-coo'],
+    relatedIndustries: ['tech-startups', 'apparel-textiles', 'fmcg-marketplaces', 'healthcare-life-sciences'],
+    relatedRoles: ['vp-engineering', 'head-of-product', 'chief-operating-officer-coo', 'chief-financial-officer-cfo'],
     relatedLocations: ['bangladesh', 'uae', 'singapore', 'united-kingdom'],
     cta: {
       title: 'Scale Your Leadership Bench',
@@ -147,6 +209,8 @@ export const servicesData: ServiceEntity[] = [
       title: 'Leadership Recruitment & Director Search | TALENTO',
       description: 'Headhunting senior management, vice presidents, and directors across technology, manufacturing, and commerce.',
       canonicalUrl: 'https://www.talento.agency/services/leadership-recruitment',
+      ogImage: 'https://www.talento.agency/talento.hero.webp',
+      ogType: 'article',
       keywords: ['leadership recruitment', 'VP headhunting', 'director executive search', 'headhunter agency']
     }
   },
@@ -173,6 +237,34 @@ export const servicesData: ServiceEntity[] = [
         buttonHref: '/contact'
       }
     },
+    clientProblems: [
+      'Zero qualified applicants from public job boards for ultra-niche domain roles',
+      'Projects stalled due to a missing core technical expert (e.g. Distributed Consensus, Industrial Automation)',
+      'Internal recruitment teams lack technical vocabulary to properly evaluate hyper-specialized profiles',
+      'High candidate drop-off during protracted technical interview cycles'
+    ],
+    talentoApproach: [
+      {
+        title: 'Patent & Open-Source Community Mapping',
+        description: 'We track domain specialists through technical contributions, whitepapers, and industry conference rosters.'
+      },
+      {
+        title: 'Domain-Specific Technical Vetting',
+        description: 'Subject-matter expert interviews validating hands-on architecture depth and problem-solving velocity.'
+      },
+      {
+        title: 'Compelling Career Narrative Pitch',
+        description: 'Positioning your project mandate as a high-impact career acceleration move for comfortable passive experts.'
+      }
+    ],
+    rolesCovered: [
+      'Principal Distributed Systems Architect',
+      'Lead AI / Machine Learning Scientist',
+      'Industrial Automation & Lean Specialist',
+      'Pharma Regulatory Affairs Lead',
+      'Quantitative Risk & Treasury Analyst',
+      'Cybersecurity & SOC2 Compliance Architect'
+    ],
     engagementModel: 'Contingency',
     searchTimeline: '2–4 weeks',
     guaranteePeriod: '3-Month Guarantee',
@@ -190,6 +282,10 @@ export const servicesData: ServiceEntity[] = [
       {
         question: 'What types of roles fall under Specialist Recruitment?',
         answer: 'Examples include Principal AI/ML Engineers, Quantitative Analysts, Regulatory Affairs Directors in Pharma, Industrial Automation Leads, and specialized Financial Counsel.'
+      },
+      {
+        question: 'Do you charge upfront fees for Specialist Recruitment?',
+        answer: 'Our Specialist Recruitment operates primarily on a contingency model, meaning payment is contingent upon successful placement.'
       }
     ],
     relatedServices: ['tech-recruitment', 'remote-recruitment'],
@@ -207,6 +303,8 @@ export const servicesData: ServiceEntity[] = [
       title: 'Specialist Recruitment & Critical Role Discovery | TALENTO',
       description: 'Specialized headhunting for rare technical skills, proprietary domain knowledge, and hard-to-fill corporate positions.',
       canonicalUrl: 'https://www.talento.agency/services/specialist-recruitment',
+      ogImage: 'https://www.talento.agency/talento.hero.webp',
+      ogType: 'article',
       keywords: ['specialist recruitment', 'hard to fill tech roles', 'domain expert headhunters', 'talent mapping']
     }
   },
@@ -233,6 +331,34 @@ export const servicesData: ServiceEntity[] = [
         buttonHref: '/contact'
       }
     },
+    clientProblems: [
+      'Filtering through hundreds of unqualified resumes with inflated LinkedIn keywords',
+      'Developers failing in production after passing basic online algorithmic quizzes',
+      'High counteroffers and ghosting from senior engineers during offer closing',
+      'Struggling to balance startup engineering velocity with clean architectural standards'
+    ],
+    talentoApproach: [
+      {
+        title: 'Real-World System Design Vetting',
+        description: 'We evaluate candidates on microservices architecture, data modeling, concurrency, and production debugging.'
+      },
+      {
+        title: 'Pre-Screened Developer Talent Graph',
+        description: 'Access our proprietary pool of 15,000+ verified developers across South Asia and global corridors.'
+      },
+      {
+        title: 'Proactive Offer Closing Support',
+        description: 'Managing candidate expectations, counteroffer risks, and relocation/remote parameters before final signing.'
+      }
+    ],
+    rolesCovered: [
+      'Staff / Senior Software Engineer (Golang, Python, React, Node, Java)',
+      'Engineering Manager & Tech Lead',
+      'DevOps & Cloud Infrastructure Engineer (AWS, GCP, Kubernetes)',
+      'Data Engineer & Machine Learning Specialist',
+      'QA Lead & Test Automation Architect',
+      'Senior UI/UX Product Designer'
+    ],
     engagementModel: 'Contingency',
     searchTimeline: '10–20 days',
     guaranteePeriod: '3-Month Guarantee',
@@ -250,6 +376,10 @@ export const servicesData: ServiceEntity[] = [
       {
         question: 'How do you assess technical depth for engineering roles?',
         answer: 'Our evaluators assess past production architecture, code maintainability, distributed systems concepts, and real-world system design history.'
+      },
+      {
+        question: 'Can you source engineers for specific modern tech stacks?',
+        answer: 'Yes, we specialize in Golang, Rust, Python/FastAPI, TypeScript/React/Next.js, Java Spring Boot, and Kubernetes/Terraform infrastructure.'
       }
     ],
     relatedServices: ['leadership-recruitment', 'remote-recruitment', 'specialist-recruitment'],
@@ -267,6 +397,8 @@ export const servicesData: ServiceEntity[] = [
       title: 'Tech Recruitment & Software Engineering Headhunting | TALENTO',
       description: 'Hire vetted software engineers, engineering managers, and technical leads with TALENTO Tech Recruitment.',
       canonicalUrl: 'https://www.talento.agency/services/tech-recruitment',
+      ogImage: 'https://www.talento.agency/talento.hero.webp',
+      ogType: 'article',
       keywords: ['tech recruitment agency', 'hire software engineers', 'tech headhunters Dhaka', 'developer recruitment Asia']
     }
   },
@@ -284,7 +416,7 @@ export const servicesData: ServiceEntity[] = [
     heroContent: {
       headline: 'Build High-Performance Distributed & Remote Teams',
       subheadline: 'Access top 1% vetted remote software engineers and specialists with fluent English and overlapping working hours.',
-      badge: 'Distributed & Remote Talent',
+      badge: 'Distributed & Remote Talent Corridors',
       highlights: ['Timezone Alignment (EST / GMT / SGT)', 'Rigorous English & Communication Vetting', 'Compliance & Contractor Onboarding Support'],
       primaryCTA: {
         title: 'Hire Remote Talent',
@@ -293,6 +425,33 @@ export const servicesData: ServiceEntity[] = [
         buttonHref: '/contact'
       }
     },
+    clientProblems: [
+      'Communication friction and cultural misunderstandings with offshore freelancers',
+      'Unreliable remote candidates working multiple full-time jobs concurrently (moonlighting risks)',
+      'Complex cross-border payroll, W-8BEN, and international contractor compliance',
+      'Lack of timezone overlap causing delayed sprint feedback loops'
+    ],
+    talentoApproach: [
+      {
+        title: 'Verifiable English & Communication Audits',
+        description: 'Live conversational and written technical evaluations ensuring proactive, asynchronous team communication.'
+      },
+      {
+        title: 'Dedicated Dedicated-Time Verification',
+        description: 'Rigorous background checking to ensure complete commitment to your team’s working hours.'
+      },
+      {
+        title: 'Cross-Border Compliance & Contractor Setup',
+        description: 'Assisting with IP assignment, non-disclosure compliance, and compliant international payment frameworks.'
+      }
+    ],
+    rolesCovered: [
+      'Remote Full-Stack & Backend Developers',
+      'Remote Frontend / Mobile App Engineers',
+      'Remote QA Engineers & SRE Specialists',
+      'Remote UI/UX Designers & Product Specialists',
+      'Remote Growth & Digital Marketing Leads'
+    ],
     engagementModel: 'On-Demand',
     searchTimeline: '7–14 days',
     guaranteePeriod: 'Satisfaction Guarantee',
@@ -310,10 +469,14 @@ export const servicesData: ServiceEntity[] = [
       {
         question: 'How do you verify English communication skills for remote candidates?',
         answer: 'All remote candidates undergo structured video assessments evaluating spontaneous technical explanations and written documentation clarity.'
+      },
+      {
+        question: 'What timezone overlaps can you provide for US or European teams?',
+        answer: 'We place remote talent ready for 3 to 5 hours of direct EST/PST or GMT overlap during core agile ceremonies.'
       }
     ],
     relatedServices: ['tech-recruitment', 'specialist-recruitment'],
-    relatedIndustries: ['tech-startups', 'fmcg-marketplaces'],
+    relatedIndustries: ['tech-startups', 'fmcg-marketplaces', 'healthcare-life-sciences'],
     relatedRoles: ['vp-engineering', 'head-of-product'],
     relatedLocations: ['bangladesh', 'singapore', 'united-states', 'united-kingdom', 'uae'],
     cta: {
@@ -327,6 +490,8 @@ export const servicesData: ServiceEntity[] = [
       title: 'Remote & Distributed Team Recruitment | TALENTO',
       description: 'Hire top remote software engineers, developers, and project specialists with TALENTO Remote Recruitment.',
       canonicalUrl: 'https://www.talento.agency/services/remote-recruitment',
+      ogImage: 'https://www.talento.agency/talento.hero.webp',
+      ogType: 'article',
       keywords: ['remote recruitment agency', 'hire remote developers', 'cross border tech hiring', 'distributed team recruitment']
     }
   },
@@ -344,7 +509,7 @@ export const servicesData: ServiceEntity[] = [
     heroContent: {
       headline: 'Strategic Talent Advisory for Boards & Founders',
       subheadline: 'Aligning organizational design, executive compensation, and leadership succession with enterprise growth.',
-      badge: 'Board & CHRO Advisory',
+      badge: 'Board & CHRO Advisory Practice',
       highlights: ['Granular Salary & Equity Benchmarking', 'Organizational Restructuring Roadmaps', 'Confidential Succession Planning'],
       primaryCTA: {
         title: 'Engage Talent Advisory',
@@ -353,6 +518,33 @@ export const servicesData: ServiceEntity[] = [
         buttonHref: '/contact'
       }
     },
+    clientProblems: [
+      'Inaccurate salary data leading to overpaying mediocre hires or losing top talent to competitors',
+      'Unclear organizational reporting structures causing internal friction as companies scale past 100 headcount',
+      'Lack of formal succession planning for key C-suite and founder-led roles',
+      'High attrition of top performers due to uncompetitive ESOP / equity vesting schedules'
+    ],
+    talentoApproach: [
+      {
+        title: 'Proprietary Executive Compensation Benchmarks',
+        description: 'Granular datasets mapping cash, performance incentives, and equity vesting across South Asia and global peers.'
+      },
+      {
+        title: 'Org Design & Span-of-Control Audits',
+        description: 'Optimizing reporting hierarchies, department leadership layers, and operational accountability.'
+      },
+      {
+        title: 'Succession Planning & Talent Risk Mapping',
+        description: 'Identifying internal leadership gaps and building confidential external talent pipelines.'
+      }
+    ],
+    rolesCovered: [
+      'Board & Compensation Committee Advisory',
+      'Chief Human Resources Officer (CHRO) Support',
+      'Founders & Co-Founders Org Structuring',
+      'Executive Succession Planning Panels',
+      'Private Equity / VC Talent Due Diligence'
+    ],
     engagementModel: 'Embedded Advisory',
     searchTimeline: '2–4 weeks project scope',
     guaranteePeriod: 'Full Project Advisory Support',
@@ -371,6 +563,10 @@ export const servicesData: ServiceEntity[] = [
       {
         question: 'What is included in a TALENTO compensation benchmark study?',
         answer: 'Our studies provide detailed data on base salary bands, annual performance bonuses, ESOP/equity allocation, and executive perks broken down by industry and funding stage.'
+      },
+      {
+        question: 'How do you preserve confidentiality during organizational restructuring advisory?',
+        answer: 'All advisory engagements are handled strictly between TALENTO Managing Partners and the nominated Board/CEO committee under strict NDA protocols.'
       }
     ],
     relatedServices: ['executive-search', 'leadership-recruitment'],
@@ -388,6 +584,8 @@ export const servicesData: ServiceEntity[] = [
       title: 'Strategic Talent Advisory & Compensation Benchmarking | TALENTO',
       description: 'Executive compensation benchmarking, organizational design, and succession planning with TALENTO Talent Advisory.',
       canonicalUrl: 'https://www.talento.agency/services/talent-advisory',
+      ogImage: 'https://www.talento.agency/talento.hero.webp',
+      ogType: 'article',
       keywords: ['talent advisory firm', 'executive compensation benchmarking', 'organizational design consulting', 'succession planning']
     }
   }

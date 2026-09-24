@@ -1,13 +1,16 @@
 import React from 'react';
 import {
   ShieldCheck,
-  CheckCircle,
   Clock,
   Award,
   ArrowRight,
   ArrowLeft,
   Building,
-  Users
+  Users,
+  AlertTriangle,
+  Lightbulb,
+  Compass,
+  Briefcase
 } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import { Breadcrumbs } from '../components/Breadcrumbs';
@@ -29,9 +32,10 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
   onBackToHome,
   onNavigateService
 }) => {
-  const service: ServiceEntity | undefined = getServiceBySlug(slug) || servicesData[0];
+  const service: ServiceEntity = getServiceBySlug(slug) || servicesData[0];
   const relations = getRelatedEntities(service);
 
+  // Structured Service Schema JSON-LD
   const serviceSchemaData = {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -43,8 +47,33 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
       url: 'https://www.talento.agency/'
     },
     serviceType: service.name,
-    areaServed: ['BD', 'AE', 'SG', 'GB', 'US']
+    areaServed: ['BD', 'AE', 'SG', 'GB', 'US'],
+    offers: {
+      '@type': 'Offer',
+      description: service.engagementModel
+    }
   };
+
+  // Structured FAQ Schema JSON-LD
+  const faqSchemaData =
+    service.faqs && service.faqs.length > 0
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: service.faqs.map((faq) => ({
+            '@type': 'Question',
+            name: faq.question,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: faq.answer
+            }
+          }))
+        }
+      : null;
+
+  const schemas = faqSchemaData
+    ? [serviceSchemaData, faqSchemaData]
+    : [serviceSchemaData];
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-200">
@@ -53,10 +82,12 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
         description={service.seo.description || service.metaDescription}
         canonicalUrl={service.seo.canonicalUrl || `https://www.talento.agency/services/${service.slug}`}
         keywords={service.seo.keywords}
-        schemas={[serviceSchemaData]}
+        ogImage={service.seo.ogImage || 'https://www.talento.agency/talento.hero.webp'}
+        ogType={service.seo.ogType || 'article'}
+        schemas={schemas}
       />
 
-      {/* Hero Header */}
+      {/* 1. HERO SECTION */}
       <section className="relative bg-gradient-to-b from-slate-50 via-talento-50/40 to-white dark:from-gray-900 dark:via-gray-900 dark:to-gray-950 pt-28 pb-16 md:pt-32 md:pb-20 border-b border-gray-100 dark:border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-4">
@@ -73,14 +104,14 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
                 className="hidden sm:inline-flex items-center text-xs font-semibold text-talento-600 dark:text-talento-400 hover:underline"
               >
                 <ArrowLeft className="w-3.5 h-3.5 mr-1" />
-                All Services
+                All Search Practices
               </button>
             )}
           </div>
 
           <div className="max-w-3xl mt-6">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-talento-100 dark:bg-talento-950 border border-talento-200 dark:border-talento-800 text-xs font-semibold text-talento-800 dark:text-talento-300 mb-4">
-              <ShieldCheck className="w-3.5 h-3.5 text-talento-600 dark:text-talento-400" />
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-talento-100 dark:bg-talento-950 border border-talento-200 dark:border-talento-800 text-xs font-semibold text-talento-800 dark:text-talento-300 mb-5">
+              <ShieldCheck className="w-4 h-4 text-talento-600 dark:text-talento-400" />
               <span>{service.heroContent.badge || service.engagementModel}</span>
             </div>
 
@@ -107,23 +138,26 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
                 href="/#contact"
                 className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 font-semibold px-6 py-3.5 rounded-xl text-sm transition-all"
               >
-                Request Proposal
+                Request Proposal Dossier
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Main Content & Search Scope Section */}
+      {/* MAIN TWO-COLUMN BODY CONTENT */}
       <section className="py-16 md:py-20 bg-white dark:bg-gray-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            {/* Left Content Area */}
-            <div className="lg:col-span-8 space-y-12">
-              {/* Detailed Practice Overview */}
-              <div>
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                  Practice Overview & Strategic Purpose
+            {/* Main Column (8 cols) */}
+            <div className="lg:col-span-8 space-y-16">
+              {/* 2. SERVICE OVERVIEW */}
+              <div id="overview" className="space-y-4">
+                <span className="text-talento-600 dark:text-talento-400 text-xs font-semibold tracking-wider uppercase">
+                  Strategic Focus
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
+                  {service.name} Practice Overview
                 </h2>
                 <div className="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300 space-y-4 text-sm sm:text-base leading-relaxed">
                   {Array.isArray(service.longDescription) ? (
@@ -134,40 +168,112 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
                 </div>
               </div>
 
-              {/* Key Deliverables */}
-              <div className="bg-gray-50 dark:bg-gray-900 p-8 rounded-2xl border border-gray-200/80 dark:border-gray-800">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-                  Key Deliverables & Search Outcomes
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {service.keyDeliverables.map((deliv, idx) => (
-                    <div key={idx} className="flex items-start text-xs sm:text-sm text-gray-700 dark:text-gray-300">
-                      <CheckCircle className="w-4 h-4 text-talento-600 dark:text-talento-400 mr-2.5 flex-shrink-0 mt-0.5" />
-                      <span>{deliv}</span>
-                    </div>
-                  ))}
+              {/* 3. CLIENT PROBLEMS */}
+              {service.clientProblems && service.clientProblems.length > 0 && (
+                <div id="challenges" className="space-y-4">
+                  <span className="text-talento-600 dark:text-talento-400 text-xs font-semibold tracking-wider uppercase">
+                    Key Bottlenecks
+                  </span>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                    Common Challenges Faced by Leadership Teams
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    {service.clientProblems.map((problem, idx) => (
+                      <div
+                        key={idx}
+                        className="p-4 rounded-xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-800/40 flex items-start space-x-3"
+                      >
+                        <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
+                        <span className="text-xs sm:text-sm text-gray-800 dark:text-gray-200 leading-relaxed">
+                          {problem}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
-              {/* 4-Phase Search Lifecycle */}
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
-                  {service.name} Execution Lifecycle
+              {/* 4. TALENTO APPROACH */}
+              {service.talentoApproach && service.talentoApproach.length > 0 && (
+                <div id="approach" className="space-y-4">
+                  <span className="text-talento-600 dark:text-talento-400 text-xs font-semibold tracking-wider uppercase">
+                    The TALENTO Advantage
+                  </span>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                    Our Strategic Search Approach
+                  </h3>
+                  <div className="space-y-4 pt-2">
+                    {service.talentoApproach.map((item, idx) => (
+                      <div
+                        key={idx}
+                        className="p-5 rounded-xl bg-gray-50 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 flex items-start space-x-4"
+                      >
+                        <div className="w-9 h-9 rounded-lg bg-talento-100 dark:bg-talento-950 text-talento-700 dark:text-talento-400 flex items-center justify-center flex-shrink-0">
+                          <Lightbulb className="w-5 h-5" />
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-base text-gray-900 dark:text-white mb-1">
+                            {item.title}
+                          </h4>
+                          <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                            {item.description}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 5. ROLES COVERED */}
+              {(service.rolesCovered || service.keyDeliverables) && (
+                <div id="roles" className="space-y-4">
+                  <span className="text-talento-600 dark:text-talento-400 text-xs font-semibold tracking-wider uppercase">
+                    Talent Bench
+                  </span>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                    Key Positions & Functions Covered
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                    {(service.rolesCovered || service.keyDeliverables).map((role, idx) => (
+                      <div
+                        key={idx}
+                        className="p-3.5 rounded-xl bg-white dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 flex items-center space-x-3 shadow-sm"
+                      >
+                        <Briefcase className="w-4 h-4 text-talento-600 dark:text-talento-400 flex-shrink-0" />
+                        <span className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-gray-200">
+                          {role}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 7. RECRUITMENT PROCESS (4 Phases) */}
+              <div id="process" className="space-y-6">
+                <div className="flex items-center space-x-2 text-talento-600 dark:text-talento-400 text-xs font-semibold tracking-wider uppercase">
+                  <Compass className="w-4 h-4" />
+                  <span>Execution Methodology</span>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                  {service.name} 4-Phase Search Lifecycle
                 </h3>
-                <div className="space-y-4">
+
+                <div className="space-y-4 pt-2">
                   {service.searchLifecycle.map((phase, idx) => (
                     <div
                       key={idx}
-                      className="flex items-start p-5 rounded-xl bg-white dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 shadow-sm"
+                      className="flex items-start p-6 rounded-2xl bg-gray-50 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-800 shadow-sm"
                     >
-                      <div className="w-10 h-10 rounded-full bg-talento-100 dark:bg-talento-950 text-talento-700 dark:text-talento-400 font-bold flex items-center justify-center text-xs mr-4 flex-shrink-0">
+                      <div className="w-10 h-10 rounded-full bg-talento-600 text-white font-bold flex items-center justify-center text-sm mr-4 flex-shrink-0 shadow-sm">
                         0{idx + 1}
                       </div>
                       <div>
-                        <div className="text-xs font-bold text-talento-600 dark:text-talento-400 uppercase">
+                        <div className="text-xs font-bold text-talento-600 dark:text-talento-400 uppercase tracking-wider mb-1">
                           {phase.phase}
                         </div>
-                        <h4 className="text-base font-bold text-gray-900 dark:text-white mb-1">
+                        <h4 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-1.5">
                           {phase.title}
                         </h4>
                         <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -180,9 +286,9 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
               </div>
             </div>
 
-            {/* Right Sidebar: Key Engagement Facts & Related Entities */}
+            {/* Right Sticky Sidebar (4 cols) */}
             <div className="lg:col-span-4 space-y-6">
-              {/* Service Metadata Box */}
+              {/* Engagement Parameters Box */}
               <div className="bg-gray-50 dark:bg-gray-900 p-6 rounded-2xl border border-gray-200/80 dark:border-gray-800 space-y-4">
                 <h4 className="font-bold text-sm text-gray-900 dark:text-white uppercase tracking-wider">
                   Mandate Parameters
@@ -217,14 +323,26 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
                     {service.guaranteePeriod || '3–6 Months'}
                   </div>
                 </div>
+
+                <div className="pt-2">
+                  <a
+                    href="https://calendly.com/talentoagency2/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full bg-talento-600 hover:bg-talento-700 text-white font-semibold py-2.5 px-4 rounded-xl text-xs flex items-center justify-center space-x-1.5 transition-colors"
+                  >
+                    <span>Schedule Executive Briefing</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </a>
+                </div>
               </div>
 
-              {/* Related Practice Areas */}
+              {/* 6. RELEVANT INDUSTRIES */}
               {relations.industries.length > 0 && (
                 <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl border border-gray-200/80 dark:border-gray-800">
                   <div className="flex items-center space-x-2 text-talento-600 dark:text-talento-400 mb-3 font-bold text-xs uppercase tracking-wider">
                     <Building className="w-4 h-4" />
-                    <span>Primary Industry Focus</span>
+                    <span>Relevant Industry Sectors</span>
                   </div>
                   <div className="space-y-2">
                     {relations.industries.map((ind) => (
@@ -236,12 +354,12 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
                 </div>
               )}
 
-              {/* Related Roles */}
+              {/* Relevant Roles */}
               {relations.roles.length > 0 && (
                 <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl border border-gray-200/80 dark:border-gray-800">
                   <div className="flex items-center space-x-2 text-talento-600 dark:text-talento-400 mb-3 font-bold text-xs uppercase tracking-wider">
                     <Users className="w-4 h-4" />
-                    <span>Common Placements</span>
+                    <span>Leadership Functions</span>
                   </div>
                   <div className="space-y-2">
                     {relations.roles.map((r) => (
@@ -253,12 +371,12 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
                 </div>
               )}
 
-              {/* Quick Navigation to other services */}
+              {/* 9. RELATED SERVICES */}
               <div className="bg-gray-50 dark:bg-gray-900 p-6 rounded-2xl border border-gray-200/80 dark:border-gray-800">
                 <div className="text-xs font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-3">
                   Other Search Practices
                 </div>
-                <ul className="space-y-2">
+                <ul className="space-y-2.5">
                   {servicesData
                     .filter((s) => s.slug !== service.slug)
                     .map((s) => (
@@ -274,10 +392,10 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
                               window.dispatchEvent(new PopStateEvent('popstate'));
                             }
                           }}
-                          className="text-xs text-talento-600 dark:text-talento-400 hover:underline flex items-center justify-between"
+                          className="text-xs font-medium text-talento-600 dark:text-talento-400 hover:underline flex items-center justify-between group"
                         >
                           <span>{s.name}</span>
-                          <ArrowRight className="w-3 h-3 text-gray-400" />
+                          <ArrowRight className="w-3.5 h-3.5 text-gray-400 group-hover:translate-x-0.5 transition-transform" />
                         </a>
                       </li>
                     ))}
@@ -288,17 +406,17 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
         </div>
       </section>
 
-      {/* Service-Specific FAQs */}
+      {/* 8. FAQS SECTION */}
       {service.faqs && service.faqs.length > 0 && (
         <FAQAccordion
           faqs={service.faqs}
-          title={`${service.name} FAQ`}
-          subtitle={`Frequently asked questions regarding our ${service.name} recruitment process.`}
+          title={`${service.name} Practice FAQ`}
+          subtitle={`Detailed answers regarding our ${service.name} engagement criteria, guarantees, and timelines.`}
           className="bg-gray-50 dark:bg-gray-900/40 border-t border-gray-200/80 dark:border-gray-800"
         />
       )}
 
-      {/* CTA Section */}
+      {/* 10. CTA SECTION */}
       <CTASection
         cta={service.cta}
         title={`Ready to Retain Our ${service.name} Practice?`}

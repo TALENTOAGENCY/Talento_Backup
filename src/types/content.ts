@@ -54,6 +54,9 @@ export interface ServiceEntity extends BaseContentEntity {
   iconName?: string;
   engagementModel: 'Retained Search' | 'Contingency' | 'Embedded Advisory' | 'Interim' | 'On-Demand';
   keyDeliverables: string[];
+  clientProblems?: string[];
+  talentoApproach?: Array<{ title: string; description: string }>;
+  rolesCovered?: string[];
   searchLifecycle: Array<{ phase: string; title: string; description: string }>;
   searchTimeline?: string;
   guaranteePeriod?: string;
