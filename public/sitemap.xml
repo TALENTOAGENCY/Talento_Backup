@@ -223,6 +223,28 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Scalable Country + Role Practice Pages -->
+  <url>
+    <loc>https://www.talento.agency/locations/usa/software-engineers</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/locations/uk/software-engineers</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/locations/uae/software-engineers</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Core Pages -->
   <url>
     <loc>https://www.talento.agency/careers</loc>

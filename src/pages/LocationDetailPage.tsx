@@ -20,7 +20,7 @@ import { SEO } from '../components/SEO';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { FAQAccordion } from '../components/FAQAccordion';
 import { CTASection } from '../components/CTASection';
-import { getLocationBySlug, getRelatedEntities, locationsData } from '../data';
+import { getLocationBySlug, getRelatedEntities, locationsData, isValidLocationRole } from '../data';
 import type { LocationEntity } from '../types/content';
 
 interface LocationDetailPageProps {
@@ -287,32 +287,39 @@ export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {relations.roles.map((r) => (
-              <a
-                key={r.id}
-                href={`/roles/${r.slug}`}
-                className="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/40 transition-all flex flex-col justify-between group"
-              >
-                <div>
-                  <div className="w-9 h-9 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-3 border border-amber-500/20 group-hover:scale-105 transition-transform">
-                    <Users className="w-4 h-4" />
+            {relations.roles.map((r) => {
+              const hasCorridorPage = isValidLocationRole(location.slug, r.slug);
+              const targetHref = hasCorridorPage
+                ? `/locations/${location.slug}/${r.slug}`
+                : `/roles/${r.slug}`;
+
+              return (
+                <a
+                  key={r.id}
+                  href={targetHref}
+                  className="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/40 transition-all flex flex-col justify-between group"
+                >
+                  <div>
+                    <div className="w-9 h-9 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-3 border border-amber-500/20 group-hover:scale-105 transition-transform">
+                      <Users className="w-4 h-4" />
+                    </div>
+                    <span className="text-[10px] font-medium text-slate-400 uppercase tracking-wider block mb-1">
+                      {r.department}
+                    </span>
+                    <h3 className="text-base font-bold text-white group-hover:text-amber-400 transition-colors mb-2">
+                      {r.name}
+                    </h3>
+                    <p className="text-xs text-slate-400 line-clamp-2 leading-relaxed">
+                      {r.shortDescription}
+                    </p>
                   </div>
-                  <span className="text-[10px] font-medium text-slate-400 uppercase tracking-wider block mb-1">
-                    {r.department}
-                  </span>
-                  <h3 className="text-base font-bold text-white group-hover:text-amber-400 transition-colors mb-2">
-                    {r.name}
-                  </h3>
-                  <p className="text-xs text-slate-400 line-clamp-2 leading-relaxed">
-                    {r.shortDescription}
-                  </p>
-                </div>
-                <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-semibold text-amber-400 group-hover:translate-x-1 transition-transform">
-                  <span>View Role Details</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </div>
-              </a>
-            ))}
+                  <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-semibold text-amber-400 group-hover:translate-x-1 transition-transform">
+                    <span>{hasCorridorPage ? `Explore ${location.name} Corridor` : 'View Role Details'}</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </div>
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>

@@ -143,4 +143,36 @@ export interface CaseStudyEntity extends BaseContentEntity {
   };
 }
 
+// 7. Location + Role Matrix Model (for Scalable Cross-Sectional SEO)
+export interface LocationRoleEntity {
+  id: string;
+  countrySlug: string;
+  roleSlug: string;
+  countryName: string;
+  roleName: string;
+  title: string;
+  metaDescription: string;
+  canonicalUrl?: string;
+  seoKeywords?: string[];
+  headline: string;
+  subheadline: string;
+  badge?: string;
+  highlights?: string[];
+  overview: string[];
+  marketDynamics: Array<{ title: string; description: string }>;
+  responsibilitiesInMarket: string[];
+  requiredCompetencies: string[];
+  talentoApproach: Array<{ title: string; description: string }>;
+  timeZoneAndCollaboration: {
+    overlapHours: string;
+    keyDetails: string[];
+  };
+  faqs: Array<{ question: string; answer: string }>;
+  ctaHeadline?: string;
+  ctaSubheadline?: string;
+  relatedServices: string[];
+  relatedIndustries: string[];
+  published: boolean; // safeguard against incomplete/thin pages
+}
+
 export type ContentEntityType = 'service' | 'industry' | 'role' | 'location' | 'insight' | 'caseStudy';

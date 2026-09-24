@@ -15,6 +15,7 @@ import { rolesData } from './roles';
 import { locationsData } from './locations';
 import { insightsData } from './insights';
 import { caseStudiesData } from './caseStudies';
+import { locationRolesData, getLocationRole, isValidLocationRole, getAllPublishedLocationRoles } from './locationRoles';
 
 // Re-export all individual datasets
 export { servicesData } from './services';
@@ -23,6 +24,7 @@ export { rolesData } from './roles';
 export { locationsData } from './locations';
 export { insightsData } from './insights';
 export { caseStudiesData } from './caseStudies';
+export { locationRolesData, getLocationRole, isValidLocationRole, getAllPublishedLocationRoles } from './locationRoles';
 
 // Entity lookup by slug helpers
 export function getServiceBySlug(slug: string): ServiceEntity | undefined {

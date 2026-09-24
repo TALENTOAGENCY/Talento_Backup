@@ -34,6 +34,8 @@ import { RolesPage } from './pages/RolesPage';
 import { RoleDetailPage } from './pages/RoleDetailPage';
 import { LocationsPage } from './pages/LocationsPage';
 import { LocationDetailPage } from './pages/LocationDetailPage';
+import { LocationRolePage } from './pages/LocationRolePage';
+import { NotFoundPage } from './pages/NotFoundPage';
 import ThemeToggle from './components/ThemeToggle';
 import { SEO } from './components/SEO';
 import { organizationSchema, websiteSchema, servicesSchema } from './lib/schemas';
@@ -57,7 +59,9 @@ type ViewType =
   | 'roles'
   | 'role-detail'
   | 'locations'
-  | 'location-detail';
+  | 'location-detail'
+  | 'location-role'
+  | 'not-found';
 
 function App() {
   const [currentView, setCurrentView] = useState<ViewType>('home');
@@ -65,6 +69,8 @@ function App() {
   const [selectedIndustrySlug, setSelectedIndustrySlug] = useState<string>('technology');
   const [selectedRoleSlug, setSelectedRoleSlug] = useState<string>('software-engineers');
   const [selectedLocationSlug, setSelectedLocationSlug] = useState<string>('usa');
+  const [selectedCountrySlug, setSelectedCountrySlug] = useState<string>('usa');
+  const [selectedRoleSlugForLocation, setSelectedRoleSlugForLocation] = useState<string>('software-engineers');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [user, setUser] = useState<AuthUser | null>(null);
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
@@ -144,10 +150,18 @@ function App() {
     } else if (path === '/locations' || path === '/locations/') {
       setCurrentView('locations');
     } else if (path.startsWith('/locations/')) {
-      const slug = path.replace('/locations/', '').replace(/\/$/, '');
-      if (slug) {
-        setSelectedLocationSlug(slug);
+      const cleanPath = path.replace(/^\/locations\//, '').replace(/\/$/, '');
+      const segments = cleanPath.split('/').filter(Boolean);
+      if (segments.length === 1) {
+        setSelectedLocationSlug(segments[0]);
         setCurrentView('location-detail');
+      } else if (segments.length === 2) {
+        const [country, role] = segments;
+        setSelectedCountrySlug(country);
+        setSelectedRoleSlugForLocation(role);
+        setCurrentView('location-role');
+      } else {
+        setCurrentView('not-found');
       }
     } else if (path === '/careers' || path === '/careers/') {
       setCurrentView('careers');
@@ -218,6 +232,16 @@ function App() {
     window.history.pushState({}, '', `/locations/${slug}`);
     setSelectedLocationSlug(slug);
     setCurrentView('location-detail');
+    setIsMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigateToLocationRole = (countrySlug: string, roleSlug: string, e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    window.history.pushState({}, '', `/locations/${countrySlug}/${roleSlug}`);
+    setSelectedCountrySlug(countrySlug);
+    setSelectedRoleSlugForLocation(roleSlug);
+    setCurrentView('location-role');
     setIsMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -509,6 +533,24 @@ function App() {
         onNavigateLocation={handleNavigateToLocationDetail}
       />
     );
+  }
+
+  if (currentView === 'location-role') {
+    return (
+      <LocationRolePage
+        countrySlug={selectedCountrySlug}
+        roleSlug={selectedRoleSlugForLocation}
+        onBackToLocations={handleNavigateToLocations}
+        onBackToCountry={handleNavigateToLocationDetail}
+        onBackToRole={handleNavigateToRoleDetail}
+        onBackToHome={handleBackToHome}
+        onNavigateService={handleNavigateToServiceDetail}
+      />
+    );
+  }
+
+  if (currentView === 'not-found') {
+    return <NotFoundPage onBackToHome={handleBackToHome} />;
   }
 
   if (currentView === 'dashboard' && user) {
