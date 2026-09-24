@@ -1,299 +1,514 @@
-﻿import { LocationEntity } from '../types/content';
+import { LocationEntity } from '../types/content';
 
 export const locationsData: LocationEntity[] = [
   {
-    id: 'loc-bangladesh',
-    slug: 'bangladesh',
-    name: 'Bangladesh',
-    title: 'Executive Search & Leadership Recruitment in Bangladesh | TALENTO',
-    metaDescription: 'Leading executive search and talent advisory in Dhaka, Bangladesh. Headhunting C-suite executives, senior tech leaders, and industrial heads.',
-    shortDescription: 'Premier executive search, C-suite headhunting, and specialized talent recruitment headquarters in Dhaka, Bangladesh.',
+    id: 'loc-usa',
+    slug: 'usa',
+    name: 'United States',
+    title: 'Executive Search & Cross-Border Recruitment for US Companies | TALENTO',
+    metaDescription: 'Cross-border recruitment and remote engineering talent acquisition for US companies. TALENTO connects US startups and enterprises with vetted global talent.',
+    shortDescription: 'Connecting US tech companies, startups, and enterprises with vetted international engineers, product talent, and cross-border leadership.',
     longDescription: [
-      'Bangladesh is one of South Asiaâ€™s fastest-growing economies, driven by massive manufacturing scale, rapid digital adoption, and a burgeoning tech ecosystem.',
-      'Headquartered in Dhaka, TALENTO is the trusted executive search partner for top multinational corporations, leading conglomerates, financial institutions, and venture-funded startups across Bangladesh.'
+      'The United States is the global leader in technology innovation, venture-backed enterprise creation, and digital scale. However, US organizations face intense competition for senior technical talent, specialized leadership, and high-velocity engineering capacity.',
+      'TALENTO partners with US-based founders, engineering leaders, and hiring managers to build cross-border talent pipelines. Operating through dedicated global recruitment corridors, we connect US companies with rigorously vetted software engineers, platform architects, data specialists, and operational leaders across competitive time zones.'
     ],
     heroContent: {
-      headline: 'Executive Search & Talent Advisory in Bangladesh',
-      subheadline: 'Connecting high-growth enterprises and multinationals with top executive leadership across Dhaka and Bangladesh.',
-      badge: 'Headquarters & South Asia Hub',
+      headline: 'Cross-Border Recruitment & Talent Acquisition for US Companies',
+      subheadline: 'Source and integrate senior software engineers, specialist leaders, and remote technical teams calibrated for US business standards.',
+      badge: 'US Market Recruitment Practice',
       highlights: [
-        'Decades of collective executive mapping across Bangladeshâ€™s top corporate groups',
-        'Physical presence in Dhaka with local corporate governance expertise',
-        'Cross-border search connecting Bangladeshi diaspora executives with home market opportunities'
-      ]
-    },
-    country: 'Bangladesh',
-    countryCode: 'BD',
-    city: 'Dhaka',
-    region: 'South Asia',
-    isPhysicalOffice: true,
-    officeAddress: 'Level 4, Gulshan 2, Dhaka 1212, Bangladesh',
-    compensationInsights: [
-      { role: 'Chief Executive Officer (CEO)', range: 'BDT 5,000,000 - 15,000,000+ / yr', currency: 'BDT' },
-      { role: 'Chief Technology Officer (CTO)', range: 'BDT 3,500,000 - 9,000,000+ / yr', currency: 'BDT' },
-      { role: 'Chief Operating Officer (COO) - RMG', range: 'BDT 4,000,000 - 10,000,000+ / yr', currency: 'BDT' },
-      { role: 'Head of Product / VP Eng', range: 'BDT 2,500,000 - 6,000,000+ / yr', currency: 'BDT' }
-    ],
-    regulatoryCompliance: [
-      'Bangladesh Labour Act (2006) & Labour Rules (2015)',
-      'National Provident Fund & Gratuity Governance',
-      'Expatriate Work Permit & BIDA Visa Processing Guidelines'
-    ],
-    faqs: [
-      {
-        question: 'Where is TALENTOâ€™s primary office located in Dhaka?',
-        answer: 'Our main talent advisory and executive search office is located in Gulshan 2, Dhaka.'
-      },
-      {
-        question: 'Do you help recruit Bangladeshi expatriates returning to Bangladesh?',
-        answer: 'Yes, we run specialized diaspora repatriation searches to bring seasoned overseas executives into local leadership roles.'
-      }
-    ],
-    relatedServices: ['c-suite-talent-hunt', 'executive-search', 'interim-impact-recruitment', 'specialist-talent-sourcing'],
-    relatedIndustries: ['apparel', 'technology', 'fmcg', 'healthcare'],
-    relatedRoles: ['chief-executive-officer-ceo', 'chief-technology-officer-cto', 'chief-operating-officer-coo', 'chief-financial-officer-cfo'],
-    cta: {
-      title: 'Partner with Bangladeshâ€™s Premier Search Firm',
-      description: 'Schedule a confidential executive consultation with our Dhaka advisory team.',
-      buttonText: 'Contact Dhaka Office',
-      buttonHref: '/contact',
-      variant: 'primary'
-    },
-    seo: {
-      title: 'Executive Search & Headhunting in Bangladesh | TALENTO Dhaka',
-      description: 'Find senior executives and tech leaders in Dhaka, Bangladesh with TALENTOâ€™s executive recruitment practice.',
-      keywords: ['executive search Bangladesh', 'headhunters in Dhaka', 'C-suite recruitment Bangladesh', 'hire CTO Dhaka', 'TALENTO Bangladesh']
-    }
-  },
-  {
-    id: 'loc-uae',
-    slug: 'uae',
-    name: 'United Arab Emirates (UAE & Middle East)',
-    title: 'Executive Search & Cross-Border Recruitment in UAE & Dubai | TALENTO',
-    metaDescription: 'Executive headhunting and cross-border talent acquisition connecting UAE/GCC enterprises with regional and international leadership talent.',
-    shortDescription: 'Cross-border executive search connecting Gulf/UAE enterprises with senior tech, finance, and operational leaders.',
-    longDescription: [
-      'The UAE has cemented its position as the premier business and technology gateway connecting the Middle East, South Asia, and Africa.',
-      'TALENTO provides cross-border executive search for Dubai and Abu Dhabi enterprises seeking tech leaders, digital transformation executives, and commercial managers.'
-    ],
-    heroContent: {
-      headline: 'Executive Search for UAE & Middle East Markets',
-      subheadline: 'Placing world-class leadership across Dubai, Abu Dhabi, and the wider GCC region.',
-      badge: 'GCC & Middle East Practice',
-      highlights: [
-        'Dedicated talent corridors between UAE, South Asia, and Europe',
-        'Expertise in UAE Green Visa, Golden Visa, and Free Zone employment regulations',
-        'Specialized headhunting for fintech, real estate tech, and regional logistics giants'
-      ]
-    },
-    country: 'United Arab Emirates',
-    countryCode: 'AE',
-    city: 'Dubai',
-    region: 'Middle East & GCC',
-    isPhysicalOffice: false,
-    compensationInsights: [
-      { role: 'Chief Technology Officer (CTO)', range: 'AED 45,000 - 85,000 / mo', currency: 'AED' },
-      { role: 'Chief Financial Officer (CFO)', range: 'AED 50,000 - 90,000 / mo', currency: 'AED' },
-      { role: 'VP of Engineering', range: 'AED 35,000 - 65,000 / mo', currency: 'AED' }
-    ],
-    regulatoryCompliance: [
-      'UAE Federal Decree-Law No. 33 on Regulation of Labour Relations',
-      'DIFC & ADGM Employment Regulations',
-      'Ministry of Human Resources and Emiratisation (MOHRE) Protocols'
-    ],
-    faqs: [
-      {
-        question: 'How do you support companies hiring talent in Dubai and Abu Dhabi?',
-        answer: 'We provide full lifecycle executive headhunting, candidate relocation advisory, and compensation structuring for tax-free remuneration packages.'
-      }
-    ],
-    relatedServices: ['executive-search', 'c-suite-talent-hunt', 'on-demand-freelancer-search'],
-    relatedIndustries: ['technology', 'fmcg'],
-    relatedRoles: ['chief-technology-officer-cto', 'chief-financial-officer-cfo', 'head-of-product'],
-    cta: {
-      title: 'Hire Senior Leadership for UAE & GCC',
-      description: 'Discuss your Middle East recruitment mandates with our cross-border search practice.',
-      buttonText: 'Inquire for UAE Search',
-      buttonHref: '/contact',
-      variant: 'primary'
-    },
-    seo: {
-      title: 'Executive Search & Headhunting UAE | TALENTO Dubai Recruitment',
-      description: 'Recruit executive leadership and technical talent for UAE and Dubai companies with TALENTO cross-border search.',
-      keywords: ['executive search UAE', 'Dubai headhunters', 'tech recruitment Dubai', 'hire CTO UAE', 'GCC executive search']
-    }
-  },
-  {
-    id: 'loc-singapore',
-    slug: 'singapore',
-    name: 'Singapore & Southeast Asia',
-    title: 'Executive Search & Tech Headhunting in Singapore | TALENTO',
-    metaDescription: 'Executive headhunting and talent solutions for Singapore tech startups, regional headquarters, and APAC enterprises.',
-    shortDescription: 'Executive search and engineering headhunting for Southeast Asiaâ€™s premier financial and technology hub.',
-    longDescription: [
-      'Singapore remains the definitive innovation and venture capital hub for Southeast Asia, attracting global enterprises and high-growth scale-ups.',
-      'TALENTO assists Singapore-based headquarters in sourcing regional C-suite leaders and distributed engineering talent across the APAC region.'
-    ],
-    heroContent: {
-      headline: 'Executive Search & Talent Acquisition in Singapore',
-      subheadline: 'Connecting Southeast Asiaâ€™s innovation leaders with high-impact executive and technical talent.',
-      badge: 'APAC & Southeast Asia Hub',
-      highlights: [
-        'Proven track record with Singapore-headquartered venture portfolio companies',
-        'Cross-border engineering team building between Singapore, South Asia, and Vietnam',
-        'Deep alignment with Employment Pass (EP) and COMPASS framework criteria'
-      ]
-    },
-    country: 'Singapore',
-    countryCode: 'SG',
-    city: 'Singapore',
-    region: 'Southeast Asia',
-    isPhysicalOffice: false,
-    compensationInsights: [
-      { role: 'Chief Technology Officer (CTO)', range: 'SGD 18,000 - 32,000 / mo', currency: 'SGD' },
-      { role: 'VP of Engineering', range: 'SGD 14,000 - 24,000 / mo', currency: 'SGD' },
-      { role: 'Head of Product', range: 'SGD 12,000 - 20,000 / mo', currency: 'SGD' }
-    ],
-    regulatoryCompliance: [
-      'Ministry of Manpower (MOM) Employment Act & COMPASS Framework',
-      'Central Provident Fund (CPF) Regulations',
-      'Fair Consideration Framework (FCF)'
-    ],
-    faqs: [
-      {
-        question: 'Do you help Singapore companies build offshore engineering hubs in South Asia?',
-        answer: 'Yes, we assist Singapore scale-ups in building dedicated distributed engineering teams and leadership hubs across Bangladesh and South Asia.'
-      }
-    ],
-    relatedServices: ['executive-search', 'specialist-talent-sourcing', 'interim-impact-recruitment'],
-    relatedIndustries: ['technology', 'healthcare'],
-    relatedRoles: ['chief-technology-officer-cto', 'vp-engineering', 'head-of-product'],
-    cta: {
-      title: 'Connect with Singapore Search Practice',
-      description: 'Explore executive headhunting and cross-border engineering solutions for Singapore.',
-      buttonText: 'Request APAC Consultation',
-      buttonHref: '/contact',
-      variant: 'primary'
-    },
-    seo: {
-      title: 'Executive Search Singapore | TALENTO APAC Headhunting',
-      description: 'Hire top tech and executive talent for Singapore companies with TALENTO APAC search practice.',
-      keywords: ['executive search Singapore', 'tech headhunting Singapore', 'hire CTO Singapore', 'APAC recruitment agency']
-    }
-  },
-  {
-    id: 'loc-united-kingdom',
-    slug: 'united-kingdom',
-    name: 'United Kingdom (London & UK)',
-    title: 'Cross-Border Executive Search & Talent Advisory for UK Enterprises | TALENTO',
-    metaDescription: 'UK-focused executive search and talent solutions connecting London enterprises and global brands with world-class operational and engineering talent.',
-    shortDescription: 'Bridging UK enterprises and global buying offices with executive talent and international sourcing teams.',
-    longDescription: [
-      'The United Kingdom is a global financial center and headquarters for major retail brands, international development organizations, and technology innovators.',
-      'TALENTO provides UK enterprises with senior executive recruitment, sourcing heads for retail supply chains, and distributed technical talent.'
-    ],
-    heroContent: {
-      headline: 'Executive Search & Cross-Border Talent for the UK',
-      subheadline: 'Connecting London headquarters and UK enterprises with global talent and supply chain leadership.',
-      badge: 'UK & European Practice',
-      highlights: [
-        'Dedicated practice for UK retail brands managing South Asian supply chains',
-        'Executive search for international development NGOs headquartered in London',
-        'Compliance with UK employment standards and overseas contractor frameworks'
-      ]
-    },
-    country: 'United Kingdom',
-    countryCode: 'GB',
-    city: 'London',
-    region: 'Europe',
-    isPhysicalOffice: false,
-    compensationInsights: [
-      { role: 'Chief Executive Officer (CEO)', range: 'GBP 120,000 - 250,000+ / yr', currency: 'GBP' },
-      { role: 'Head of Global Sourcing & Supply Chain', range: 'GBP 80,000 - 140,000 / yr', currency: 'GBP' },
-      { role: 'VP of Engineering', range: 'GBP 90,000 - 160,000 / yr', currency: 'GBP' }
-    ],
-    regulatoryCompliance: [
-      'UK Employment Rights Act & Working Time Regulations',
-      'IR35 Off-Payroll Working Rules Advisory',
-      'UK GDPR & Data Protection Act 2018'
-    ],
-    faqs: [
-      {
-        question: 'How do you support UK brands with supply chain leadership abroad?',
-        answer: 'We place on-the-ground Country Managers, Quality Directors, and Sourcing Heads across South Asia who directly report to UK corporate boards.'
-      }
-    ],
-    relatedServices: ['executive-search', 'c-suite-talent-hunt', 'interim-impact-recruitment'],
-    relatedIndustries: ['apparel', 'fmcg', 'ngo-international-organizations'],
-    relatedRoles: ['chief-executive-officer-ceo', 'chief-operating-officer-coo', 'chief-financial-officer-cfo'],
-    cta: {
-      title: 'Connect with Our UK Advisory Team',
-      description: 'Discuss cross-border leadership recruitment and global supply chain headhunting for the UK market.',
-      buttonText: 'Schedule UK Discussion',
-      buttonHref: '/contact',
-      variant: 'primary'
-    },
-    seo: {
-      title: 'Executive Search UK & London | TALENTO Cross-Border Headhunting',
-      description: 'Executive search and global talent acquisition for UK enterprises, retail brands, and non-profits with TALENTO.',
-      keywords: ['executive search UK', 'London headhunters', 'supply chain recruitment UK', 'cross-border talent agency']
-    }
-  },
-  {
-    id: 'loc-united-states',
-    slug: 'united-states',
-    name: 'United States (US Remote & Distributed)',
-    title: 'Cross-Border Tech Talent & Executive Recruitment for US Companies | TALENTO',
-    metaDescription: 'Helping US technology startups and global enterprises hire top-tier senior software engineers and executive talent from vetted global hubs.',
-    shortDescription: 'Connecting US tech companies and enterprises with pre-vetted senior software engineers, tech leads, and offshore leaders.',
-    longDescription: [
-      'US technology companies are increasingly looking globally to scale their engineering velocity and build round-the-clock development operations.',
-      'TALENTO provides US startups and enterprises with vetted senior software architects, engineering managers, and distributed tech teams with seamless English proficiency and timezone alignment.'
-    ],
-    heroContent: {
-      headline: 'Cross-Border Tech Recruitment for US Enterprises',
-      subheadline: 'Helping American tech startups and scale-ups hire top 1% software engineers and tech leaders.',
-      badge: 'US & Global Corridor',
-      highlights: [
-        'Vetted senior talent across Golang, React, Node.js, Python, and Cloud Infrastructure',
-        'Compliant contractor onboarding and cross-border payroll facilitation',
-        'Overlapping EST/PST working hours for smooth agile sprint integration'
+        'Dedicated talent corridors connecting US companies with top-tier international engineers',
+        'Rigorous technical vetting covering system design, architectural scalability, and communication',
+        'Time-zone aligned offshore and cross-border placement models'
       ]
     },
     country: 'United States',
     countryCode: 'US',
-    city: 'New York / San Francisco / Remote',
     region: 'North America',
     isPhysicalOffice: false,
-    compensationInsights: [
-      { role: 'Staff / Principal Software Engineer', range: 'USD 60,000 - 110,000 / yr (Global)', currency: 'USD' },
-      { role: 'Engineering Manager / Tech Lead', range: 'USD 70,000 - 120,000 / yr (Global)', currency: 'USD' }
+    operatingModel: 'Cross-Border Recruitment & Global Talent Corridor',
+    specializedCorridors: [
+      'US - South Asia Tech Talent Corridor',
+      'US - Global Remote Engineering Hubs',
+      'Cross-Border Specialist Headhunting'
     ],
-    regulatoryCompliance: [
-      'W-8BEN International Contractor Compliance',
-      'US IP Assignment & Proprietary Information Agreements',
-      'SOC2 / HIPAA Compliant Remote Developer Protocols'
+    hiringContext: [
+      {
+        title: 'Engineering Capacity & Specialized Technical Depth',
+        description: 'US startups and mid-market enterprises often require rapid scaling of senior backend, full-stack, and DevOps capabilities without incurring prohibitive domestic overhead.'
+      },
+      {
+        title: 'Time-Zone Overlap & Communication Standards',
+        description: 'Successful distributed hiring for US teams depends on clear synchronous collaboration windows, proactive documentation, and cultural alignment with agile sprints.'
+      },
+      {
+        title: 'Quality Vetting over Volume',
+        description: 'Rather than wading through hundreds of unfiltered resumes, US hiring leaders need a pre-screened shortlist of senior candidates who have proven experience with modern tech stacks.'
+      },
+      {
+        title: 'Flexible Engagement Frameworks',
+        description: 'From direct-hire international talent to remote dedicated teams and contractor-to-permanent models, companies require flexible hiring structures.'
+      }
+    ],
+    recruitmentApproach: [
+      {
+        title: 'Role Calibration & Architecture Review',
+        description: 'We align on technical requirements, infrastructure stack, time-zone overlap expectations, and team collaboration culture.'
+      },
+      {
+        title: 'Targeted Headhunting & Network Outreach',
+        description: 'We source senior technical talent and specialized professionals directly from vetted industry pipelines rather than relying on public job boards.'
+      },
+      {
+        title: 'Multi-Stage Competency Assessment',
+        description: 'Candidates undergo structured evaluations covering live system design, technical problem-solving, and professional English communication.'
+      },
+      {
+        title: 'Shortlist Delivery & Placement Support',
+        description: 'We deliver a curated shortlist within 5–7 business days, facilitating interviews, reference checks, and smooth onboarding.'
+      }
     ],
     faqs: [
       {
-        question: 'How do you verify the English communication skills of overseas engineers?',
-        answer: 'Every candidate completes structured live technical and behavioral video interviews with senior engineering evaluators to ensure fluent, proactive communication.'
+        question: 'Does TALENTO have a physical office in the United States?',
+        answer: 'TALENTO operates out of its primary headquarters in Dhaka, Bangladesh, providing cross-border recruitment and dedicated talent acquisition services for US-based employers and multinational organizations.'
+      },
+      {
+        question: 'How do you ensure international candidates are aligned with US working hours?',
+        answer: 'We evaluate candidates specifically for time-zone overlap requirements (such as 4–6 hours of synchronous US EST or PST overlap) and verify their track record in distributed, asynchronous work environments.'
+      },
+      {
+        question: 'What types of roles do US companies typically hire through TALENTO?',
+        answer: 'US organizations frequently partner with TALENTO for senior software engineers, platform/DevOps engineers, data analysts, UI/UX product designers, and cross-border leadership roles.'
+      },
+      {
+        question: 'What search models do you offer for US companies?',
+        answer: 'We provide retained executive search for leadership placements and exclusive contingent recruitment for senior specialist and technical hiring.'
       }
     ],
-    relatedServices: ['specialist-talent-sourcing', 'on-demand-freelancer-search', 'executive-search'],
-    relatedIndustries: ['technology', 'healthcare'],
-    relatedRoles: ['chief-technology-officer-cto', 'vp-engineering', 'head-of-product'],
-    cta: {
-      title: 'Accelerate US Engineering Velocity',
-      description: 'Discover how US scale-ups hire top global engineering talent with TALENTO.',
-      buttonText: 'Request US Tech Talent Demo',
-      buttonHref: '/contact',
-      variant: 'primary'
+    relatedServices: ['tech-recruitment', 'remote-recruitment', 'specialist-recruitment', 'executive-search'],
+    relatedIndustries: ['technology', 'healthcare', 'fmcg'],
+    relatedRoles: ['software-engineers', 'platform-engineers', 'product-designers', 'data-analysts'],
+    ctaContent: {
+      headline: 'Build Your Global Talent Pipeline for the US Market',
+      subheadline: 'Connect with TALENTO to access pre-vetted senior technical talent and leadership professionals ready to contribute to US teams.',
+      buttonText: 'Request US Search Consultation',
+      buttonHref: '#contact'
     },
-    seo: {
-      title: 'US Cross-Border Tech Recruitment | TALENTO Global Talent',
-      description: 'Hire vetted global software engineers and tech leaders for US companies with TALENTO cross-border talent search.',
-      keywords: ['hire global engineers US', 'cross-border tech recruitment', 'remote developer search US', 'TALENTO global talent']
-    }
+    seoKeywords: [
+      'US cross border recruitment',
+      'hire international engineers for US companies',
+      'remote tech recruitment USA',
+      'executive search for US startups',
+      'TALENTO USA recruitment'
+    ]
+  },
+  {
+    id: 'loc-uk',
+    slug: 'uk',
+    name: 'United Kingdom',
+    title: 'Executive Search & Cross-Border Recruitment for UK Companies | TALENTO',
+    metaDescription: 'Specialized cross-border executive search and tech recruitment for UK enterprises, London tech hubs, and scaleups. Vetted international talent acquisition.',
+    shortDescription: 'Specialist headhunting and cross-border recruitment connecting UK enterprises, fintech scaleups, and consultancies with top-tier international talent.',
+    longDescription: [
+      'The United Kingdom represents one of the world’s most dynamic financial, technological, and corporate ecosystems. From London’s fintech and creative industries to regional hubs in Manchester, Edinburgh, and Cambridge, UK organizations require exceptional talent to sustain growth.',
+      'TALENTO provides specialized cross-border recruitment and executive search services to UK businesses. We bridge the talent gap by delivering thoroughly evaluated senior engineers, product designers, finance specialists, and operational leaders capable of integrating seamlessly into UK teams.'
+    ],
+    heroContent: {
+      headline: 'Cross-Border Headhunting & Recruitment for UK Enterprises',
+      subheadline: 'Deliver senior technical specialists, digital leaders, and operational talent tailored to UK business and regulatory standards.',
+      badge: 'UK Market Recruitment Practice',
+      highlights: [
+        'Close time-zone synergy (GMT / BST) facilitating real-time daily collaboration',
+        'Executive headhunting for fintech, digital transformation, and professional services',
+        'Strict vetting for professional communication, domain expertise, and cultural fluency'
+      ]
+    },
+    country: 'United Kingdom',
+    countryCode: 'GB',
+    region: 'Europe',
+    isPhysicalOffice: false,
+    operatingModel: 'Cross-Border Recruitment & Specialist Search Corridor',
+    specializedCorridors: [
+      'UK - South Asia Professional Corridor',
+      'London Fintech & Tech Talent Pipeline',
+      'Cross-Border Remote Engineering'
+    ],
+    hiringContext: [
+      {
+        title: 'Favourable Time-Zone Alignment',
+        description: 'The UK’s time zone (GMT/BST) provides substantial working-day overlap with South Asian and EMEA talent hubs, enabling efficient real-time collaboration.'
+      },
+      {
+        title: 'Demand in Fintech & Digital Modernisation',
+        description: 'UK financial institutions, tech scaleups, and consultancies require continuous access to senior software developers, data practitioners, and cybersecurity-aware engineers.'
+      },
+      {
+        title: 'Efficient Scaling without Domestic Constraints',
+        description: 'By augmenting core UK teams with high-caliber cross-border talent, companies maintain technical velocity and cost efficiency.'
+      },
+      {
+        title: 'High Standards of Governance & Quality',
+        description: 'UK employers prioritize professionals with clean code discipline, clear English communication, and adherence to rigorous delivery standards.'
+      }
+    ],
+    recruitmentApproach: [
+      {
+        title: 'UK Requirement & Compliance Mapping',
+        description: 'We define technical specifications, collaboration hours, reporting hierarchies, and project governance requirements.'
+      },
+      {
+        title: 'Executive Headhunting & Sourcing',
+        description: 'Our research practice maps high-performing professionals across active and passive candidate pools in international markets.'
+      },
+      {
+        title: 'Rigorous Technical & Behavioural Vetting',
+        description: 'Candidates are evaluated on system complexity, domain problem solving, stakeholder management, and professional English proficiency.'
+      },
+      {
+        title: 'Shortlisting & Seamless Onboarding',
+        description: 'We present a calibrated shortlist with comprehensive candidate dossiers, facilitating prompt interviews and frictionless hiring.'
+      }
+    ],
+    faqs: [
+      {
+        question: 'Does TALENTO have a physical office in London or the UK?',
+        answer: 'TALENTO operates from its headquarters in Dhaka, Bangladesh, delivering cross-border recruitment and international headhunting for UK-based enterprises and scaleups.'
+      },
+      {
+        question: 'How does the time difference work between the UK and TALENTO’s talent network?',
+        answer: 'The UK time difference with South Asia is only 4 to 6 hours, allowing for 4+ hours of synchronous daily overlap during standard UK business hours.'
+      },
+      {
+        question: 'Which sectors in the UK do you support most actively?',
+        answer: 'We actively support UK companies across Technology & Software, Fintech & Financial Services, Professional Services, E-commerce, and Digital Health.'
+      },
+      {
+        question: 'What is TALENTO’s replacement guarantee for UK placements?',
+        answer: 'We provide structured replacement protection on all retained and executive searches to ensure long-term alignment and peace of mind.'
+      }
+    ],
+    relatedServices: ['executive-search', 'tech-recruitment', 'remote-recruitment', 'specialist-recruitment'],
+    relatedIndustries: ['technology', 'fmcg', 'healthcare'],
+    relatedRoles: ['software-engineers', 'finance-leaders', 'product-designers', 'platform-engineers'],
+    ctaContent: {
+      headline: 'Strengthen Your UK Team with International Talent',
+      subheadline: 'Schedule a discovery session with TALENTO to explore how our cross-border recruitment practice can support your UK hiring objectives.',
+      buttonText: 'Request UK Recruitment Advisory',
+      buttonHref: '#contact'
+    },
+    seoKeywords: [
+      'UK cross border headhunting',
+      'hire international developers for UK companies',
+      'London fintech talent acquisition',
+      'remote recruitment UK',
+      'TALENTO UK search practice'
+    ]
+  },
+  {
+    id: 'loc-uae',
+    slug: 'uae',
+    name: 'United Arab Emirates',
+    title: 'Executive Search & Cross-Border Headhunting in UAE & GCC | TALENTO',
+    metaDescription: 'Executive headhunting and cross-border talent acquisition connecting UAE, Dubai, and Abu Dhabi enterprises with senior leadership, tech, and operational talent.',
+    shortDescription: 'Executive search and cross-border talent acquisition connecting UAE and Gulf enterprises with top-tier leadership, technology, and commercial talent.',
+    longDescription: [
+      'The United Arab Emirates has established itself as the preeminent commercial, financial, and technological gateway connecting the Middle East, South Asia, Africa, and Europe. With Dubai and Abu Dhabi driving massive investments in digital innovation, smart logistics, and regional headquarters, leadership demand is at an all-time high.',
+      'TALENTO provides dedicated cross-border executive search and specialist recruitment for UAE-based conglomerates, family offices, sovereign-backed initiatives, and fast-growing startups. We source executive leaders and senior practitioners who possess the agility and strategic vision required for the Gulf market.'
+    ],
+    heroContent: {
+      headline: 'Executive Search & Headhunting for UAE & GCC Markets',
+      subheadline: 'Connecting Dubai, Abu Dhabi, and Gulf enterprises with proven C-suite leaders, technology directors, and specialist talent.',
+      badge: 'UAE & Middle East Practice',
+      highlights: [
+        'Well-established recruitment corridors linking UAE with South Asian and European talent pools',
+        'Expertise in cross-border relocation, diaspora leadership, and remote engineering hubs',
+        'Deep practice focus on Technology, Logistics, Retail/Apparel, and Healthcare'
+      ]
+    },
+    country: 'United Arab Emirates',
+    countryCode: 'AE',
+    region: 'Middle East & GCC',
+    isPhysicalOffice: false,
+    operatingModel: 'Cross-Border Executive Search & Regional Talent Corridor',
+    specializedCorridors: [
+      'UAE - South Asia Executive & Tech Corridor',
+      'Dubai Scaleup Remote Engineering Teams',
+      'GCC Expatriate & Diaspora Leadership Search'
+    ],
+    hiringContext: [
+      {
+        title: 'Fast-Paced Regional Growth & Diversification',
+        description: 'UAE enterprises are actively expanding digital capabilities, requiring seasoned technology, finance, and operational leaders capable of rapid execution.'
+      },
+      {
+        title: 'Strategic Geographic & Time-Zone Advantage',
+        description: 'Located at the crossroads of East and West (GST / GMT+4), UAE organizations benefit from direct time-zone compatibility with major global talent centres.'
+      },
+      {
+        title: 'Attracting World-Class Expatriate Talent',
+        description: 'The UAE’s attractive business ecosystem facilitates smooth talent relocation, requiring executive headhunters who can identify and engage mobile global leaders.'
+      },
+      {
+        title: 'Multi-Cultural Leadership Requirements',
+        description: 'Leaders in the UAE must excel in managing diverse, multinational teams and navigating sophisticated regional business customs.'
+      }
+    ],
+    recruitmentApproach: [
+      {
+        title: 'Strategic Mandate Calibration',
+        description: 'We analyze the client’s growth vision, regional footprint, reporting dynamics, and candidate profile criteria.'
+      },
+      {
+        title: 'Cross-Border Candidate Identification',
+        description: 'We leverage comprehensive talent mapping across the GCC, South Asia, and international markets to identify high-performing executives.'
+      },
+      {
+        title: 'Leadership Assessment & Calibration',
+        description: 'We evaluate candidates on functional excellence, regional adaptability, commercial acumen, and cultural alignment.'
+      },
+      {
+        title: 'Offer Negotiation & Relocation Advisory',
+        description: 'We assist with package structuring, candidate transition advisory, and onboarding support to ensure smooth leadership integration.'
+      }
+    ],
+    faqs: [
+      {
+        question: 'Does TALENTO have a physical office in Dubai or Abu Dhabi?',
+        answer: 'TALENTO operates from its headquarters in Dhaka, Bangladesh, executing cross-border executive search mandates and specialist recruitment for UAE and GCC clients.'
+      },
+      {
+        question: 'Do you assist with both local relocation and remote hiring for UAE firms?',
+        answer: 'Yes. We support UAE clients seeking on-site executive relocation to Dubai or Abu Dhabi, as well as companies establishing dedicated remote engineering teams.'
+      },
+      {
+        question: 'Which industries does TALENTO serve in the UAE?',
+        answer: 'Our UAE practice covers Technology & E-commerce, Retail & Apparel, Healthcare & Life Sciences, FMCG, and Logistics.'
+      },
+      {
+        question: 'How quickly can TALENTO present a qualified executive shortlist?',
+        answer: 'For standard specialist and leadership roles, our preliminary candidate shortlist is typically delivered within 5 to 7 business days.'
+      }
+    ],
+    relatedServices: ['executive-search', 'leadership-recruitment', 'tech-recruitment', 'talent-advisory'],
+    relatedIndustries: ['technology', 'apparel', 'healthcare', 'fmcg', 'hospitality'],
+    relatedRoles: ['sales-leaders', 'software-engineers', 'finance-leaders', 'marketing-leaders'],
+    ctaContent: {
+      headline: 'Partner with TALENTO for UAE Executive Search',
+      subheadline: 'Engage our specialized cross-border practice to secure high-impact leadership and technical talent for your UAE operations.',
+      buttonText: 'Initiate UAE Search Mandate',
+      buttonHref: '#contact'
+    },
+    seoKeywords: [
+      'executive search Dubai',
+      'UAE headhunters',
+      'cross border recruitment UAE',
+      'hire tech leaders Abu Dhabi',
+      'TALENTO Middle East practice'
+    ]
+  },
+  {
+    id: 'loc-canada',
+    slug: 'canada',
+    name: 'Canada',
+    title: 'Cross-Border Recruitment & Tech Talent Sourcing for Canadian Companies | TALENTO',
+    metaDescription: 'Cross-border recruitment and remote engineering talent acquisition for Canadian tech companies, scaleups, and enterprises. Vetted international talent pipelines.',
+    shortDescription: 'Connecting Canadian tech companies, Toronto/Vancouver startups, and enterprises with vetted international software engineers and leadership talent.',
+    longDescription: [
+      'Canada boasts a thriving innovation economy with major tech epicenters across Toronto-Waterloo, Vancouver, Montreal, and Calgary. As Canadian organizations scale, finding seasoned senior developers, cloud architects, and product leaders remains a critical growth challenge.',
+      'TALENTO works with Canadian founders, VPs of Engineering, and talent acquisition teams to solve specialized hiring bottlenecks. Through our cross-border recruitment model, Canadian firms access senior, thoroughly vetted technical professionals ready to integrate into Canadian product workflows.'
+    ],
+    heroContent: {
+      headline: 'Cross-Border Recruitment & Talent Sourcing for Canadian Businesses',
+      subheadline: 'Source vetted software engineers, data professionals, and specialist leaders to fuel the growth of Canadian enterprises.',
+      badge: 'Canadian Market Recruitment Practice',
+      highlights: [
+        'Dedicated international talent pipelines for Canadian tech hubs (Toronto, Vancouver, Montreal)',
+        'Comprehensive technical evaluations ensuring senior-level competency and communication',
+        'Cost-effective scaling for venture-backed and mid-market Canadian enterprises'
+      ]
+    },
+    country: 'Canada',
+    countryCode: 'CA',
+    region: 'North America',
+    isPhysicalOffice: false,
+    operatingModel: 'Cross-Border Recruitment & Remote Engineering Hubs',
+    specializedCorridors: [
+      'Canada - South Asia Tech Talent Corridor',
+      'Canadian Scaleup Distributed Teams',
+      'Specialist Engineering Headhunting'
+    ],
+    hiringContext: [
+      {
+        title: 'Intense Competition for Senior Technical Talent',
+        description: 'Canadian tech firms frequently compete with larger North American enterprises for local senior engineers, driving the need for reliable international talent pipelines.'
+      },
+      {
+        title: 'Time-Zone Overlap with Major Canadian Cities',
+        description: 'Teams in Toronto (EST) and Vancouver (PST) can establish collaborative working windows with international talent through structured synchronous hours.'
+      },
+      {
+        title: 'Preserving Runway While Accelerating Delivery',
+        description: 'Integrating international senior talent allows Canadian scaleups to accelerate product roadmaps while maintaining capital efficiency.'
+      },
+      {
+        title: 'Commitment to Collaborative Engineering Standards',
+        description: 'Canadian teams emphasize collaborative team dynamics, agile rituals, and proactive problem ownership.'
+      }
+    ],
+    recruitmentApproach: [
+      {
+        title: 'Requirement Definition & Technical Calibration',
+        description: 'We align on engineering requirements, tech stack depth, communication expectations, and sprint schedules.'
+      },
+      {
+        title: 'Targeted International Sourcing',
+        description: 'We tap into vetted talent communities and active professional networks to identify senior engineers matching the mandate.'
+      },
+      {
+        title: 'Hands-on Technical Assessment',
+        description: 'Every candidate undergoes evaluation of code craftsmanship, architectural knowledge, and professional English fluency.'
+      },
+      {
+        title: 'Shortlisting & Seamless Placement',
+        description: 'We deliver calibrated candidate profiles with detailed assessment notes, assisting through interview stages to final offer.'
+      }
+    ],
+    faqs: [
+      {
+        question: 'Does TALENTO have an office in Canada?',
+        answer: 'TALENTO operates from its headquarters in Dhaka, Bangladesh, providing cross-border recruitment and offshore technical talent acquisition for Canadian organizations.'
+      },
+      {
+        question: 'How do you address Canadian time zones such as EST and PST?',
+        answer: 'We screen and select candidates who commit to dedicated working windows overlapping with Canadian business hours, ensuring smooth daily standups and sprint reviews.'
+      },
+      {
+        question: 'What roles do Canadian companies recruit most frequently through TALENTO?',
+        answer: 'Canadian businesses typically partner with us for Senior Full-Stack Developers, Backend Engineers, Cloud/DevOps Specialists, Data Analysts, and Product Designers.'
+      },
+      {
+        question: 'What is the standard time-to-hire for Canadian mandates?',
+        answer: 'Our preliminary candidate shortlist is presented within 5 to 7 business days, with most hiring processes concluding within 2 to 3 weeks.'
+      }
+    ],
+    relatedServices: ['tech-recruitment', 'remote-recruitment', 'specialist-recruitment', 'leadership-recruitment'],
+    relatedIndustries: ['technology', 'healthcare', 'fmcg'],
+    relatedRoles: ['software-engineers', 'platform-engineers', 'product-designers', 'data-analysts'],
+    ctaContent: {
+      headline: 'Scale Your Canadian Engineering Capacity with TALENTO',
+      subheadline: 'Access pre-evaluated senior engineers and specialist talent ready to contribute to Canadian tech teams.',
+      buttonText: 'Explore Canadian Hiring Options',
+      buttonHref: '#contact'
+    },
+    seoKeywords: [
+      'Canada cross border recruitment',
+      'hire international software engineers Canada',
+      'remote tech talent Toronto',
+      'Vancouver startup hiring',
+      'TALENTO Canada recruitment'
+    ]
+  },
+  {
+    id: 'loc-australia',
+    slug: 'australia',
+    name: 'Australia',
+    title: 'Cross-Border Recruitment & Specialist Search for Australian Companies | TALENTO',
+    metaDescription: 'Cross-border recruitment and tech talent acquisition connecting Australian enterprises in Sydney, Melbourne, and Brisbane with vetted international talent.',
+    shortDescription: 'Connecting Australian companies, Sydney/Melbourne scaleups, and enterprises with vetted international software engineers, data specialists, and operational leaders.',
+    longDescription: [
+      'Australia’s technology and commercial sectors in Sydney, Melbourne, Brisbane, and Perth are experiencing sustained demand for specialized technical capability and agile leadership. Companies face persistent talent shortages in software engineering, cloud infrastructure, and data analytics.',
+      'TALENTO provides Australian enterprises with dedicated cross-border recruitment solutions. Benefiting from convenient Asia-Pacific time-zone proximity, Australian companies can easily integrate vetted international developers, designers, and specialist leaders into their day-to-day operations.'
+    ],
+    heroContent: {
+      headline: 'Cross-Border Recruitment & Talent Acquisition for Australian Enterprises',
+      subheadline: 'Connect with senior software engineers, platform architects, and specialist professionals aligned with Australian working rhythms.',
+      badge: 'Australian Market Recruitment Practice',
+      highlights: [
+        'Close time-zone proximity (AEST / AWST) allowing complete or extensive daily working overlap',
+        'Rigorous technical vetting covering enterprise architecture, code quality, and communication',
+        'Specialized talent corridors linking Australian firms with high-caliber international practitioners'
+      ]
+    },
+    country: 'Australia',
+    countryCode: 'AU',
+    region: 'Asia-Pacific',
+    isPhysicalOffice: false,
+    operatingModel: 'Cross-Border Recruitment & APAC Talent Corridor',
+    specializedCorridors: [
+      'Australia - South Asia Tech Talent Corridor',
+      'Sydney & Melbourne Scaleup Remote Hubs',
+      'Specialist Engineering & Data Headhunting'
+    ],
+    hiringContext: [
+      {
+        title: 'Outstanding Time-Zone Compatibility (AEST / AEDT)',
+        description: 'With only a 2 to 5 hour difference from South Asia and APAC talent hubs, Australian companies enjoy extensive real-time collaboration throughout the normal business day.'
+      },
+      {
+        title: 'Acute Skills Shortages in Tech & Data',
+        description: 'Australian businesses across financial services, e-commerce, and SaaS face tight domestic talent markets for senior backend, cloud, and data engineering talent.'
+      },
+      {
+        title: 'Agile Integration & Cultural Alignment',
+        description: 'Australian organizations value proactive communication, pragmatic problem-solving, and strong collaborative team culture.'
+      },
+      {
+        title: 'Cost-Effective Capacity Expansion',
+        description: 'Cross-border hiring enables Australian businesses to expand development bandwidth without being constrained by domestic salary inflation.'
+      }
+    ],
+    recruitmentApproach: [
+      {
+        title: 'Mandate Calibration & Australian Workflow Alignment',
+        description: 'We define the technical stack, team structure, working hours alignment, and project goals.'
+      },
+      {
+        title: 'Direct Headhunting across Regional Networks',
+        description: 'We identify senior candidates with proven experience in production-grade software and distributed teams.'
+      },
+      {
+        title: 'Rigorous Technical & English Communication Screening',
+        description: 'Candidates are evaluated for technical mastery, communication clarity, and collaborative problem solving.'
+      },
+      {
+        title: 'Shortlisting & Ongoing Onboarding Support',
+        description: 'We deliver comprehensive candidate dossiers within days and support both parties through interviews, offer negotiation, and onboarding.'
+      }
+    ],
+    faqs: [
+      {
+        question: 'Does TALENTO have a physical office in Sydney or Melbourne?',
+        answer: 'TALENTO is headquartered in Dhaka, Bangladesh, providing specialized cross-border recruitment and international headhunting services for Australian enterprises.'
+      },
+      {
+        question: 'How well do international working hours align with Australian business hours (AEST)?',
+        answer: 'Extremely well. The time difference between Australia (AEST/AEDT) and South Asia is only 4 to 5 hours, providing extensive synchronous daily working overlap during Australian daytime hours.'
+      },
+      {
+        question: 'What types of roles do Australian companies recruit through TALENTO?',
+        answer: 'Australian employers frequently partner with us for Senior Software Engineers, Cloud/Platform Engineers, UI/UX Product Designers, Data Analysts, and Digital Marketing Leaders.'
+      },
+      {
+        question: 'What recruitment models are available for Australian clients?',
+        answer: 'We provide both retained executive search for key leadership roles and contingent search for specialized technical and operational hires.'
+      }
+    ],
+    relatedServices: ['tech-recruitment', 'remote-recruitment', 'specialist-recruitment', 'leadership-recruitment'],
+    relatedIndustries: ['technology', 'healthcare', 'fmcg', 'hospitality'],
+    relatedRoles: ['software-engineers', 'platform-engineers', 'data-analysts', 'marketing-leaders'],
+    ctaContent: {
+      headline: 'Expand Your Australian Engineering & Leadership Bandwidth',
+      subheadline: 'Partner with TALENTO to access senior, thoroughly evaluated talent calibrated for Australian business hours and standards.',
+      buttonText: 'Schedule Australian Search Consultation',
+      buttonHref: '#contact'
+    },
+    seoKeywords: [
+      'Australia cross border recruitment',
+      'hire international software engineers Australia',
+      'remote tech talent Sydney Melbourne',
+      'APAC engineering recruitment',
+      'TALENTO Australia practice'
+    ]
   }
 ];

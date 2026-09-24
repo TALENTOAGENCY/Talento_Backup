@@ -32,6 +32,8 @@ import { IndustriesPage } from './pages/IndustriesPage';
 import { IndustryDetailPage } from './pages/IndustryDetailPage';
 import { RolesPage } from './pages/RolesPage';
 import { RoleDetailPage } from './pages/RoleDetailPage';
+import { LocationsPage } from './pages/LocationsPage';
+import { LocationDetailPage } from './pages/LocationDetailPage';
 import ThemeToggle from './components/ThemeToggle';
 import { SEO } from './components/SEO';
 import { organizationSchema, websiteSchema, servicesSchema } from './lib/schemas';
@@ -53,13 +55,16 @@ type ViewType =
   | 'industries'
   | 'industry-detail'
   | 'roles'
-  | 'role-detail';
+  | 'role-detail'
+  | 'locations'
+  | 'location-detail';
 
 function App() {
   const [currentView, setCurrentView] = useState<ViewType>('home');
   const [selectedServiceSlug, setSelectedServiceSlug] = useState<string>('executive-search');
   const [selectedIndustrySlug, setSelectedIndustrySlug] = useState<string>('technology');
   const [selectedRoleSlug, setSelectedRoleSlug] = useState<string>('software-engineers');
+  const [selectedLocationSlug, setSelectedLocationSlug] = useState<string>('usa');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [user, setUser] = useState<AuthUser | null>(null);
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
@@ -136,6 +141,14 @@ function App() {
         setSelectedRoleSlug(slug);
         setCurrentView('role-detail');
       }
+    } else if (path === '/locations' || path === '/locations/') {
+      setCurrentView('locations');
+    } else if (path.startsWith('/locations/')) {
+      const slug = path.replace('/locations/', '').replace(/\/$/, '');
+      if (slug) {
+        setSelectedLocationSlug(slug);
+        setCurrentView('location-detail');
+      }
     } else if (path === '/careers' || path === '/careers/') {
       setCurrentView('careers');
     }
@@ -188,6 +201,23 @@ function App() {
     window.history.pushState({}, '', `/roles/${slug}`);
     setSelectedRoleSlug(slug);
     setCurrentView('role-detail');
+    setIsMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigateToLocations = (e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    window.history.pushState({}, '', '/locations');
+    setCurrentView('locations');
+    setIsMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigateToLocationDetail = (slug: string, e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    window.history.pushState({}, '', `/locations/${slug}`);
+    setSelectedLocationSlug(slug);
+    setCurrentView('location-detail');
     setIsMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -461,6 +491,26 @@ function App() {
     );
   }
 
+  if (currentView === 'locations') {
+    return (
+      <LocationsPage
+        onBackToHome={handleBackToHome}
+        onNavigateLocation={handleNavigateToLocationDetail}
+      />
+    );
+  }
+
+  if (currentView === 'location-detail') {
+    return (
+      <LocationDetailPage
+        slug={selectedLocationSlug}
+        onBackToLocations={handleNavigateToLocations}
+        onBackToHome={handleBackToHome}
+        onNavigateLocation={handleNavigateToLocationDetail}
+      />
+    );
+  }
+
   if (currentView === 'dashboard' && user) {
     return (
       <DashboardPage
@@ -524,16 +574,17 @@ function App() {
                 Roles
               </a>
               <a
+                href="/locations"
+                onClick={handleNavigateToLocations}
+                className="text-gray-700 dark:text-gray-200 hover:text-talento-600 dark:hover:text-talento-400 text-sm font-medium transition-colors"
+              >
+                Locations
+              </a>
+              <a
                 href="#process"
                 className="text-gray-700 dark:text-gray-200 hover:text-talento-600 dark:hover:text-talento-400 text-sm font-medium transition-colors"
               >
                 Process
-              </a>
-              <a
-                href="#global"
-                className="text-gray-700 dark:text-gray-200 hover:text-talento-600 dark:hover:text-talento-400 text-sm font-medium transition-colors"
-              >
-                Global Reach
               </a>
               <button
                 onClick={() => setCurrentView('careers')}
@@ -653,18 +704,18 @@ function App() {
                 Roles
               </a>
               <a
+                href="/locations"
+                onClick={handleNavigateToLocations}
+                className="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-200"
+              >
+                Locations
+              </a>
+              <a
                 href="#process"
                 onClick={() => setIsMenuOpen(false)}
                 className="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-200"
               >
                 Recruitment Process
-              </a>
-              <a
-                href="#global"
-                onClick={() => setIsMenuOpen(false)}
-                className="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-200"
-              >
-                Global Reach
               </a>
               <button
                 onClick={() => {
@@ -1810,7 +1861,7 @@ function App() {
                 </a>
               </h3>
               <ul className="space-y-2 text-xs text-gray-400">
-                {rolesData.slice(0, 6).map((r) => (
+                {rolesData.slice(0, 5).map((r) => (
                   <li key={r.id}>
                     <a
                       href={`/roles/${r.slug}`}
@@ -1818,6 +1869,28 @@ function App() {
                       className="hover:text-white transition-colors"
                     >
                       {r.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Col 5: Global Corridors */}
+            <div>
+              <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-4">
+                <a href="/locations" onClick={handleNavigateToLocations} className="hover:text-talento-400 transition-colors">
+                  Global Corridors
+                </a>
+              </h3>
+              <ul className="space-y-2 text-xs text-gray-400">
+                {locationsData.map((l) => (
+                  <li key={l.id}>
+                    <a
+                      href={`/locations/${l.slug}`}
+                      onClick={(e) => handleNavigateToLocationDetail(l.slug, e)}
+                      className="hover:text-white transition-colors"
+                    >
+                      {l.name}
                     </a>
                   </li>
                 ))}
@@ -1832,6 +1905,7 @@ function App() {
               <a href="/services" onClick={handleNavigateToServices} className="hover:text-gray-400">Services</a>
               <a href="/industries" onClick={handleNavigateToIndustries} className="hover:text-gray-400">Industries</a>
               <a href="/roles" onClick={handleNavigateToRoles} className="hover:text-gray-400">Roles</a>
+              <a href="/locations" onClick={handleNavigateToLocations} className="hover:text-gray-400">Locations</a>
               <a href="#contact" className="hover:text-gray-400">Contact</a>
             </div>
           </div>

@@ -97,6 +97,10 @@ export interface LocationEntity extends BaseContentEntity {
   region: string;
   isPhysicalOffice: boolean;
   officeAddress?: string;
+  operatingModel?: string;
+  specializedCorridors?: string[];
+  hiringContext?: Array<{ title: string; description: string }>;
+  recruitmentApproach?: Array<{ title: string; description: string }>;
   compensationInsights?: Array<{ role: string; range: string; currency: string }>;
   regulatoryCompliance?: string[];
 }
