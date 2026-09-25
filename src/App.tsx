@@ -35,6 +35,8 @@ import { RoleDetailPage } from './pages/RoleDetailPage';
 import { LocationsPage } from './pages/LocationsPage';
 import { LocationDetailPage } from './pages/LocationDetailPage';
 import { LocationRolePage } from './pages/LocationRolePage';
+import { InsightsPage } from './pages/InsightsPage';
+import { InsightDetailPage } from './pages/InsightDetailPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import ThemeToggle from './components/ThemeToggle';
 import { SEO } from './components/SEO';
@@ -43,6 +45,7 @@ import { servicesData } from './data/services';
 import { industriesData } from './data/industries';
 import { rolesData } from './data/roles';
 import { locationsData } from './data/locations';
+import { insightsData } from './data/insights';
 import { caseStudiesData } from './data/caseStudies';
 import type { CandidateApplication, ContactForm, AuthUser, UserProfile } from './lib/supabase';
 
@@ -61,6 +64,8 @@ type ViewType =
   | 'locations'
   | 'location-detail'
   | 'location-role'
+  | 'insights'
+  | 'insight-detail'
   | 'not-found';
 
 function App() {
@@ -71,6 +76,7 @@ function App() {
   const [selectedLocationSlug, setSelectedLocationSlug] = useState<string>('usa');
   const [selectedCountrySlug, setSelectedCountrySlug] = useState<string>('usa');
   const [selectedRoleSlugForLocation, setSelectedRoleSlugForLocation] = useState<string>('software-engineers');
+  const [selectedInsightSlug, setSelectedInsightSlug] = useState<string>('cross-border-tech-recruitment-index-2026');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [user, setUser] = useState<AuthUser | null>(null);
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
@@ -163,6 +169,14 @@ function App() {
       } else {
         setCurrentView('not-found');
       }
+    } else if (path === '/insights' || path === '/insights/') {
+      setCurrentView('insights');
+    } else if (path.startsWith('/insights/')) {
+      const slug = path.replace('/insights/', '').replace(/\/$/, '');
+      if (slug) {
+        setSelectedInsightSlug(slug);
+        setCurrentView('insight-detail');
+      }
     } else if (path === '/careers' || path === '/careers/') {
       setCurrentView('careers');
     }
@@ -242,6 +256,23 @@ function App() {
     setSelectedCountrySlug(countrySlug);
     setSelectedRoleSlugForLocation(roleSlug);
     setCurrentView('location-role');
+    setIsMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigateToInsights = (e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    window.history.pushState({}, '', '/insights');
+    setCurrentView('insights');
+    setIsMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigateToInsightDetail = (slug: string, e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    window.history.pushState({}, '', `/insights/${slug}`);
+    setSelectedInsightSlug(slug);
+    setCurrentView('insight-detail');
     setIsMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -549,6 +580,26 @@ function App() {
     );
   }
 
+  if (currentView === 'insights') {
+    return (
+      <InsightsPage
+        onBackToHome={handleBackToHome}
+        onNavigateInsight={handleNavigateToInsightDetail}
+      />
+    );
+  }
+
+  if (currentView === 'insight-detail') {
+    return (
+      <InsightDetailPage
+        slug={selectedInsightSlug}
+        onBackToInsights={handleNavigateToInsights}
+        onBackToHome={handleBackToHome}
+        onNavigateInsight={handleNavigateToInsightDetail}
+      />
+    );
+  }
+
   if (currentView === 'not-found') {
     return <NotFoundPage onBackToHome={handleBackToHome} />;
   }
@@ -621,6 +672,13 @@ function App() {
                 className="text-gray-700 dark:text-gray-200 hover:text-talento-600 dark:hover:text-talento-400 text-sm font-medium transition-colors"
               >
                 Locations
+              </a>
+              <a
+                href="/insights"
+                onClick={handleNavigateToInsights}
+                className="text-gray-700 dark:text-gray-200 hover:text-talento-600 dark:hover:text-talento-400 text-sm font-medium transition-colors"
+              >
+                Insights
               </a>
               <a
                 href="#process"
@@ -751,6 +809,13 @@ function App() {
                 className="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-200"
               >
                 Locations
+              </a>
+              <a
+                href="/insights"
+                onClick={handleNavigateToInsights}
+                className="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-200"
+              >
+                Insights & Reports
               </a>
               <a
                 href="#process"
@@ -1948,6 +2013,7 @@ function App() {
               <a href="/industries" onClick={handleNavigateToIndustries} className="hover:text-gray-400">Industries</a>
               <a href="/roles" onClick={handleNavigateToRoles} className="hover:text-gray-400">Roles</a>
               <a href="/locations" onClick={handleNavigateToLocations} className="hover:text-gray-400">Locations</a>
+              <a href="/insights" onClick={handleNavigateToInsights} className="hover:text-gray-400">Insights</a>
               <a href="#contact" className="hover:text-gray-400">Contact</a>
             </div>
           </div>

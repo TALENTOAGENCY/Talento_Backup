@@ -21,8 +21,12 @@ import { locationRolesData, getLocationRole, isValidLocationRole, getAllPublishe
 export { servicesData } from './services';
 export { industriesData } from './industries';
 export { rolesData } from './roles';
-export { locationsData } from './locations';
-export { insightsData } from './insights';
+export {
+  insightsData,
+  getAllInsights,
+  getInsightsByCategory,
+  getRelatedInsights
+} from './insights';
 export { caseStudiesData } from './caseStudies';
 export { locationRolesData, getLocationRole, isValidLocationRole, getAllPublishedLocationRoles } from './locationRoles';
 
