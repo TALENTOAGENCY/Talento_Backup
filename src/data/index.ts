@@ -27,7 +27,12 @@ export {
   getInsightsByCategory,
   getRelatedInsights
 } from './insights';
-export { caseStudiesData } from './caseStudies';
+export {
+  caseStudiesData,
+  getAllCaseStudies,
+  getCaseStudiesByIndustry,
+  getCaseStudiesByService
+} from './caseStudies';
 export { locationRolesData, getLocationRole, isValidLocationRole, getAllPublishedLocationRoles } from './locationRoles';
 export {
   CONTENT_PLAN_CATEGORIES,

@@ -127,20 +127,32 @@ export interface InsightEntity extends BaseContentEntity {
 
 // 6. Case Studies Model
 export interface CaseStudyEntity extends BaseContentEntity {
+  clientName?: string;
+  isClientNameAuthorized: boolean;
+  clientAnonymizedDescription: string;
   clientIndustry: string;
+  industrySlug?: string;
   rolePlaced: string;
-  timeToShortlist: string;
-  timeToHire: string;
+  roleCategory: string;
+  timeToShortlist?: string;
+  timeToHire?: string;
   retentionRate?: string;
   situation: string;
   challenge: string;
+  hiringChallenge?: string | string[];
   approach: string[];
+  talentoApproach?: string[];
   outcome: string[];
+  outcomeDeliverables?: string[];
+  isTestimonialAuthorized?: boolean;
   clientTestimonial?: {
     quote: string;
     clientRole: string;
     companyType: string;
+    isAuthorized?: boolean;
   };
+  ndaDisclaimer?: string;
+  verifiedPlacement?: boolean;
 }
 
 // 7. Location + Role Matrix Model (for Scalable Cross-Sectional SEO)

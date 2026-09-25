@@ -37,6 +37,8 @@ import { LocationDetailPage } from './pages/LocationDetailPage';
 import { LocationRolePage } from './pages/LocationRolePage';
 import { InsightsPage } from './pages/InsightsPage';
 import { InsightDetailPage } from './pages/InsightDetailPage';
+import { CaseStudiesPage } from './pages/CaseStudiesPage';
+import { CaseStudyDetailPage } from './pages/CaseStudyDetailPage';
 import { ContentPlanningPage } from './pages/ContentPlanningPage';
 import { ConsultationPage } from './pages/ConsultationPage';
 import { EmployerInquiryForm } from './components/EmployerInquiryForm';
@@ -69,6 +71,8 @@ type ViewType =
   | 'location-role'
   | 'insights'
   | 'insight-detail'
+  | 'case-studies'
+  | 'case-study-detail'
   | 'content-planning'
   | 'consultation'
   | 'not-found';
@@ -82,6 +86,7 @@ function App() {
   const [selectedCountrySlug, setSelectedCountrySlug] = useState<string>('usa');
   const [selectedRoleSlugForLocation, setSelectedRoleSlugForLocation] = useState<string>('software-engineers');
   const [selectedInsightSlug, setSelectedInsightSlug] = useState<string>('cross-border-tech-recruitment-index-2026');
+  const [selectedCaseStudySlug, setSelectedCaseStudySlug] = useState<string>('scaling-fintech-infrastructure-cto-executive-search');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [user, setUser] = useState<AuthUser | null>(null);
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
@@ -181,6 +186,14 @@ function App() {
       if (slug) {
         setSelectedInsightSlug(slug);
         setCurrentView('insight-detail');
+      }
+    } else if (path === '/case-studies' || path === '/case-studies/') {
+      setCurrentView('case-studies');
+    } else if (path.startsWith('/case-studies/')) {
+      const slug = path.replace('/case-studies/', '').replace(/\/$/, '');
+      if (slug) {
+        setSelectedCaseStudySlug(slug);
+        setCurrentView('case-study-detail');
       }
     } else if (path === '/content-planning' || path === '/content-planning/') {
       setCurrentView('content-planning');
@@ -282,6 +295,23 @@ function App() {
     window.history.pushState({}, '', `/insights/${slug}`);
     setSelectedInsightSlug(slug);
     setCurrentView('insight-detail');
+    setIsMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigateToCaseStudies = (e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    window.history.pushState({}, '', '/case-studies');
+    setCurrentView('case-studies');
+    setIsMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigateToCaseStudyDetail = (slug: string, e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    window.history.pushState({}, '', `/case-studies/${slug}`);
+    setSelectedCaseStudySlug(slug);
+    setCurrentView('case-study-detail');
     setIsMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -621,6 +651,33 @@ function App() {
         onBackToInsights={handleNavigateToInsights}
         onBackToHome={handleBackToHome}
         onNavigateInsight={handleNavigateToInsightDetail}
+      />
+    );
+  }
+
+  if (currentView === 'case-studies') {
+    return (
+      <CaseStudiesPage
+        onBackToHome={handleBackToHome}
+        onNavigateCaseStudy={handleNavigateToCaseStudyDetail}
+        onNavigateService={handleNavigateToServiceDetail}
+        onNavigateIndustry={handleNavigateToIndustryDetail}
+        onNavigateConsultation={handleNavigateToConsultation}
+      />
+    );
+  }
+
+  if (currentView === 'case-study-detail') {
+    return (
+      <CaseStudyDetailPage
+        slug={selectedCaseStudySlug}
+        onBackToCaseStudies={handleNavigateToCaseStudies}
+        onBackToHome={handleBackToHome}
+        onNavigateCaseStudy={handleNavigateToCaseStudyDetail}
+        onNavigateService={handleNavigateToServiceDetail}
+        onNavigateIndustry={handleNavigateToIndustryDetail}
+        onNavigateRole={handleNavigateToRoleDetail}
+        onNavigateConsultation={handleNavigateToConsultation}
       />
     );
   }
@@ -1972,6 +2029,7 @@ function App() {
               <a href="/roles" onClick={handleNavigateToRoles} className="hover:text-gray-400">Roles</a>
               <a href="/locations" onClick={handleNavigateToLocations} className="hover:text-gray-400">Locations</a>
               <a href="/insights" onClick={handleNavigateToInsights} className="hover:text-gray-400">Insights</a>
+              <a href="/case-studies" onClick={handleNavigateToCaseStudies} className="hover:text-gray-400">Case Studies</a>
               <a href="/content-planning" onClick={handleNavigateToContentPlanning} className="hover:text-gray-400">Content Planning</a>
               <a href="/consultation" onClick={handleNavigateToConsultation} className="hover:text-gray-400">Consultation</a>
               <a href="#contact" className="hover:text-gray-400">Contact</a>
