@@ -442,6 +442,9 @@ export const LocationRolePage: React.FC<LocationRolePageProps> = ({
           title={`Industry Applications in ${locationRole.countryName}`}
           subtitle={`Explore sectors hiring ${locationRole.roleName.toLowerCase()} across ${locationRole.countryName}.`}
           contextName={locationRole.countryName}
+        />
+      )}
+
       {/* Other Published Corridors for this Role */}
       {(() => {
         const otherCorridors = getAllPublishedLocationRoles().filter(

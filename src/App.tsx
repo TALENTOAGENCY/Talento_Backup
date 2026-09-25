@@ -22,30 +22,33 @@ import {
   TrendingUp
 } from 'lucide-react';
 import { DatabaseService } from './services/database';
-import { AuthForm } from './components/AuthForm';
-import { ForgotPassword } from './components/ForgotPassword';
-import { DashboardPage } from './pages/DashboardPage';
-import { CareersPage } from './pages/CareersPage';
-import { ServicesPage } from './pages/ServicesPage';
-import { ServiceDetailPage } from './pages/ServiceDetailPage';
-import { IndustriesPage } from './pages/IndustriesPage';
-import { IndustryDetailPage } from './pages/IndustryDetailPage';
-import { RolesPage } from './pages/RolesPage';
-import { RoleDetailPage } from './pages/RoleDetailPage';
-import { LocationsPage } from './pages/LocationsPage';
-import { LocationDetailPage } from './pages/LocationDetailPage';
-import { LocationRolePage } from './pages/LocationRolePage';
-import { InsightsPage } from './pages/InsightsPage';
-import { InsightDetailPage } from './pages/InsightDetailPage';
-import { CaseStudiesPage } from './pages/CaseStudiesPage';
-import { CaseStudyDetailPage } from './pages/CaseStudyDetailPage';
-import { ContentPlanningPage } from './pages/ContentPlanningPage';
-import { ConsultationPage } from './pages/ConsultationPage';
 import { EmployerInquiryForm } from './components/EmployerInquiryForm';
-import { NotFoundPage } from './pages/NotFoundPage';
+import { PageLoader } from './components/PageLoader';
 import ThemeToggle from './components/ThemeToggle';
 import { SEO } from './components/SEO';
 import { organizationSchema, websiteSchema, servicesSchema } from './lib/schemas';
+
+// Code-split dynamic page chunks for instant initial render
+const AuthForm = React.lazy(() => import('./components/AuthForm').then((m) => ({ default: m.AuthForm })));
+const ForgotPassword = React.lazy(() => import('./components/ForgotPassword').then((m) => ({ default: m.ForgotPassword })));
+const DashboardPage = React.lazy(() => import('./pages/DashboardPage').then((m) => ({ default: m.DashboardPage })));
+const CareersPage = React.lazy(() => import('./pages/CareersPage').then((m) => ({ default: m.CareersPage })));
+const ServicesPage = React.lazy(() => import('./pages/ServicesPage').then((m) => ({ default: m.ServicesPage })));
+const ServiceDetailPage = React.lazy(() => import('./pages/ServiceDetailPage').then((m) => ({ default: m.ServiceDetailPage })));
+const IndustriesPage = React.lazy(() => import('./pages/IndustriesPage').then((m) => ({ default: m.IndustriesPage })));
+const IndustryDetailPage = React.lazy(() => import('./pages/IndustryDetailPage').then((m) => ({ default: m.IndustryDetailPage })));
+const RolesPage = React.lazy(() => import('./pages/RolesPage').then((m) => ({ default: m.RolesPage })));
+const RoleDetailPage = React.lazy(() => import('./pages/RoleDetailPage').then((m) => ({ default: m.RoleDetailPage })));
+const LocationsPage = React.lazy(() => import('./pages/LocationsPage').then((m) => ({ default: m.LocationsPage })));
+const LocationDetailPage = React.lazy(() => import('./pages/LocationDetailPage').then((m) => ({ default: m.LocationDetailPage })));
+const LocationRolePage = React.lazy(() => import('./pages/LocationRolePage').then((m) => ({ default: m.LocationRolePage })));
+const InsightsPage = React.lazy(() => import('./pages/InsightsPage').then((m) => ({ default: m.InsightsPage })));
+const InsightDetailPage = React.lazy(() => import('./pages/InsightDetailPage').then((m) => ({ default: m.InsightDetailPage })));
+const CaseStudiesPage = React.lazy(() => import('./pages/CaseStudiesPage').then((m) => ({ default: m.CaseStudiesPage })));
+const CaseStudyDetailPage = React.lazy(() => import('./pages/CaseStudyDetailPage').then((m) => ({ default: m.CaseStudyDetailPage })));
+const ContentPlanningPage = React.lazy(() => import('./pages/ContentPlanningPage').then((m) => ({ default: m.ContentPlanningPage })));
+const ConsultationPage = React.lazy(() => import('./pages/ConsultationPage').then((m) => ({ default: m.ConsultationPage })));
+const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage').then((m) => ({ default: m.NotFoundPage })));
 import { servicesData } from './data/services';
 import { industriesData } from './data/industries';
 import { rolesData } from './data/roles';
@@ -520,203 +523,247 @@ function App() {
 
   if (currentView === 'auth') {
     return (
-      <AuthForm
-        onSuccess={handleAuthSuccess}
-        onSwitchToForgotPassword={() => setCurrentView('forgot-password')}
-        onBack={() => setCurrentView('home')}
-      />
+      <React.Suspense fallback={<PageLoader />}>
+        <AuthForm
+          onSuccess={handleAuthSuccess}
+          onSwitchToForgotPassword={() => setCurrentView('forgot-password')}
+          onBack={() => setCurrentView('home')}
+        />
+      </React.Suspense>
     );
   }
 
   if (currentView === 'forgot-password') {
     return (
-      <ForgotPassword
-        onBack={() => setCurrentView('auth')}
-        onBackToHome={() => setCurrentView('home')}
-      />
+      <React.Suspense fallback={<PageLoader />}>
+        <ForgotPassword
+          onBack={() => setCurrentView('auth')}
+          onBackToHome={() => setCurrentView('home')}
+        />
+      </React.Suspense>
     );
   }
 
   if (currentView === 'careers') {
-    return <CareersPage onBack={handleBackFromCareers} />;
+    return (
+      <React.Suspense fallback={<PageLoader />}>
+        <CareersPage onBack={handleBackFromCareers} />
+      </React.Suspense>
+    );
   }
 
   if (currentView === 'services') {
     return (
-      <ServicesPage
-        onBackToHome={handleBackToHome}
-        onNavigateService={handleNavigateToServiceDetail}
-      />
+      <React.Suspense fallback={<PageLoader />}>
+        <ServicesPage
+          onBackToHome={handleBackToHome}
+          onNavigateService={handleNavigateToServiceDetail}
+        />
+      </React.Suspense>
     );
   }
 
   if (currentView === 'service-detail') {
     return (
-      <ServiceDetailPage
-        slug={selectedServiceSlug}
-        onBackToServices={handleNavigateToServices}
-        onBackToHome={handleBackToHome}
-        onNavigateService={handleNavigateToServiceDetail}
-      />
+      <React.Suspense fallback={<PageLoader />}>
+        <ServiceDetailPage
+          slug={selectedServiceSlug}
+          onBackToServices={handleNavigateToServices}
+          onBackToHome={handleBackToHome}
+          onNavigateService={handleNavigateToServiceDetail}
+        />
+      </React.Suspense>
     );
   }
 
   if (currentView === 'industries') {
     return (
-      <IndustriesPage
-        onBackToHome={handleBackToHome}
-        onNavigateIndustry={handleNavigateToIndustryDetail}
-      />
+      <React.Suspense fallback={<PageLoader />}>
+        <IndustriesPage
+          onBackToHome={handleBackToHome}
+          onNavigateIndustry={handleNavigateToIndustryDetail}
+        />
+      </React.Suspense>
     );
   }
 
   if (currentView === 'industry-detail') {
     return (
-      <IndustryDetailPage
-        slug={selectedIndustrySlug}
-        onBackToIndustries={handleNavigateToIndustries}
-        onBackToHome={handleBackToHome}
-        onNavigateIndustry={handleNavigateToIndustryDetail}
-      />
+      <React.Suspense fallback={<PageLoader />}>
+        <IndustryDetailPage
+          slug={selectedIndustrySlug}
+          onBackToIndustries={handleNavigateToIndustries}
+          onBackToHome={handleBackToHome}
+          onNavigateIndustry={handleNavigateToIndustryDetail}
+        />
+      </React.Suspense>
     );
   }
 
   if (currentView === 'roles') {
     return (
-      <RolesPage
-        onBackToHome={handleBackToHome}
-        onNavigateRole={handleNavigateToRoleDetail}
-      />
+      <React.Suspense fallback={<PageLoader />}>
+        <RolesPage
+          onBackToHome={handleBackToHome}
+          onNavigateRole={handleNavigateToRoleDetail}
+        />
+      </React.Suspense>
     );
   }
 
   if (currentView === 'role-detail') {
     return (
-      <RoleDetailPage
-        slug={selectedRoleSlug}
-        onBackToRoles={handleNavigateToRoles}
-        onBackToHome={handleBackToHome}
-        onNavigateRole={handleNavigateToRoleDetail}
-      />
+      <React.Suspense fallback={<PageLoader />}>
+        <RoleDetailPage
+          slug={selectedRoleSlug}
+          onBackToRoles={handleNavigateToRoles}
+          onBackToHome={handleBackToHome}
+          onNavigateRole={handleNavigateToRoleDetail}
+        />
+      </React.Suspense>
     );
   }
 
   if (currentView === 'locations') {
     return (
-      <LocationsPage
-        onBackToHome={handleBackToHome}
-        onNavigateLocation={handleNavigateToLocationDetail}
-      />
+      <React.Suspense fallback={<PageLoader />}>
+        <LocationsPage
+          onBackToHome={handleBackToHome}
+          onNavigateLocation={handleNavigateToLocationDetail}
+        />
+      </React.Suspense>
     );
   }
 
   if (currentView === 'location-detail') {
     return (
-      <LocationDetailPage
-        slug={selectedLocationSlug}
-        onBackToLocations={handleNavigateToLocations}
-        onBackToHome={handleBackToHome}
-        onNavigateLocation={handleNavigateToLocationDetail}
-      />
+      <React.Suspense fallback={<PageLoader />}>
+        <LocationDetailPage
+          slug={selectedLocationSlug}
+          onBackToLocations={handleNavigateToLocations}
+          onBackToHome={handleBackToHome}
+          onNavigateLocation={handleNavigateToLocationDetail}
+        />
+      </React.Suspense>
     );
   }
 
   if (currentView === 'location-role') {
     return (
-      <LocationRolePage
-        countrySlug={selectedCountrySlug}
-        roleSlug={selectedRoleSlugForLocation}
-        onBackToLocations={handleNavigateToLocations}
-        onBackToCountry={handleNavigateToLocationDetail}
-        onBackToRole={handleNavigateToRoleDetail}
-        onBackToHome={handleBackToHome}
-        onNavigateService={handleNavigateToServiceDetail}
-      />
+      <React.Suspense fallback={<PageLoader />}>
+        <LocationRolePage
+          countrySlug={selectedCountrySlug}
+          roleSlug={selectedRoleSlugForLocation}
+          onBackToLocations={handleNavigateToLocations}
+          onBackToCountry={handleNavigateToLocationDetail}
+          onBackToRole={handleNavigateToRoleDetail}
+          onBackToHome={handleBackToHome}
+          onNavigateService={handleNavigateToServiceDetail}
+        />
+      </React.Suspense>
     );
   }
 
   if (currentView === 'insights') {
     return (
-      <InsightsPage
-        onBackToHome={handleBackToHome}
-        onNavigateInsight={handleNavigateToInsightDetail}
-      />
+      <React.Suspense fallback={<PageLoader />}>
+        <InsightsPage
+          onBackToHome={handleBackToHome}
+          onNavigateInsight={handleNavigateToInsightDetail}
+        />
+      </React.Suspense>
     );
   }
 
   if (currentView === 'insight-detail') {
     return (
-      <InsightDetailPage
-        slug={selectedInsightSlug}
-        onBackToInsights={handleNavigateToInsights}
-        onBackToHome={handleBackToHome}
-        onNavigateInsight={handleNavigateToInsightDetail}
-      />
+      <React.Suspense fallback={<PageLoader />}>
+        <InsightDetailPage
+          slug={selectedInsightSlug}
+          onBackToInsights={handleNavigateToInsights}
+          onBackToHome={handleBackToHome}
+          onNavigateInsight={handleNavigateToInsightDetail}
+        />
+      </React.Suspense>
     );
   }
 
   if (currentView === 'case-studies') {
     return (
-      <CaseStudiesPage
-        onBackToHome={handleBackToHome}
-        onNavigateCaseStudy={handleNavigateToCaseStudyDetail}
-        onNavigateService={handleNavigateToServiceDetail}
-        onNavigateIndustry={handleNavigateToIndustryDetail}
-        onNavigateConsultation={handleNavigateToConsultation}
-      />
+      <React.Suspense fallback={<PageLoader />}>
+        <CaseStudiesPage
+          onBackToHome={handleBackToHome}
+          onNavigateCaseStudy={handleNavigateToCaseStudyDetail}
+          onNavigateService={handleNavigateToServiceDetail}
+          onNavigateIndustry={handleNavigateToIndustryDetail}
+          onNavigateConsultation={handleNavigateToConsultation}
+        />
+      </React.Suspense>
     );
   }
 
   if (currentView === 'case-study-detail') {
     return (
-      <CaseStudyDetailPage
-        slug={selectedCaseStudySlug}
-        onBackToCaseStudies={handleNavigateToCaseStudies}
-        onBackToHome={handleBackToHome}
-        onNavigateCaseStudy={handleNavigateToCaseStudyDetail}
-        onNavigateService={handleNavigateToServiceDetail}
-        onNavigateIndustry={handleNavigateToIndustryDetail}
-        onNavigateRole={handleNavigateToRoleDetail}
-        onNavigateConsultation={handleNavigateToConsultation}
-      />
+      <React.Suspense fallback={<PageLoader />}>
+        <CaseStudyDetailPage
+          slug={selectedCaseStudySlug}
+          onBackToCaseStudies={handleNavigateToCaseStudies}
+          onBackToHome={handleBackToHome}
+          onNavigateCaseStudy={handleNavigateToCaseStudyDetail}
+          onNavigateService={handleNavigateToServiceDetail}
+          onNavigateIndustry={handleNavigateToIndustryDetail}
+          onNavigateRole={handleNavigateToRoleDetail}
+          onNavigateConsultation={handleNavigateToConsultation}
+        />
+      </React.Suspense>
     );
   }
 
   if (currentView === 'content-planning') {
     return (
-      <ContentPlanningPage
-        onBackToHome={handleBackToHome}
-        onNavigateService={handleNavigateToServiceDetail}
-        onNavigateIndustry={handleNavigateToIndustryDetail}
-        onNavigateRole={handleNavigateToRoleDetail}
-        onNavigateLocation={handleNavigateToLocationDetail}
-      />
+      <React.Suspense fallback={<PageLoader />}>
+        <ContentPlanningPage
+          onBackToHome={handleBackToHome}
+          onNavigateService={handleNavigateToServiceDetail}
+          onNavigateIndustry={handleNavigateToIndustryDetail}
+          onNavigateRole={handleNavigateToRoleDetail}
+          onNavigateLocation={handleNavigateToLocationDetail}
+        />
+      </React.Suspense>
     );
   }
 
   if (currentView === 'consultation') {
     return (
-      <ConsultationPage
-        onBackToHome={handleBackToHome}
-      />
+      <React.Suspense fallback={<PageLoader />}>
+        <ConsultationPage
+          onBackToHome={handleBackToHome}
+        />
+      </React.Suspense>
     );
   }
 
   if (currentView === 'not-found') {
-    return <NotFoundPage onBackToHome={handleBackToHome} />;
+    return (
+      <React.Suspense fallback={<PageLoader />}>
+        <NotFoundPage onBackToHome={handleBackToHome} />
+      </React.Suspense>
+    );
   }
 
   if (currentView === 'dashboard' && user) {
     return (
-      <DashboardPage
-        user={user}
-        initialEditMode={initialDashboardEditMode}
-        onBack={() => setCurrentView('home')}
-        onSignOut={handleSignOut}
-        onProfileUpdate={(updatedProfile: React.SetStateAction<UserProfile | null>) =>
-          setUserProfile(updatedProfile)
-        }
-      />
+      <React.Suspense fallback={<PageLoader />}>
+        <DashboardPage
+          user={user}
+          initialEditMode={initialDashboardEditMode}
+          onBack={() => setCurrentView('home')}
+          onSignOut={handleSignOut}
+          onProfileUpdate={(updatedProfile: React.SetStateAction<UserProfile | null>) =>
+            setUserProfile(updatedProfile)
+          }
+        />
+      </React.Suspense>
     );
   }
 

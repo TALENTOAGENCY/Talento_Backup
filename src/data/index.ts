@@ -21,6 +21,7 @@ import { locationRolesData, getLocationRole, isValidLocationRole, getAllPublishe
 export { servicesData } from './services';
 export { industriesData } from './industries';
 export { rolesData } from './roles';
+export { locationsData } from './locations';
 export {
   insightsData,
   getAllInsights,

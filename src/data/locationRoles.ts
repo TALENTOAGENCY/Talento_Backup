@@ -1,6 +1,4 @@
 import { LocationRoleEntity } from '../types/content';
-import { getLocationBySlug } from './locations';
-import { getRoleBySlug } from './roles';
 
 export const locationRolesData: LocationRoleEntity[] = [
   {
