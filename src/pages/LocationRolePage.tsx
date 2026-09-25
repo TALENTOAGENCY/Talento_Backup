@@ -19,10 +19,14 @@ import { SEO } from '../components/SEO';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { FAQAccordion } from '../components/FAQAccordion';
 import { CTASection } from '../components/CTASection';
+import { RelatedServices } from '../components/RelatedServices';
+import { RelatedIndustries } from '../components/RelatedIndustries';
+import { RelatedLocations } from '../components/RelatedLocations';
 import { NotFoundPage } from './NotFoundPage';
 import {
   getLocationRole,
   isValidLocationRole,
+  getAllPublishedLocationRoles,
   getLocationBySlug,
   getRoleBySlug,
   getServiceBySlug,
@@ -423,51 +427,79 @@ export const LocationRolePage: React.FC<LocationRolePageProps> = ({
       )}
 
       {/* 6. Cross-Linking: Related Services & Industries */}
-      <section className="py-16 border-b border-slate-800/60 bg-slate-900/40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Related Services */}
-            <div className="p-6 rounded-2xl bg-slate-900/90 border border-slate-800">
-              <h3 className="text-base font-bold text-white mb-4 flex items-center gap-2">
-                <Briefcase className="w-5 h-5 text-amber-400" />
-                Related Hiring Services
-              </h3>
-              <div className="space-y-3">
-                {resolvedServices.map((srv) => (
-                  <a
-                    key={srv?.id}
-                    href={`/services/${srv?.slug}`}
-                    className="flex items-center justify-between p-3 rounded-xl bg-slate-800/50 hover:bg-slate-800 border border-slate-700/60 hover:border-amber-500/30 transition-all text-xs text-slate-300 font-medium group"
-                  >
-                    <span>{srv?.name}</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                ))}
-              </div>
-            </div>
+      {resolvedServices.length > 0 && (
+        <RelatedServices
+          services={resolvedServices as any}
+          title={`Search Practices for ${locationRole.roleName}`}
+          subtitle={`Tailored talent acquisition solutions matching ${locationRole.countryName} market requirements.`}
+          contextName={locationRole.countryName}
+        />
+      )}
 
-            {/* Related Industries */}
-            <div className="p-6 rounded-2xl bg-slate-900/90 border border-slate-800">
-              <h3 className="text-base font-bold text-white mb-4 flex items-center gap-2">
-                <Building2 className="w-5 h-5 text-amber-400" />
-                Relevant Industry Practices
-              </h3>
-              <div className="space-y-3">
-                {resolvedIndustries.map((ind) => (
+      {resolvedIndustries.length > 0 && (
+        <RelatedIndustries
+          industries={resolvedIndustries as any}
+          title={`Industry Applications in ${locationRole.countryName}`}
+          subtitle={`Explore sectors hiring ${locationRole.roleName.toLowerCase()} across ${locationRole.countryName}.`}
+          contextName={locationRole.countryName}
+      {/* Other Published Corridors for this Role */}
+      {(() => {
+        const otherCorridors = getAllPublishedLocationRoles().filter(
+          (item) => item.id !== locationRole.id && item.roleSlug === locationRole.roleSlug
+        );
+        if (otherCorridors.length === 0) return null;
+
+        return (
+          <section className="py-16 border-b border-slate-800/60 bg-slate-950/60">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="max-w-3xl mb-8">
+                <span className="text-xs font-bold text-amber-500 uppercase tracking-widest mb-2 block">
+                  Cross-Border Corridors
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
+                  Other {locationRole.roleName} Recruitment Corridors
+                </h2>
+                <p className="text-slate-400 text-sm">
+                  Explore other international country corridors where TALENTO sources and places vetted {locationRole.roleName.toLowerCase()}.
+                </p>
+              </div>
+
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {otherCorridors.map((corridor) => (
                   <a
-                    key={ind?.id}
-                    href={`/industries/${ind?.slug}`}
-                    className="flex items-center justify-between p-3 rounded-xl bg-slate-800/50 hover:bg-slate-800 border border-slate-700/60 hover:border-amber-500/30 transition-all text-xs text-slate-300 font-medium group"
+                    key={corridor.id}
+                    href={`/locations/${corridor.countrySlug}/${corridor.roleSlug}`}
+                    className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-amber-500/40 transition-all flex flex-col justify-between group shadow-lg shadow-black/20"
                   >
-                    <span>{ind?.name} Industry Practice</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-transform" />
+                    <div>
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="w-9 h-9 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 border border-amber-500/20 group-hover:scale-105 transition-transform">
+                          <Globe className="w-4 h-4" />
+                        </div>
+                        <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700">
+                          {corridor.countryName}
+                        </span>
+                      </div>
+
+                      <h3 className="text-base font-bold text-white group-hover:text-amber-400 transition-colors mb-2">
+                        {corridor.headline}
+                      </h3>
+                      <p className="text-xs text-slate-400 line-clamp-2 leading-relaxed mb-4">
+                        {corridor.subheadline}
+                      </p>
+                    </div>
+
+                    <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-semibold text-amber-400 group-hover:translate-x-0.5 transition-transform">
+                      <span>Explore {corridor.countryName} Corridor</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </div>
                   </a>
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
+        );
+      })()}
 
       {/* 7. CTA */}
       <CTASection

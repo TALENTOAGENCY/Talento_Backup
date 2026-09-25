@@ -106,8 +106,8 @@ export const industriesData: IndustryEntity[] = [
       }
     ],
     relatedServices: ['executive-search', 'specialist-recruitment', 'tech-recruitment'],
-    relatedRoles: ['chief-technology-officer-cto', 'vp-engineering', 'head-of-product'],
-    relatedLocations: ['bangladesh', 'uae', 'singapore'],
+    relatedRoles: ['software-engineers', 'platform-engineers', 'product-designers', 'data-analysts'],
+    relatedLocations: ['usa', 'uk', 'uae', 'canada', 'australia'],
     cta: {
       title: 'Build Your Tech Leadership Bench',
       description: 'Consult with our technology practice leads to map senior engineering talent for your growth phase.',
@@ -225,8 +225,8 @@ export const industriesData: IndustryEntity[] = [
       }
     ],
     relatedServices: ['executive-search', 'leadership-recruitment', 'specialist-recruitment'],
-    relatedRoles: ['chief-operating-officer-coo', 'chief-executive-officer-ceo', 'chief-financial-officer-cfo'],
-    relatedLocations: ['bangladesh', 'united-kingdom', 'uae'],
+    relatedRoles: ['sales-leaders', 'finance-leaders', 'hr-leaders'],
+    relatedLocations: ['usa', 'uk', 'uae', 'canada', 'australia'],
     cta: {
       title: 'Strengthen Your Manufacturing Leadership',
       description: 'Discuss executive requirements for your factories, buying houses, and supply chain operations.',
@@ -339,8 +339,8 @@ export const industriesData: IndustryEntity[] = [
       }
     ],
     relatedServices: ['executive-search', 'specialist-recruitment', 'leadership-recruitment'],
-    relatedRoles: ['chief-executive-officer-ceo', 'chief-operating-officer-coo'],
-    relatedLocations: ['bangladesh', 'singapore', 'united-kingdom'],
+    relatedRoles: ['sales-leaders', 'marketing-leaders', 'finance-leaders', 'software-engineers'],
+    relatedLocations: ['usa', 'uk', 'uae', 'canada', 'australia'],
     cta: {
       title: 'Find Leaders in Healthcare & Pharma',
       description: 'Engage our specialized healthcare recruiters for confidential leadership placements.',
@@ -453,8 +453,8 @@ export const industriesData: IndustryEntity[] = [
       }
     ],
     relatedServices: ['executive-search', 'leadership-recruitment', 'specialist-recruitment'],
-    relatedRoles: ['chief-executive-officer-ceo', 'chief-financial-officer-cfo', 'chief-operating-officer-coo'],
-    relatedLocations: ['bangladesh', 'uae', 'united-kingdom'],
+    relatedRoles: ['marketing-leaders', 'sales-leaders', 'finance-leaders', 'hr-leaders'],
+    relatedLocations: ['usa', 'uk', 'uae', 'canada', 'australia'],
     cta: {
       title: 'Accelerate Your Consumer Brand Growth',
       description: 'Connect with our FMCG recruitment specialists to secure top commercial leadership.',
@@ -568,8 +568,8 @@ export const industriesData: IndustryEntity[] = [
       }
     ],
     relatedServices: ['executive-search', 'leadership-recruitment', 'specialist-recruitment'],
-    relatedRoles: ['chief-operating-officer-coo', 'chief-executive-officer-ceo'],
-    relatedLocations: ['bangladesh', 'uae', 'singapore'],
+    relatedRoles: ['sales-leaders', 'marketing-leaders', 'hr-leaders', 'finance-leaders'],
+    relatedLocations: ['uae', 'uk', 'australia', 'usa', 'canada'],
     cta: {
       title: 'Elevate Your Hospitality Leadership',
       description: 'Consult with our hospitality practice leads to source world-class hotel and tourism executives.',
@@ -686,8 +686,8 @@ export const industriesData: IndustryEntity[] = [
       }
     ],
     relatedServices: ['executive-search', 'leadership-recruitment', 'specialist-recruitment'],
-    relatedRoles: ['chief-executive-officer-ceo', 'chief-operating-officer-coo', 'chief-financial-officer-cfo'],
-    relatedLocations: ['bangladesh', 'united-kingdom', 'united-states'],
+    relatedRoles: ['finance-leaders', 'hr-leaders', 'data-analysts', 'sales-leaders'],
+    relatedLocations: ['uk', 'usa', 'canada', 'australia', 'uae'],
     cta: {
       title: 'Empower Your Development Programs',
       description: 'Discuss executive recruitment for your next development initiative or country office.',

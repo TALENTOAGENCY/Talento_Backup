@@ -1,4 +1,4 @@
-﻿import { InsightEntity } from '../types/content';
+import { InsightEntity } from '../types/content';
 
 export const insightsData: InsightEntity[] = [
   {
@@ -68,10 +68,10 @@ export const insightsData: InsightEntity[] = [
         answer: 'Our talent research team updates compensation models bi-annually using verified placement data and candidate interview disclosures.'
       }
     ],
-    relatedServices: ['c-suite-talent-hunt', 'executive-search'],
-    relatedIndustries: ['technology'],
-    relatedRoles: ['chief-technology-officer-cto', 'vp-engineering', 'head-of-product'],
-    relatedLocations: ['bangladesh', 'singapore'],
+    relatedServices: ['executive-search', 'tech-recruitment', 'talent-advisory'],
+    relatedIndustries: ['technology', 'fmcg'],
+    relatedRoles: ['software-engineers', 'platform-engineers', 'data-analysts'],
+    relatedLocations: ['usa', 'uk', 'uae'],
     cta: {
       title: 'Download Custom Compensation Benchmark',
       description: 'Request customized salary benchmarking tailored to your industry and headcount stage.',
@@ -81,15 +81,15 @@ export const insightsData: InsightEntity[] = [
     },
     seo: {
       title: 'Bangladesh Tech Salary Report 2026 | TALENTO Compensation Benchmarks',
-      description: 'Explore 2026 tech salaries, CTO compensation, and engineering pay bands in Bangladesh with TALENTOâ€™s proprietary report.',
+      description: 'Explore 2026 tech salaries, CTO compensation, and engineering pay bands in Bangladesh with TALENTO’s proprietary report.',
       keywords: ['Bangladesh tech salary 2026', 'CTO salary Dhaka', 'software engineer salary Bangladesh', 'compensation benchmark report']
     }
   },
   {
     id: 'ins-how-to-hire-startup-cto',
     slug: 'how-to-hire-a-startup-cto-founders-guide',
-    name: 'How to Hire a Startup CTO: A Founderâ€™s Executive Search Guide',
-    title: 'How to Hire a Startup CTO: Complete Founderâ€™s Guide | TALENTO Insights',
+    name: 'How to Hire a Startup CTO: A Founder’s Executive Search Guide',
+    title: 'How to Hire a Startup CTO: Complete Founder’s Guide | TALENTO Insights',
     metaDescription: 'Step-by-step guide for startup founders on hiring a Chief Technology Officer (CTO). Vetting criteria, interview frameworks, equity negotiation, and common pitfalls.',
     shortDescription: 'A practical roadmap for founders to define the CTO role, assess technical depth, negotiate equity, and execute a flawless executive search.',
     longDescription: [
@@ -141,20 +141,20 @@ export const insightsData: InsightEntity[] = [
         answer: 'Fractional CTOs can provide immediate architectural roadmaps during pre-seed stages. However, once you have raised capital and are executing a multi-year roadmap, a full-time dedicated CTO is vital.'
       }
     ],
-    relatedServices: ['c-suite-talent-hunt', 'executive-search'],
-    relatedIndustries: ['technology'],
-    relatedRoles: ['chief-technology-officer-cto', 'vp-engineering'],
-    relatedLocations: ['bangladesh', 'singapore', 'uae'],
+    relatedServices: ['executive-search', 'leadership-recruitment', 'tech-recruitment'],
+    relatedIndustries: ['technology', 'fmcg'],
+    relatedRoles: ['software-engineers', 'platform-engineers', 'product-designers'],
+    relatedLocations: ['usa', 'uk', 'uae'],
     cta: {
       title: 'Need Help Sourcing Your Next CTO?',
-      description: 'Let TALENTOâ€™s tech executive search practice manage your confidential CTO search.',
+      description: 'Let TALENTO’s tech executive search practice manage your confidential CTO search.',
       buttonText: 'Schedule CTO Search Strategy Call',
       buttonHref: '/contact',
       variant: 'primary'
     },
     seo: {
       title: 'How to Hire a Startup CTO | TALENTO Executive Search Guide',
-      description: 'Learn how to hire, vet, and compensate a Chief Technology Officer for your startup with TALENTOâ€™s comprehensive hiring guide.',
+      description: 'Learn how to hire, vet, and compensate a Chief Technology Officer for your startup with TALENTO’s comprehensive hiring guide.',
       keywords: ['how to hire a CTO', 'startup CTO search', 'CTO interview questions', 'hire technical cofounder']
     }
   }

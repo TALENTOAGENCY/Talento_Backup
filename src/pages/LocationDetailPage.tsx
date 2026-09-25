@@ -20,6 +20,10 @@ import { SEO } from '../components/SEO';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { FAQAccordion } from '../components/FAQAccordion';
 import { CTASection } from '../components/CTASection';
+import { RelatedServices } from '../components/RelatedServices';
+import { RelatedIndustries } from '../components/RelatedIndustries';
+import { RelatedRoles } from '../components/RelatedRoles';
+import { RelatedLocations } from '../components/RelatedLocations';
 import { getLocationBySlug, getRelatedEntities, locationsData, isValidLocationRole } from '../data';
 import type { LocationEntity } from '../types/content';
 
@@ -271,144 +275,36 @@ export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({
         </section>
       )}
 
-      {/* 3. Relevant Roles */}
-      <section className="py-20 border-b border-slate-800/60 bg-slate-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
-            <span className="text-xs font-bold text-amber-500 uppercase tracking-widest mb-3 block">
-              03. High-Demand Roles
-            </span>
-            <h2 className="text-3xl font-bold text-white mb-4">
-              Key Roles Sourced for {location.name} Companies
-            </h2>
-            <p className="text-slate-400 text-sm">
-              We specialize in placing senior individual contributors, lead architects, and cross-functional leadership:
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {relations.roles.map((r) => {
-              const hasCorridorPage = isValidLocationRole(location.slug, r.slug);
-              const targetHref = hasCorridorPage
-                ? `/locations/${location.slug}/${r.slug}`
-                : `/roles/${r.slug}`;
-
-              return (
-                <a
-                  key={r.id}
-                  href={targetHref}
-                  className="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/40 transition-all flex flex-col justify-between group"
-                >
-                  <div>
-                    <div className="w-9 h-9 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-3 border border-amber-500/20 group-hover:scale-105 transition-transform">
-                      <Users className="w-4 h-4" />
-                    </div>
-                    <span className="text-[10px] font-medium text-slate-400 uppercase tracking-wider block mb-1">
-                      {r.department}
-                    </span>
-                    <h3 className="text-base font-bold text-white group-hover:text-amber-400 transition-colors mb-2">
-                      {r.name}
-                    </h3>
-                    <p className="text-xs text-slate-400 line-clamp-2 leading-relaxed">
-                      {r.shortDescription}
-                    </p>
-                  </div>
-                  <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-semibold text-amber-400 group-hover:translate-x-1 transition-transform">
-                    <span>{hasCorridorPage ? `Explore ${location.name} Corridor` : 'View Role Details'}</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </div>
-                </a>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      {/* 3. Relevant Roles & Corridors for this Location */}
+      {relations.roles.length > 0 && (
+        <RelatedRoles
+          roles={relations.roles}
+          countrySlug={location.slug}
+          title={`High-Demand Roles for ${location.name}`}
+          subtitle={`We source and vet senior specialists and leadership talent aligned with ${location.name} operating standards.`}
+          contextName={location.name}
+        />
+      )}
 
       {/* 4. Relevant Industries */}
-      <section className="py-20 border-b border-slate-800/60 bg-slate-900/40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
-            <span className="text-xs font-bold text-amber-500 uppercase tracking-widest mb-3 block">
-              04. Sector Focus
-            </span>
-            <h2 className="text-3xl font-bold text-white mb-4">
-              Industry Verticals Served in {location.name}
-            </h2>
-            <p className="text-slate-400 text-sm">
-              Our cross-border headhunting practices cater to fast-growing and enterprise sectors:
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {relations.industries.map((ind) => (
-              <a
-                key={ind.id}
-                href={`/industries/${ind.slug}`}
-                className="group p-6 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-amber-500/40 transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-4 border border-amber-500/20 group-hover:scale-110 transition-transform">
-                    <Building2 className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">
-                    {ind.name}
-                  </h3>
-                  <p className="text-xs text-slate-400 line-clamp-2 leading-relaxed">
-                    {ind.shortDescription}
-                  </p>
-                </div>
-                <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-semibold text-amber-400 group-hover:translate-x-1 transition-transform">
-                  <span>Explore Industry Practice</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
+      {relations.industries.length > 0 && (
+        <RelatedIndustries
+          industries={relations.industries}
+          title={`Industry Verticals in ${location.name}`}
+          subtitle={`Cross-border executive search and headhunting practices catering to high-growth sectors in ${location.name}.`}
+          contextName={location.name}
+        />
+      )}
 
       {/* 5. TALENTO Services */}
-      <section className="py-20 border-b border-slate-800/60 bg-slate-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
-            <span className="text-xs font-bold text-amber-500 uppercase tracking-widest mb-3 block">
-              05. Search Practices
-            </span>
-            <h2 className="text-3xl font-bold text-white mb-4">
-              Recruitment Services for {location.name} Mandates
-            </h2>
-            <p className="text-slate-400 text-sm">
-              Tailored search and advisory models matching your growth stage and operational goals:
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {relations.services.map((srv) => (
-              <a
-                key={srv.id}
-                href={`/services/${srv.slug}`}
-                className="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/40 transition-all flex flex-col justify-between group"
-              >
-                <div>
-                  <div className="w-9 h-9 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-3 border border-amber-500/20 group-hover:scale-105 transition-transform">
-                    <Briefcase className="w-4 h-4" />
-                  </div>
-                  <h3 className="text-base font-bold text-white group-hover:text-amber-400 transition-colors mb-2">
-                    {srv.name}
-                  </h3>
-                  <p className="text-xs text-slate-400 line-clamp-2 leading-relaxed">
-                    {srv.shortDescription}
-                  </p>
-                </div>
-                <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-semibold text-amber-400 group-hover:translate-x-1 transition-transform">
-                  <span>Practice Overview</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
+      {relations.services.length > 0 && (
+        <RelatedServices
+          services={relations.services}
+          title={`Search Practices for ${location.name} Mandates`}
+          subtitle={`Tailored executive search and talent advisory models designed for cross-border collaboration with ${location.name}.`}
+          contextName={location.name}
+        />
+      )}
 
       {/* 6. International Recruitment Approach */}
       {location.recruitmentApproach && location.recruitmentApproach.length > 0 && (
@@ -445,6 +341,13 @@ export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({
           </div>
         </section>
       )}
+
+      {/* Other International Corridors */}
+      <RelatedLocations
+        locations={locationsData.filter((loc) => loc.slug !== location.slug)}
+        title="Other International Recruitment Hubs"
+        subtitle="Explore our active executive search corridors across global markets."
+      />
 
       {/* 7. FAQs */}
       {location.faqs && location.faqs.length > 0 && (

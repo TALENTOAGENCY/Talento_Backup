@@ -20,6 +20,10 @@ import { SEO } from '../components/SEO';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { FAQAccordion } from '../components/FAQAccordion';
 import { CTASection } from '../components/CTASection';
+import { RelatedServices } from '../components/RelatedServices';
+import { RelatedIndustries } from '../components/RelatedIndustries';
+import { RelatedLocations } from '../components/RelatedLocations';
+import { RelatedRoles } from '../components/RelatedRoles';
 import { getRoleBySlug, getRelatedEntities, rolesData } from '../data';
 import type { RoleEntity } from '../types/content';
 
@@ -349,53 +353,14 @@ export const RoleDetailPage: React.FC<RoleDetailPageProps> = ({
       )}
 
       {/* 5. Relevant Industries */}
-      <section className="py-20 border-b border-slate-800/60 bg-slate-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
-            <span className="text-xs font-bold text-amber-500 uppercase tracking-widest mb-3 block">
-              05. Sector Applications
-            </span>
-            <h2 className="text-3xl font-bold text-white mb-4">
-              Relevant Industry Verticals
-            </h2>
-            <p className="text-slate-400 text-sm">
-              We specialize in placing {role.name} within organizations spanning high-growth technology, global supply chains, and regulated enterprise environments:
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {relations.industries.map((ind) => (
-              <a
-                key={ind.id}
-                href={`/industries/${ind.slug}`}
-                onClick={(e) => {
-                  if (onNavigateRole) {
-                    e.preventDefault();
-                    window.location.href = `/industries/${ind.slug}`;
-                  }
-                }}
-                className="group p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/40 transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-4 border border-amber-500/20 group-hover:scale-110 transition-transform">
-                    <Building2 className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">
-                    {ind.name}
-                  </h3>
-                  <p className="text-xs text-slate-400 line-clamp-2 leading-relaxed">
-                    {ind.shortDescription}
-                  </p>
-                </div>
-                <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-semibold text-amber-400 group-hover:translate-x-1 transition-transform">
-                  <span>Explore Industry Practice</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
+      {relations.industries.length > 0 && (
+        <RelatedIndustries
+          industries={relations.industries}
+          title={`Industry Applications for ${role.name}`}
+          subtitle={`We specialize in recruiting ${role.name} across high-growth, venture-backed, and enterprise verticals.`}
+          contextName={role.name}
+        />
+      )}
 
       {/* 6. TALENTO Recruitment Approach */}
       {role.talentoApproach && role.talentoApproach.length > 0 && (
@@ -454,52 +419,26 @@ export const RoleDetailPage: React.FC<RoleDetailPageProps> = ({
         </section>
       )}
 
-      {/* Cross-linking: Related Services & Locations */}
-      <section className="py-16 border-b border-slate-800/60 bg-slate-900/40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Related Services */}
-            <div className="p-6 rounded-2xl bg-slate-900/90 border border-slate-800">
-              <h3 className="text-base font-bold text-white mb-4 flex items-center gap-2">
-                <Briefcase className="w-5 h-5 text-amber-400" />
-                Related Hiring Services
-              </h3>
-              <div className="space-y-3">
-                {relations.services.map((srv) => (
-                  <a
-                    key={srv.id}
-                    href={`/services/${srv.slug}`}
-                    className="flex items-center justify-between p-3 rounded-xl bg-slate-800/50 hover:bg-slate-800 border border-slate-700/60 hover:border-amber-500/30 transition-all text-xs text-slate-300 font-medium group"
-                  >
-                    <span>{srv.name}</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                ))}
-              </div>
-            </div>
+      {/* Target Geographies & Corridors for this Role */}
+      {relations.locations.length > 0 && (
+        <RelatedLocations
+          locations={relations.locations}
+          roleSlug={role.slug}
+          title={`Geographic Corridors for ${role.name}`}
+          subtitle={`Discover international markets and dedicated country corridors where we place ${role.name.toLowerCase()}.`}
+          contextName={role.name}
+        />
+      )}
 
-            {/* Related Locations */}
-            <div className="p-6 rounded-2xl bg-slate-900/90 border border-slate-800">
-              <h3 className="text-base font-bold text-white mb-4 flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-amber-400" />
-                Hiring Markets & Geographies
-              </h3>
-              <div className="space-y-3">
-                {relations.locations.map((loc) => (
-                  <a
-                    key={loc.id}
-                    href={`/locations/${loc.slug}`}
-                    className="flex items-center justify-between p-3 rounded-xl bg-slate-800/50 hover:bg-slate-800 border border-slate-700/60 hover:border-amber-500/30 transition-all text-xs text-slate-300 font-medium group"
-                  >
-                    <span>{loc.name} Talent Market</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Related Search Practices */}
+      {relations.services.length > 0 && (
+        <RelatedServices
+          services={relations.services}
+          title={`Search & Advisory Services for ${role.name}`}
+          subtitle={`Strategic talent acquisition and advisory engagement models suited for ${role.name.toLowerCase()} mandates.`}
+          contextName={role.name}
+        />
+      )}
 
       {/* 8. CTA */}
       <CTASection

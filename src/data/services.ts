@@ -100,8 +100,8 @@ export const servicesData: ServiceEntity[] = [
     ],
     relatedServices: ['leadership-recruitment', 'talent-advisory'],
     relatedIndustries: ['technology', 'apparel', 'healthcare', 'fmcg', 'ngo-international-organizations'],
-    relatedRoles: ['chief-executive-officer-ceo', 'chief-technology-officer-cto', 'chief-financial-officer-cfo', 'chief-operating-officer-coo'],
-    relatedLocations: ['bangladesh', 'uae', 'singapore', 'united-kingdom'],
+    relatedRoles: ['sales-leaders', 'finance-leaders', 'hr-leaders', 'marketing-leaders'],
+    relatedLocations: ['usa', 'uk', 'uae', 'canada', 'australia'],
     cta: {
       title: 'Discuss Your Executive Appointment',
       description: 'Connect with our Managing Partners for a confidential search consultation.',
@@ -196,8 +196,8 @@ export const servicesData: ServiceEntity[] = [
     ],
     relatedServices: ['executive-search', 'specialist-recruitment', 'tech-recruitment'],
     relatedIndustries: ['technology', 'apparel', 'fmcg', 'healthcare'],
-    relatedRoles: ['vp-engineering', 'head-of-product', 'chief-operating-officer-coo', 'chief-financial-officer-cfo'],
-    relatedLocations: ['bangladesh', 'uae', 'singapore', 'united-kingdom'],
+    relatedRoles: ['sales-leaders', 'marketing-leaders', 'hr-leaders', 'finance-leaders'],
+    relatedLocations: ['usa', 'uk', 'uae', 'canada', 'australia'],
     cta: {
       title: 'Scale Your Leadership Bench',
       description: 'Partner with TALENTO to secure proven directors and senior management talent.',
@@ -223,7 +223,7 @@ export const servicesData: ServiceEntity[] = [
     shortDescription: 'Precision sourcing for hyper-specialized and business-critical roles with scarce talent availability.',
     longDescription: [
       'Certain mission-critical positions cannot be filled through traditional job postings because the qualified candidate pool consists of fewer than 50 professionals nationwide or regionally.',
-      'TALENTOâ€™s Specialist Recruitment practice utilizes deep industry intelligence, technical communities, and proactive headhunting to secure elusive technical, operational, and domain specialists.'
+      'TALENTO’s Specialist Recruitment practice utilizes deep industry intelligence, technical communities, and proactive headhunting to secure elusive technical, operational, and domain specialists.'
     ],
     heroContent: {
       headline: 'Precision Sourcing for Hard-To-Fill Specialist Roles',
@@ -266,7 +266,7 @@ export const servicesData: ServiceEntity[] = [
       'Cybersecurity & SOC2 Compliance Architect'
     ],
     engagementModel: 'Contingency',
-    searchTimeline: '2â€“4 weeks',
+    searchTimeline: '2–4 weeks',
     guaranteePeriod: '3-Month Guarantee',
     keyDeliverables: [
       'Comprehensive talent scarcity mapping report',
@@ -290,8 +290,8 @@ export const servicesData: ServiceEntity[] = [
     ],
     relatedServices: ['tech-recruitment', 'remote-recruitment'],
     relatedIndustries: ['technology', 'healthcare', 'apparel', 'fmcg'],
-    relatedRoles: ['chief-technology-officer-cto', 'vp-engineering', 'head-of-product'],
-    relatedLocations: ['bangladesh', 'singapore', 'united-kingdom', 'united-states'],
+    relatedRoles: ['platform-engineers', 'data-analysts', 'software-engineers', 'product-designers'],
+    relatedLocations: ['usa', 'uk', 'uae', 'canada', 'australia'],
     cta: {
       title: 'Struggling to Fill a Critical Vacancy?',
       description: 'Let our search specialists map and engage the right candidates.',
@@ -317,7 +317,7 @@ export const servicesData: ServiceEntity[] = [
     shortDescription: 'Dedicated technical recruitment for software engineering, cloud infrastructure, AI/ML, and product management teams.',
     longDescription: [
       'Technology scale-ups and modernizing enterprises require engineers who write maintainable code, architect distributed systems, and thrive in agile product squads.',
-      'TALENTOâ€™s Tech Recruitment practice connects high-velocity companies with vetted software engineers, engineering managers, and technical leads across Golang, Python, React, Java, Node.js, and Cloud DevOps.'
+      'TALENTO’s Tech Recruitment practice connects high-velocity companies with vetted software engineers, engineering managers, and technical leads across Golang, Python, React, Java, Node.js, and Cloud DevOps.'
     ],
     heroContent: {
       headline: 'Vetted Engineering & Tech Talent for High-Growth Teams',
@@ -360,7 +360,7 @@ export const servicesData: ServiceEntity[] = [
       'Senior UI/UX Product Designer'
     ],
     engagementModel: 'Contingency',
-    searchTimeline: '10â€“20 days',
+    searchTimeline: '10–20 days',
     guaranteePeriod: '3-Month Guarantee',
     keyDeliverables: [
       'Pre-screened candidate portfolio with code review notes',
@@ -384,8 +384,8 @@ export const servicesData: ServiceEntity[] = [
     ],
     relatedServices: ['leadership-recruitment', 'remote-recruitment', 'specialist-recruitment'],
     relatedIndustries: ['technology', 'fmcg', 'healthcare'],
-    relatedRoles: ['chief-technology-officer-cto', 'vp-engineering', 'head-of-product'],
-    relatedLocations: ['bangladesh', 'singapore', 'uae', 'united-states'],
+    relatedRoles: ['software-engineers', 'platform-engineers', 'product-designers', 'data-analysts'],
+    relatedLocations: ['usa', 'uk', 'uae', 'canada', 'australia'],
     cta: {
       title: 'Accelerate Your Engineering Velocity',
       description: 'Hire vetted software engineers who write clean, scalable code.',
@@ -411,7 +411,7 @@ export const servicesData: ServiceEntity[] = [
     shortDescription: 'Cross-border recruitment for distributed teams, offshore hubs, and high-performance remote talent.',
     longDescription: [
       'Modern businesses scale faster and operate 24/7 by building distributed engineering and operational teams in high-talent, cost-efficient hubs.',
-      'TALENTO manages end-to-end remote talent acquisitionâ€”from candidate sourcing and communication screening to contract compliance and remote team onboarding across South Asia and global markets.'
+      'TALENTO manages end-to-end remote talent acquisition—from candidate sourcing and communication screening to contract compliance and remote team onboarding across South Asia and global markets.'
     ],
     heroContent: {
       headline: 'Build High-Performance Distributed & Remote Teams',
@@ -438,7 +438,7 @@ export const servicesData: ServiceEntity[] = [
       },
       {
         title: 'Dedicated Dedicated-Time Verification',
-        description: 'Rigorous background checking to ensure complete commitment to your teamâ€™s working hours.'
+        description: 'Rigorous background checking to ensure complete commitment to your team’s working hours.'
       },
       {
         title: 'Cross-Border Compliance & Contractor Setup',
@@ -453,7 +453,7 @@ export const servicesData: ServiceEntity[] = [
       'Remote Growth & Digital Marketing Leads'
     ],
     engagementModel: 'On-Demand',
-    searchTimeline: '7â€“14 days',
+    searchTimeline: '7–14 days',
     guaranteePeriod: 'Satisfaction Guarantee',
     keyDeliverables: [
       'Communication and timezone compatibility screening',
@@ -477,8 +477,8 @@ export const servicesData: ServiceEntity[] = [
     ],
     relatedServices: ['tech-recruitment', 'specialist-recruitment'],
     relatedIndustries: ['technology', 'fmcg', 'healthcare'],
-    relatedRoles: ['vp-engineering', 'head-of-product'],
-    relatedLocations: ['bangladesh', 'singapore', 'united-states', 'united-kingdom', 'uae'],
+    relatedRoles: ['software-engineers', 'platform-engineers', 'product-designers', 'data-analysts'],
+    relatedLocations: ['usa', 'uk', 'uae', 'canada', 'australia'],
     cta: {
       title: 'Scale With Global Remote Talent',
       description: 'Build your distributed engineering team with TALENTO.',
@@ -546,7 +546,7 @@ export const servicesData: ServiceEntity[] = [
       'Private Equity / VC Talent Due Diligence'
     ],
     engagementModel: 'Embedded Advisory',
-    searchTimeline: '2â€“4 weeks project scope',
+    searchTimeline: '2–4 weeks project scope',
     guaranteePeriod: 'Full Project Advisory Support',
     keyDeliverables: [
       'Comprehensive market compensation & equity benchmark dossier',
@@ -571,8 +571,8 @@ export const servicesData: ServiceEntity[] = [
     ],
     relatedServices: ['executive-search', 'leadership-recruitment'],
     relatedIndustries: ['technology', 'apparel', 'fmcg', 'healthcare'],
-    relatedRoles: ['chief-executive-officer-ceo', 'chief-financial-officer-cfo', 'chief-operating-officer-coo'],
-    relatedLocations: ['bangladesh', 'singapore', 'uae'],
+    relatedRoles: ['hr-leaders', 'finance-leaders', 'sales-leaders'],
+    relatedLocations: ['usa', 'uk', 'uae', 'canada', 'australia'],
     cta: {
       title: 'Elevate Your Talent Strategy',
       description: 'Discuss organizational design and compensation benchmarking with our partners.',

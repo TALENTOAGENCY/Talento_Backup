@@ -16,6 +16,10 @@ import { SEO } from '../components/SEO';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { FAQAccordion } from '../components/FAQAccordion';
 import { CTASection } from '../components/CTASection';
+import { RelatedServices } from '../components/RelatedServices';
+import { RelatedIndustries } from '../components/RelatedIndustries';
+import { RelatedRoles } from '../components/RelatedRoles';
+import { RelatedLocations } from '../components/RelatedLocations';
 import { getServiceBySlug, getRelatedEntities, servicesData } from '../data';
 import type { ServiceEntity } from '../types/content';
 
@@ -337,74 +341,44 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
                 </div>
               </div>
 
-              {/* 6. RELEVANT INDUSTRIES */}
+              {/* 6. RELEVANT INDUSTRIES (Sidebar) */}
               {relations.industries.length > 0 && (
-                <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl border border-gray-200/80 dark:border-gray-800">
-                  <div className="flex items-center space-x-2 text-talento-600 dark:text-talento-400 mb-3 font-bold text-xs uppercase tracking-wider">
-                    <Building className="w-4 h-4" />
-                    <span>Relevant Industry Sectors</span>
-                  </div>
-                  <div className="space-y-2">
-                    {relations.industries.map((ind) => (
-                      <div key={ind.id} className="text-xs font-medium text-gray-700 dark:text-gray-300">
-                        • {ind.name}
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                <RelatedIndustries
+                  industries={relations.industries}
+                  layout="sidebar"
+                  title="Target Industry Verticals"
+                />
               )}
 
-              {/* Relevant Roles */}
+              {/* Relevant Roles (Sidebar) */}
               {relations.roles.length > 0 && (
-                <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl border border-gray-200/80 dark:border-gray-800">
-                  <div className="flex items-center space-x-2 text-talento-600 dark:text-talento-400 mb-3 font-bold text-xs uppercase tracking-wider">
-                    <Users className="w-4 h-4" />
-                    <span>Leadership Functions</span>
-                  </div>
-                  <div className="space-y-2">
-                    {relations.roles.map((r) => (
-                      <div key={r.id} className="text-xs font-medium text-gray-700 dark:text-gray-300">
-                        • {r.name}
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                <RelatedRoles
+                  roles={relations.roles}
+                  layout="sidebar"
+                  title="Target Leadership Roles"
+                />
               )}
 
-              {/* 9. RELATED SERVICES */}
-              <div className="bg-gray-50 dark:bg-gray-900 p-6 rounded-2xl border border-gray-200/80 dark:border-gray-800">
-                <div className="text-xs font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-3">
-                  Other Search Practices
-                </div>
-                <ul className="space-y-2.5">
-                  {servicesData
-                    .filter((s) => s.slug !== service.slug)
-                    .map((s) => (
-                      <li key={s.id}>
-                        <a
-                          href={`/services/${s.slug}`}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            if (onNavigateService) {
-                              onNavigateService(s.slug);
-                            } else {
-                              window.history.pushState({}, '', `/services/${s.slug}`);
-                              window.dispatchEvent(new PopStateEvent('popstate'));
-                            }
-                          }}
-                          className="text-xs font-medium text-talento-600 dark:text-talento-400 hover:underline flex items-center justify-between group"
-                        >
-                          <span>{s.name}</span>
-                          <ArrowRight className="w-3.5 h-3.5 text-gray-400 group-hover:translate-x-0.5 transition-transform" />
-                        </a>
-                      </li>
-                    ))}
-                </ul>
-              </div>
+              {/* Other Search Practices (Sidebar) */}
+              <RelatedServices
+                services={servicesData.filter((s) => s.slug !== service.slug)}
+                layout="sidebar"
+                title="Other Search Practices"
+              />
             </div>
           </div>
         </div>
       </section>
+
+      {/* Target Geographies & Corridors for this Service */}
+      {relations.locations.length > 0 && (
+        <RelatedLocations
+          locations={relations.locations}
+          title={`Target Corridors for ${service.name}`}
+          subtitle={`Deploy ${service.name.toLowerCase()} across our primary international talent corridors.`}
+          contextName={service.name}
+        />
+      )}
 
       {/* 8. FAQS SECTION */}
       {service.faqs && service.faqs.length > 0 && (

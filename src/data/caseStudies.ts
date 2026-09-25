@@ -1,4 +1,4 @@
-﻿import { CaseStudyEntity } from '../types/content';
+import { CaseStudyEntity } from '../types/content';
 
 export const caseStudiesData: CaseStudyEntity[] = [
   {
@@ -50,10 +50,10 @@ export const caseStudiesData: CaseStudyEntity[] = [
         answer: 'Our pre-mapped talent network of senior engineering leaders allowed our partners to initiate warm executive conversations within 48 hours of project kick-off.'
       }
     ],
-    relatedServices: ['c-suite-talent-hunt', 'executive-search'],
+    relatedServices: ['executive-search', 'tech-recruitment', 'leadership-recruitment'],
     relatedIndustries: ['technology'],
-    relatedRoles: ['chief-technology-officer-cto', 'vp-engineering'],
-    relatedLocations: ['bangladesh', 'singapore'],
+    relatedRoles: ['software-engineers', 'platform-engineers'],
+    relatedLocations: ['usa', 'uk', 'uae'],
     cta: {
       title: 'Accelerate Your Executive Search',
       description: 'Find out how TALENTO can execute your critical C-suite and technology searches.',
@@ -106,7 +106,7 @@ export const caseStudiesData: CaseStudyEntity[] = [
       'Delivered a 12% boost in overall equipment effectiveness (OEE) within 9 months'
     ],
     clientTestimonial: {
-      quote: 'TALENTOâ€™s understanding of the garment manufacturing sector and industrial engineering leadership is unmatched. Their discreet search delivered a leader who modernized our entire production ecosystem.',
+      quote: 'TALENTO’s understanding of the garment manufacturing sector and industrial engineering leadership is unmatched. Their discreet search delivered a leader who modernized our entire production ecosystem.',
       clientRole: 'Managing Director & Board Chairman',
       companyType: 'Apparel Export Conglomerate'
     },
@@ -116,10 +116,10 @@ export const caseStudiesData: CaseStudyEntity[] = [
         answer: 'We assist client HR teams with BIDA documentation, visa processing guidance, and expat onboarding compliance.'
       }
     ],
-    relatedServices: ['executive-search', 'c-suite-talent-hunt', 'interim-impact-recruitment'],
+    relatedServices: ['executive-search', 'leadership-recruitment', 'specialist-recruitment'],
     relatedIndustries: ['apparel'],
-    relatedRoles: ['chief-operating-officer-coo', 'chief-executive-officer-ceo'],
-    relatedLocations: ['bangladesh', 'united-kingdom'],
+    relatedRoles: ['sales-leaders', 'hr-leaders', 'finance-leaders'],
+    relatedLocations: ['uk', 'canada', 'australia'],
     cta: {
       title: 'Modernize Your Manufacturing Leadership',
       description: 'Discuss executive headhunting for your manufacturing operations with TALENTO.',

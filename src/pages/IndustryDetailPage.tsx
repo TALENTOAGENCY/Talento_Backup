@@ -16,6 +16,10 @@ import { SEO } from '../components/SEO';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { FAQAccordion } from '../components/FAQAccordion';
 import { CTASection } from '../components/CTASection';
+import { RelatedServices } from '../components/RelatedServices';
+import { RelatedIndustries } from '../components/RelatedIndustries';
+import { RelatedRoles } from '../components/RelatedRoles';
+import { RelatedLocations } from '../components/RelatedLocations';
 import { getIndustryBySlug, getRelatedEntities, industriesData, servicesData } from '../data';
 import type { IndustryEntity } from '../types/content';
 
@@ -417,79 +421,44 @@ export const IndustryDetailPage: React.FC<IndustryDetailPageProps> = ({
                 </div>
               </div>
 
-              {/* Related Services */}
+              {/* Related Services (Sidebar) */}
               {relations.services.length > 0 && (
-                <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl border border-gray-200/80 dark:border-gray-800">
-                  <div className="flex items-center space-x-2 text-talento-600 dark:text-talento-400 mb-3 font-bold text-xs uppercase tracking-wider">
-                    <ShieldCheck className="w-4 h-4" />
-                    <span>Related Search Practices</span>
-                  </div>
-                  <div className="space-y-2">
-                    {relations.services.map((svc) => (
-                      <a
-                        key={svc.id}
-                        href={`/services/${svc.slug}`}
-                        className="text-xs font-medium text-gray-700 dark:text-gray-300 hover:text-talento-600 dark:hover:text-talento-400 flex items-center justify-between group"
-                      >
-                        <span>• {svc.name}</span>
-                        <ArrowRight className="w-3 h-3 text-gray-400 group-hover:text-talento-600 group-hover:translate-x-0.5 transition-all" />
-                      </a>
-                    ))}
-                  </div>
-                </div>
+                <RelatedServices
+                  services={relations.services}
+                  layout="sidebar"
+                  title="Related Search Practices"
+                />
               )}
 
-              {/* Related Roles */}
+              {/* Related Roles (Sidebar) */}
               {relations.roles.length > 0 && (
-                <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl border border-gray-200/80 dark:border-gray-800">
-                  <div className="flex items-center space-x-2 text-talento-600 dark:text-talento-400 mb-3 font-bold text-xs uppercase tracking-wider">
-                    <Users className="w-4 h-4" />
-                    <span>Leadership Functions</span>
-                  </div>
-                  <div className="space-y-2">
-                    {relations.roles.map((r) => (
-                      <div key={r.id} className="text-xs font-medium text-gray-700 dark:text-gray-300">
-                        • {r.name}
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                <RelatedRoles
+                  roles={relations.roles}
+                  layout="sidebar"
+                  title="Key Leadership Roles"
+                />
               )}
 
-              {/* 8. OTHER INDUSTRIES */}
-              <div className="bg-gray-50 dark:bg-gray-900 p-6 rounded-2xl border border-gray-200/80 dark:border-gray-800">
-                <div className="text-xs font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-3">
-                  Other Industry Verticals
-                </div>
-                <ul className="space-y-2.5">
-                  {industriesData
-                    .filter((ind) => ind.slug !== industry.slug)
-                    .map((ind) => (
-                      <li key={ind.id}>
-                        <a
-                          href={`/industries/${ind.slug}`}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            if (onNavigateIndustry) {
-                              onNavigateIndustry(ind.slug);
-                            } else {
-                              window.history.pushState({}, '', `/industries/${ind.slug}`);
-                              window.dispatchEvent(new PopStateEvent('popstate'));
-                            }
-                          }}
-                          className="text-xs font-medium text-talento-600 dark:text-talento-400 hover:underline flex items-center justify-between group"
-                        >
-                          <span>{ind.name}</span>
-                          <ArrowRight className="w-3.5 h-3.5 text-gray-400 group-hover:translate-x-0.5 transition-transform" />
-                        </a>
-                      </li>
-                    ))}
-                </ul>
-              </div>
+              {/* Other Industries (Sidebar) */}
+              <RelatedIndustries
+                industries={industriesData.filter((ind) => ind.slug !== industry.slug)}
+                layout="sidebar"
+                title="Other Industry Verticals"
+              />
             </div>
           </div>
         </div>
       </section>
+
+      {/* Cross-border Hiring Geographies for this Industry */}
+      {relations.locations.length > 0 && (
+        <RelatedLocations
+          locations={relations.locations}
+          title={`International Talent Corridors for ${industry.name}`}
+          subtitle={`Discover cross-border executive search and remote staffing hubs for ${industry.name.toLowerCase()} organizations.`}
+          contextName={industry.name}
+        />
+      )}
 
       {/* 8. FAQ SECTION */}
       {industry.faqs && industry.faqs.length > 0 && (
