@@ -300,6 +300,72 @@ export class DatabaseService {
     }
   }
 
+  // Submit Employer Consultation Inquiry
+  static async submitEmployerInquiry(data: {
+    full_name: string;
+    email: string;
+    company: string;
+    job_title: string;
+    hiring_requirement: string;
+    positions_count: string;
+    hiring_location: string;
+    target_role: string;
+    message: string;
+    metadata?: Record<string, any>;
+  }): Promise<{ success: boolean; id?: string; error?: string }> {
+    try {
+      // 1. Attempt insert into employer_inquiries table
+      const { data: insertResult, error } = await supabase
+        .from('employer_inquiries')
+        .insert([{
+          full_name: data.full_name,
+          email: data.email,
+          company: data.company,
+          job_title: data.job_title,
+          hiring_requirement: data.hiring_requirement,
+          positions_count: data.positions_count,
+          hiring_location: data.hiring_location,
+          target_role: data.target_role,
+          message: data.message
+        }])
+        .select('id')
+        .single();
+
+      if (error) {
+        // Fallback: If dedicated table is not present, insert into contact_forms with formatted message payload
+        const formattedFallbackMessage = `[EMPLOYER INQUIRY]\nJob Title: ${data.job_title}\nHiring Requirement: ${data.hiring_requirement}\nPositions: ${data.positions_count}\nLocation: ${data.hiring_location}\nTarget Role: ${data.target_role}\n\nMandate Brief:\n${data.message}`;
+        
+        const fallbackResult = await this.submitContactForm({
+          full_name: data.full_name,
+          email: data.email,
+          company: data.company,
+          message: formattedFallbackMessage
+        });
+
+        if (!fallbackResult.success) {
+          return { success: false, error: fallbackResult.error || error.message };
+        }
+      }
+
+      // Store in local backup queue to guarantee zero-data loss
+      try {
+        const storedInquiries = JSON.parse(localStorage.getItem('talento_employer_inquiries_backup') || '[]');
+        storedInquiries.push({
+          ...data,
+          submittedAt: new Date().toISOString()
+        });
+        localStorage.setItem('talento_employer_inquiries_backup', JSON.stringify(storedInquiries));
+      } catch {
+        // Ignore storage error
+      }
+
+      return { success: true, id: insertResult?.id };
+    } catch (error) {
+      console.error('Unexpected error during employer inquiry submission:', error);
+      return { success: false, error: 'An unexpected network error occurred. Please try again.' };
+    }
+  }
+
   // Upload CV file to Supabase Storage
   static async uploadCV(file: File, candidateEmail: string): Promise<{ 
     success: boolean; 

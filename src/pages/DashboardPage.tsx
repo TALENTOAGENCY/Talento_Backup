@@ -16,9 +16,6 @@ import {
   ChevronDown,
   Bell,
   Shield,
-  CreditCard,
-  Download,
-  Upload,
   FileText,
   Calendar,
   MapPin,
@@ -28,16 +25,14 @@ import {
   Award,
   Target,
   TrendingUp,
-  Users,
   MessageSquare,
   Star,
-  Edit3,
-  Plus,
   ExternalLink,
   Activity
 } from 'lucide-react';
 import { DatabaseService } from '../services/database';
 import type { UserProfile, AuthUser } from '../lib/supabase';
+import { SEO } from '../components/SEO';
 
 interface DashboardPageProps {
   user: AuthUser;
@@ -58,7 +53,6 @@ export function DashboardPage({ user, onBack, onSignOut }: DashboardPageProps) {
   const [isUpdatingProfile, setIsUpdatingProfile] = useState(false);
   const [isUpdatingPassword, setIsUpdatingPassword] = useState(false);
   const [isUploadingPhoto, setIsUploadingPhoto] = useState(false);
-  const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [profileError, setProfileError] = useState('');
@@ -108,6 +102,7 @@ export function DashboardPage({ user, onBack, onSignOut }: DashboardPageProps) {
 
   useEffect(() => {
     loadProfile();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user.id]);
 
   useEffect(() => {
@@ -919,6 +914,12 @@ export function DashboardPage({ user, onBack, onSignOut }: DashboardPageProps) {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+      <SEO
+        title="Candidate Portal & Dashboard"
+        description="TALENTO executive dashboard and candidate profile portal."
+        canonicalUrl="https://www.talento.agency/#dashboard"
+        noindex={true}
+      />
       {/* Header */}
       <div className="bg-white shadow-sm border-b border-gray-100 backdrop-blur-sm bg-white/95 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -931,7 +932,13 @@ export function DashboardPage({ user, onBack, onSignOut }: DashboardPageProps) {
                 <ArrowLeft className="w-5 h-5 mr-2" />
                 Back to Home
               </button>
-              <img src="/logo.jpg" alt="TALENTO" className="h-10 w-auto" />
+              <img
+                src="/logo.png"
+                alt="TALENTO Logo"
+                width="120"
+                height="40"
+                className="h-10 w-auto"
+              />
             </div>
             
             <div className="flex items-center space-x-4">

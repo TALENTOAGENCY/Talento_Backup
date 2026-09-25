@@ -2,50 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Dark mode base styles */
+/* Dark mode base styles and performance optimizations */
 @layer base {
   html {
     color-scheme: light;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
   }
   
   html.dark {
     color-scheme: dark;
   }
   
-  /* Custom animations */
+  /* Hardware-accelerated 60fps animations */
   @keyframes float {
     0%, 100% {
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
     }
     50% {
-      transform: translateY(-12px);
+      transform: translate3d(0, -12px, 0);
     }
   }
 
   @keyframes float-delay-1 {
     0%, 100% {
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
     }
     50% {
-      transform: translateY(-10px);
+      transform: translate3d(0, -10px, 0);
     }
   }
 
   @keyframes float-delay-2 {
     0%, 100% {
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
     }
     50% {
-      transform: translateY(-14px);
+      transform: translate3d(0, -14px, 0);
     }
   }
 
   @keyframes float-delay-3 {
     0%, 100% {
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
     }
     50% {
-      transform: translateY(-8px);
+      transform: translate3d(0, -8px, 0);
     }
   }
 
@@ -84,24 +88,43 @@
       opacity: 0.7;
     }
   }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 8px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
 }
 
 @layer components {
-  /* Dark mode component styles */
+  /* GPU-Accelerated Animation Utilities */
   .animate-float {
     animation: float 3s ease-in-out infinite;
+    will-change: transform;
+    backface-visibility: hidden;
   }
 
   .animate-float-delay-1 {
     animation: float-delay-1 2.8s ease-in-out infinite;
+    will-change: transform;
+    backface-visibility: hidden;
   }
 
   .animate-float-delay-2 {
     animation: float-delay-2 3.2s ease-in-out infinite;
+    will-change: transform;
+    backface-visibility: hidden;
   }
 
   .animate-float-delay-3 {
     animation: float-delay-3 2.6s ease-in-out infinite;
+    will-change: transform;
+    backface-visibility: hidden;
   }
 
   .animate-draw {
@@ -110,14 +133,26 @@
 
   .animate-spin-slow {
     animation: spin-slow 20s linear infinite;
+    will-change: transform;
   }
 
   .animate-reverse-spin-slow {
     animation: reverse-spin-slow 15s linear infinite;
+    will-change: transform;
   }
 
   .animate-pulse-slow {
     animation: pulse-slow 4s ease-in-out infinite;
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Content visibility for off-screen rendering optimization */
+  .content-visibility-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 600px;
   }
 
   .line-clamp-2 {
@@ -127,14 +162,4 @@
     overflow: hidden;
     line-clamp: 2;
   }
-}
-
-/* Additional dark mode utilities if needed */
-.dark {
-  /* Custom dark mode styles that aren't covered by Tailwind */
-}
-
-/* Smooth transitions for theme switching */
-* {
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }

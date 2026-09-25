@@ -1,16 +1,358 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.talento.agency/</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
 
+  <!-- Main Services Directory -->
+  <url>
+    <loc>https://www.talento.agency/services</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 
-<url>
-  <loc>https://talento.agency/</loc>
-  <lastmod>2025-07-27T16:07:36+00:00</lastmod>
-</url>
+  <!-- Individual Service Practice Pages -->
+  <url>
+    <loc>https://www.talento.agency/services/executive-search</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
 
+  <url>
+    <loc>https://www.talento.agency/services/leadership-recruitment</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/services/specialist-recruitment</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/services/tech-recruitment</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/services/remote-recruitment</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/services/talent-advisory</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Main Industries Directory -->
+  <url>
+    <loc>https://www.talento.agency/industries</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Individual Industry Practice Pages -->
+  <url>
+    <loc>https://www.talento.agency/industries/technology</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/industries/apparel</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/industries/healthcare</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/industries/fmcg</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/industries/hospitality</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/industries/ngo-international-organizations</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Main Roles Directory -->
+  <url>
+    <loc>https://www.talento.agency/roles</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Individual Role Recruitment Pages -->
+  <url>
+    <loc>https://www.talento.agency/roles/software-engineers</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/roles/product-designers</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/roles/platform-engineers</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/roles/data-analysts</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/roles/sales-leaders</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/roles/marketing-leaders</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/roles/hr-leaders</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/roles/finance-leaders</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Main Locations Directory -->
+  <url>
+    <loc>https://www.talento.agency/locations</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Individual Country Recruitment Corridor Pages -->
+  <url>
+    <loc>https://www.talento.agency/locations/usa</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/locations/uk</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/locations/uae</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/locations/canada</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/locations/australia</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Scalable Country + Role Practice Pages -->
+  <url>
+    <loc>https://www.talento.agency/locations/usa/software-engineers</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/locations/uk/software-engineers</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/locations/uae/software-engineers</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Insights & Market Intelligence Directory -->
+  <url>
+    <loc>https://www.talento.agency/insights</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Individual Insight & Research Reports -->
+  <url>
+    <loc>https://www.talento.agency/insights/cross-border-tech-recruitment-index-2026</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/insights/bangladesh-tech-salary-compensation-report-2026</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/insights/how-to-hire-a-startup-cto-founders-guide</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/insights/retained-executive-search-blueprint-c-suite-hiring</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/insights/building-high-performance-remote-engineering-teams</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Case Studies Section -->
+  <url>
+    <loc>https://www.talento.agency/case-studies</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/case-studies/scaling-fintech-infrastructure-cto-executive-search</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/case-studies/transforming-garment-manufacturing-coo-placement</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/case-studies/scaling-healthcare-software-engineering-cross-border-team</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Employer Consultation Page -->
+  <url>
+    <loc>https://www.talento.agency/consultation</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Core Pages -->
+  <url>
+    <loc>https://www.talento.agency/careers</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/about</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/contact</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.talento.agency/apply</loc>
+    <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
 </urlset>
