@@ -37,6 +37,7 @@ import { LocationDetailPage } from './pages/LocationDetailPage';
 import { LocationRolePage } from './pages/LocationRolePage';
 import { InsightsPage } from './pages/InsightsPage';
 import { InsightDetailPage } from './pages/InsightDetailPage';
+import { ContentPlanningPage } from './pages/ContentPlanningPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import ThemeToggle from './components/ThemeToggle';
 import { SEO } from './components/SEO';
@@ -66,6 +67,7 @@ type ViewType =
   | 'location-role'
   | 'insights'
   | 'insight-detail'
+  | 'content-planning'
   | 'not-found';
 
 function App() {
@@ -177,6 +179,8 @@ function App() {
         setSelectedInsightSlug(slug);
         setCurrentView('insight-detail');
       }
+    } else if (path === '/content-planning' || path === '/content-planning/') {
+      setCurrentView('content-planning');
     } else if (path === '/careers' || path === '/careers/') {
       setCurrentView('careers');
     }
@@ -273,6 +277,14 @@ function App() {
     window.history.pushState({}, '', `/insights/${slug}`);
     setSelectedInsightSlug(slug);
     setCurrentView('insight-detail');
+    setIsMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigateToContentPlanning = (e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    window.history.pushState({}, '', '/content-planning');
+    setCurrentView('content-planning');
     setIsMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -596,6 +608,18 @@ function App() {
         onBackToInsights={handleNavigateToInsights}
         onBackToHome={handleBackToHome}
         onNavigateInsight={handleNavigateToInsightDetail}
+      />
+    );
+  }
+
+  if (currentView === 'content-planning') {
+    return (
+      <ContentPlanningPage
+        onBackToHome={handleBackToHome}
+        onNavigateService={handleNavigateToServiceDetail}
+        onNavigateIndustry={handleNavigateToIndustryDetail}
+        onNavigateRole={handleNavigateToRoleDetail}
+        onNavigateLocation={handleNavigateToLocationDetail}
       />
     );
   }
@@ -2014,6 +2038,7 @@ function App() {
               <a href="/roles" onClick={handleNavigateToRoles} className="hover:text-gray-400">Roles</a>
               <a href="/locations" onClick={handleNavigateToLocations} className="hover:text-gray-400">Locations</a>
               <a href="/insights" onClick={handleNavigateToInsights} className="hover:text-gray-400">Insights</a>
+              <a href="/content-planning" onClick={handleNavigateToContentPlanning} className="hover:text-gray-400">Content Planning</a>
               <a href="#contact" className="hover:text-gray-400">Contact</a>
             </div>
           </div>

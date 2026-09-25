@@ -29,6 +29,17 @@ export {
 } from './insights';
 export { caseStudiesData } from './caseStudies';
 export { locationRolesData, getLocationRole, isValidLocationRole, getAllPublishedLocationRoles } from './locationRoles';
+export {
+  CONTENT_PLAN_CATEGORIES,
+  contentPlanDatabase,
+  getAllContentPlans,
+  getContentPlanById,
+  getContentPlansByCategory,
+  getContentPlansByStatus,
+  getApprovedContentPlans,
+  filterContentPlans,
+  getContentPlanningMetrics
+} from './contentPlan';
 
 // Entity lookup by slug helpers
 export function getServiceBySlug(slug: string): ServiceEntity | undefined {
