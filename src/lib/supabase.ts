@@ -21,6 +21,22 @@ export interface ContactForm {
   updated_at?: string;
 }
 
+export interface EmployerInquiry {
+  id?: string;
+  full_name: string;
+  email: string;
+  company: string;
+  job_title: string;
+  hiring_requirement: string;
+  positions_count: string;
+  hiring_location: string;
+  target_role: string;
+  message: string;
+  status?: string;
+  created_at?: string;
+  updated_at?: string;
+}
+
 export interface CandidateApplication {
   id?: string;
   full_name: string;

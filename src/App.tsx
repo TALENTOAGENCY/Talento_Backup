@@ -38,6 +38,8 @@ import { LocationRolePage } from './pages/LocationRolePage';
 import { InsightsPage } from './pages/InsightsPage';
 import { InsightDetailPage } from './pages/InsightDetailPage';
 import { ContentPlanningPage } from './pages/ContentPlanningPage';
+import { ConsultationPage } from './pages/ConsultationPage';
+import { EmployerInquiryForm } from './components/EmployerInquiryForm';
 import { NotFoundPage } from './pages/NotFoundPage';
 import ThemeToggle from './components/ThemeToggle';
 import { SEO } from './components/SEO';
@@ -68,6 +70,7 @@ type ViewType =
   | 'insights'
   | 'insight-detail'
   | 'content-planning'
+  | 'consultation'
   | 'not-found';
 
 function App() {
@@ -181,6 +184,8 @@ function App() {
       }
     } else if (path === '/content-planning' || path === '/content-planning/') {
       setCurrentView('content-planning');
+    } else if (path === '/consultation' || path === '/consultation/' || path === '/hire' || path === '/hire/') {
+      setCurrentView('consultation');
     } else if (path === '/careers' || path === '/careers/') {
       setCurrentView('careers');
     }
@@ -285,6 +290,14 @@ function App() {
     if (e) e.preventDefault();
     window.history.pushState({}, '', '/content-planning');
     setCurrentView('content-planning');
+    setIsMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigateToConsultation = (e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    window.history.pushState({}, '', '/consultation');
+    setCurrentView('consultation');
     setIsMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -624,6 +637,14 @@ function App() {
     );
   }
 
+  if (currentView === 'consultation') {
+    return (
+      <ConsultationPage
+        onBackToHome={handleBackToHome}
+      />
+    );
+  }
+
   if (currentView === 'not-found') {
     return <NotFoundPage onBackToHome={handleBackToHome} />;
   }
@@ -718,8 +739,9 @@ function App() {
               </button>
 
               <a
-                href="#contact"
-                className="bg-talento-600 hover:bg-talento-700 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-sm hover:shadow-md"
+                href="/consultation"
+                onClick={handleNavigateToConsultation}
+                className="bg-talento-600 hover:bg-talento-700 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-sm hover:shadow-md cursor-pointer"
               >
                 Hire Talent
               </a>
@@ -858,11 +880,11 @@ function App() {
                 Careers
               </button>
               <a
-                href="#contact"
-                onClick={() => setIsMenuOpen(false)}
+                href="/consultation"
+                onClick={handleNavigateToConsultation}
                 className="block w-full text-center bg-talento-600 text-white px-4 py-2.5 rounded-lg text-base font-semibold"
               >
-                Hire Talent
+                Schedule Consultation / Hire Talent
               </a>
               <a
                 href="#apply"
@@ -1585,97 +1607,9 @@ function App() {
                 </div>
               </div>
 
-              {/* Right Column: Employer Contact Form */}
-              <div className="lg:col-span-7 bg-gray-50 dark:bg-gray-900 p-8 rounded-2xl border border-gray-200/80 dark:border-gray-800">
-                <form onSubmit={handleContactSubmit} className="space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="contact-name" className="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1.5">
-                        Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        id="contact-name"
-                        required
-                        value={contactForm.full_name}
-                        onChange={(e) => setContactForm({ ...contactForm, full_name: e.target.value })}
-                        className="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-talento-500 focus:border-transparent text-sm"
-                        placeholder="e.g. John Doe"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="contact-email" className="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1.5">
-                        Work Email *
-                      </label>
-                      <input
-                        type="email"
-                        id="contact-email"
-                        required
-                        value={contactForm.email}
-                        onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
-                        className="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-talento-500 focus:border-transparent text-sm"
-                        placeholder="john@company.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="contact-company" className="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1.5">
-                      Company Name & Location
-                    </label>
-                    <input
-                      type="text"
-                      id="contact-company"
-                      value={contactForm.company}
-                      onChange={(e) => setContactForm({ ...contactForm, company: e.target.value })}
-                      className="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-talento-500 focus:border-transparent text-sm"
-                      placeholder="e.g. Acme Corp"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="contact-message" className="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1.5">
-                      Role Requirements / Mandate Details *
-                    </label>
-                    <textarea
-                      id="contact-message"
-                      rows={4}
-                      required
-                      value={contactForm.message}
-                      onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
-                      className="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-talento-500 focus:border-transparent text-sm"
-                      placeholder="Describe target role, seniority level, timeline, and key requirements..."
-                    />
-                  </div>
-
-                  {contactError && (
-                    <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-3 text-xs text-red-700 dark:text-red-400">
-                      {contactError}
-                    </div>
-                  )}
-
-                  {contactSuccess && (
-                    <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-3 text-xs text-green-700 dark:text-green-400">
-                      Thank you! Our executive search team will contact you within 24 hours.
-                    </div>
-                  )}
-
-                  <button
-                    type="submit"
-                    disabled={isSubmittingContact}
-                    className="w-full bg-talento-600 hover:bg-talento-700 text-white font-semibold py-3 rounded-lg transition-colors text-sm disabled:opacity-50 flex items-center justify-center space-x-2"
-                  >
-                    {isSubmittingContact ? (
-                      <>
-                        <Loader className="w-4 h-4 animate-spin mr-2" />
-                        <span>Submitting Mandate...</span>
-                      </>
-                    ) : (
-                      <span>Submit Search Request</span>
-                    )}
-                  </button>
-                </form>
+              {/* Right Column: Premium Employer Consultation Form */}
+              <div className="lg:col-span-7">
+                <EmployerInquiryForm sourceLocation="homepage_contact_section" />
               </div>
             </div>
           </div>
@@ -2039,6 +1973,7 @@ function App() {
               <a href="/locations" onClick={handleNavigateToLocations} className="hover:text-gray-400">Locations</a>
               <a href="/insights" onClick={handleNavigateToInsights} className="hover:text-gray-400">Insights</a>
               <a href="/content-planning" onClick={handleNavigateToContentPlanning} className="hover:text-gray-400">Content Planning</a>
+              <a href="/consultation" onClick={handleNavigateToConsultation} className="hover:text-gray-400">Consultation</a>
               <a href="#contact" className="hover:text-gray-400">Contact</a>
             </div>
           </div>
