@@ -26,6 +26,16 @@ import { EmployerInquiryForm } from './components/EmployerInquiryForm';
 import { PageLoader } from './components/PageLoader';
 import ThemeToggle from './components/ThemeToggle';
 import { SEO } from './components/SEO';
+import {
+  initGlobalClickTracking,
+  trackOrganicLanding,
+  trackServicePageView,
+  trackIndustryPageView,
+  trackRolePageView,
+  trackCountryView,
+  trackConsultationClick,
+  trackCtaClick
+} from './utils/analytics';
 import { organizationSchema, websiteSchema, servicesSchema } from './lib/schemas';
 
 // Code-split dynamic page chunks for instant initial render
@@ -129,6 +139,9 @@ function App() {
   useEffect(() => {
     checkUser();
     syncRouteFromLocation();
+    trackOrganicLanding();
+
+    const cleanupClicks = initGlobalClickTracking();
 
     const handlePopState = () => {
       syncRouteFromLocation();
@@ -137,6 +150,7 @@ function App() {
     window.addEventListener('popstate', handlePopState);
     return () => {
       window.removeEventListener('popstate', handlePopState);
+      cleanupClicks();
     };
   }, []);
 
@@ -149,6 +163,7 @@ function App() {
       if (slug) {
         setSelectedServiceSlug(slug);
         setCurrentView('service-detail');
+        trackServicePageView(slug);
       }
     } else if (path === '/industries' || path === '/industries/') {
       setCurrentView('industries');
@@ -157,6 +172,7 @@ function App() {
       if (slug) {
         setSelectedIndustrySlug(slug);
         setCurrentView('industry-detail');
+        trackIndustryPageView(slug);
       }
     } else if (path === '/roles' || path === '/roles/') {
       setCurrentView('roles');
@@ -165,6 +181,7 @@ function App() {
       if (slug) {
         setSelectedRoleSlug(slug);
         setCurrentView('role-detail');
+        trackRolePageView(slug);
       }
     } else if (path === '/locations' || path === '/locations/') {
       setCurrentView('locations');
@@ -174,11 +191,13 @@ function App() {
       if (segments.length === 1) {
         setSelectedLocationSlug(segments[0]);
         setCurrentView('location-detail');
+        trackCountryView(segments[0]);
       } else if (segments.length === 2) {
         const [country, role] = segments;
         setSelectedCountrySlug(country);
         setSelectedRoleSlugForLocation(role);
         setCurrentView('location-role');
+        trackCountryView(country, role);
       } else {
         setCurrentView('not-found');
       }
@@ -202,6 +221,7 @@ function App() {
       setCurrentView('content-planning');
     } else if (path === '/consultation' || path === '/consultation/' || path === '/hire' || path === '/hire/') {
       setCurrentView('consultation');
+      trackConsultationClick('route_entry');
     } else if (path === '/careers' || path === '/careers/') {
       setCurrentView('careers');
     }
