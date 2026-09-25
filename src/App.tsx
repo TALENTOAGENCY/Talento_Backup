@@ -59,12 +59,21 @@ const CaseStudyDetailPage = React.lazy(() => import('./pages/CaseStudyDetailPage
 const ContentPlanningPage = React.lazy(() => import('./pages/ContentPlanningPage').then((m) => ({ default: m.ContentPlanningPage })));
 const ConsultationPage = React.lazy(() => import('./pages/ConsultationPage').then((m) => ({ default: m.ConsultationPage })));
 const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage').then((m) => ({ default: m.NotFoundPage })));
-import { servicesData } from './data/services';
-import { industriesData } from './data/industries';
-import { rolesData } from './data/roles';
-import { locationsData } from './data/locations';
-import { insightsData } from './data/insights';
-import { caseStudiesData } from './data/caseStudies';
+import {
+  servicesData,
+  industriesData,
+  rolesData,
+  locationsData,
+  insightsData,
+  caseStudiesData,
+  getServiceBySlug,
+  getIndustryBySlug,
+  getRoleBySlug,
+  getLocationBySlug,
+  getInsightBySlug,
+  getCaseStudyBySlug,
+  isValidLocationRole
+} from './data';
 import type { CandidateApplication, ContactForm, AuthUser, UserProfile } from './lib/supabase';
 
 type ViewType =
@@ -156,32 +165,48 @@ function App() {
 
   const syncRouteFromLocation = () => {
     const path = window.location.pathname;
-    if (path === '/services' || path === '/services/') {
+    if (path === '/' || path === '' || path === '/home') {
+      setCurrentView('home');
+    } else if (path === '/about' || path === '/about/' || path === '/contact' || path === '/contact/' || path === '/apply' || path === '/apply/') {
+      setCurrentView('home');
+    } else if (path === '/auth' || path === '/auth/') {
+      setCurrentView('auth');
+    } else if (path === '/forgot-password' || path === '/forgot-password/') {
+      setCurrentView('forgot-password');
+    } else if (path === '/dashboard' || path === '/dashboard/') {
+      setCurrentView('dashboard');
+    } else if (path === '/services' || path === '/services/') {
       setCurrentView('services');
     } else if (path.startsWith('/services/')) {
       const slug = path.replace('/services/', '').replace(/\/$/, '');
-      if (slug) {
+      if (slug && getServiceBySlug(slug)) {
         setSelectedServiceSlug(slug);
         setCurrentView('service-detail');
         trackServicePageView(slug);
+      } else {
+        setCurrentView('not-found');
       }
     } else if (path === '/industries' || path === '/industries/') {
       setCurrentView('industries');
     } else if (path.startsWith('/industries/')) {
       const slug = path.replace('/industries/', '').replace(/\/$/, '');
-      if (slug) {
+      if (slug && getIndustryBySlug(slug)) {
         setSelectedIndustrySlug(slug);
         setCurrentView('industry-detail');
         trackIndustryPageView(slug);
+      } else {
+        setCurrentView('not-found');
       }
     } else if (path === '/roles' || path === '/roles/') {
       setCurrentView('roles');
     } else if (path.startsWith('/roles/')) {
       const slug = path.replace('/roles/', '').replace(/\/$/, '');
-      if (slug) {
+      if (slug && getRoleBySlug(slug)) {
         setSelectedRoleSlug(slug);
         setCurrentView('role-detail');
         trackRolePageView(slug);
+      } else {
+        setCurrentView('not-found');
       }
     } else if (path === '/locations' || path === '/locations/') {
       setCurrentView('locations');
@@ -189,15 +214,23 @@ function App() {
       const cleanPath = path.replace(/^\/locations\//, '').replace(/\/$/, '');
       const segments = cleanPath.split('/').filter(Boolean);
       if (segments.length === 1) {
-        setSelectedLocationSlug(segments[0]);
-        setCurrentView('location-detail');
-        trackCountryView(segments[0]);
+        if (getLocationBySlug(segments[0])) {
+          setSelectedLocationSlug(segments[0]);
+          setCurrentView('location-detail');
+          trackCountryView(segments[0]);
+        } else {
+          setCurrentView('not-found');
+        }
       } else if (segments.length === 2) {
         const [country, role] = segments;
-        setSelectedCountrySlug(country);
-        setSelectedRoleSlugForLocation(role);
-        setCurrentView('location-role');
-        trackCountryView(country, role);
+        if (isValidLocationRole(country, role)) {
+          setSelectedCountrySlug(country);
+          setSelectedRoleSlugForLocation(role);
+          setCurrentView('location-role');
+          trackCountryView(country, role);
+        } else {
+          setCurrentView('not-found');
+        }
       } else {
         setCurrentView('not-found');
       }
@@ -205,17 +238,21 @@ function App() {
       setCurrentView('insights');
     } else if (path.startsWith('/insights/')) {
       const slug = path.replace('/insights/', '').replace(/\/$/, '');
-      if (slug) {
+      if (slug && getInsightBySlug(slug)) {
         setSelectedInsightSlug(slug);
         setCurrentView('insight-detail');
+      } else {
+        setCurrentView('not-found');
       }
     } else if (path === '/case-studies' || path === '/case-studies/') {
       setCurrentView('case-studies');
     } else if (path.startsWith('/case-studies/')) {
       const slug = path.replace('/case-studies/', '').replace(/\/$/, '');
-      if (slug) {
+      if (slug && getCaseStudyBySlug(slug)) {
         setSelectedCaseStudySlug(slug);
         setCurrentView('case-study-detail');
+      } else {
+        setCurrentView('not-found');
       }
     } else if (path === '/content-planning' || path === '/content-planning/') {
       setCurrentView('content-planning');
@@ -224,6 +261,8 @@ function App() {
       trackConsultationClick('route_entry');
     } else if (path === '/careers' || path === '/careers/') {
       setCurrentView('careers');
+    } else {
+      setCurrentView('not-found');
     }
   };
 

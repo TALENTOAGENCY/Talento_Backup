@@ -1,4 +1,6 @@
 import { LocationRoleEntity } from '../types/content';
+import { locationsData } from './locations';
+import { rolesData } from './roles';
 
 export const locationRolesData: LocationRoleEntity[] = [
   {
@@ -359,11 +361,11 @@ export function isValidLocationRole(countrySlug: string, roleSlug: string): bool
   if (!countrySlug || !roleSlug) return false;
 
   // Verify that the country exists in main dataset
-  const country = getLocationBySlug(countrySlug);
+  const country = locationsData.find((l) => l.slug === countrySlug.toLowerCase().trim());
   if (!country) return false;
 
   // Verify that the role exists in main dataset
-  const role = getRoleBySlug(roleSlug);
+  const role = rolesData.find((r) => r.slug === roleSlug.toLowerCase().trim());
   if (!role) return false;
 
   // Verify that this specific combination is in the registered whitelist and published

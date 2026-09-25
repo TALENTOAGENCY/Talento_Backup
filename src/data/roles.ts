@@ -111,7 +111,7 @@ export const rolesData: RoleEntity[] = [
     ],
     relatedServices: ['tech-recruitment', 'specialist-recruitment', 'remote-recruitment'],
     relatedIndustries: ['technology', 'fmcg', 'healthcare'],
-    relatedLocations: ['bangladesh', 'singapore', 'uae', 'united-states'],
+    relatedLocations: ['usa', 'uk', 'uae', 'canada', 'australia'],
     cta: {
       title: 'Hire Senior Software Engineers',
       description: 'Connect with our engineering recruitment team to source vetted software engineers for your product and platform teams.',
@@ -230,7 +230,7 @@ export const rolesData: RoleEntity[] = [
     ],
     relatedServices: ['specialist-recruitment', 'tech-recruitment', 'remote-recruitment'],
     relatedIndustries: ['technology', 'fmcg', 'healthcare'],
-    relatedLocations: ['bangladesh', 'singapore', 'uae'],
+    relatedLocations: ['usa', 'uk', 'uae', 'canada', 'australia'],
     cta: {
       title: 'Hire Senior Product Designers',
       description: 'Connect with our design recruitment practice to source experienced product designers and UX leaders.',
@@ -345,7 +345,7 @@ export const rolesData: RoleEntity[] = [
     ],
     relatedServices: ['tech-recruitment', 'specialist-recruitment', 'remote-recruitment'],
     relatedIndustries: ['technology', 'fmcg', 'healthcare'],
-    relatedLocations: ['bangladesh', 'singapore', 'uae', 'united-states'],
+    relatedLocations: ['usa', 'uk', 'uae', 'canada', 'australia'],
     cta: {
       title: 'Hire Platform Engineers',
       description: 'Connect with our infrastructure recruitment team to source experienced platform engineers, DevOps specialists, and SREs.',
@@ -459,7 +459,7 @@ export const rolesData: RoleEntity[] = [
     ],
     relatedServices: ['specialist-recruitment', 'tech-recruitment', 'remote-recruitment'],
     relatedIndustries: ['technology', 'fmcg', 'healthcare'],
-    relatedLocations: ['bangladesh', 'singapore', 'uae'],
+    relatedLocations: ['usa', 'uk', 'uae', 'canada', 'australia'],
     cta: {
       title: 'Hire Senior Data Analysts',
       description: 'Connect with our analytics recruitment team to source experienced data analysts and BI specialists.',
@@ -573,7 +573,7 @@ export const rolesData: RoleEntity[] = [
     ],
     relatedServices: ['executive-search', 'leadership-recruitment', 'specialist-recruitment'],
     relatedIndustries: ['fmcg', 'technology', 'healthcare'],
-    relatedLocations: ['bangladesh', 'uae', 'singapore', 'united-kingdom'],
+    relatedLocations: ['usa', 'uk', 'uae', 'canada', 'australia'],
     cta: {
       title: 'Hire Revenue-Driving Sales Leaders',
       description: 'Connect with our commercial recruitment team to source proven sales directors and VP Sales candidates.',
@@ -687,7 +687,7 @@ export const rolesData: RoleEntity[] = [
     ],
     relatedServices: ['executive-search', 'leadership-recruitment', 'specialist-recruitment'],
     relatedIndustries: ['fmcg', 'technology', 'healthcare'],
-    relatedLocations: ['bangladesh', 'uae', 'singapore', 'united-kingdom'],
+    relatedLocations: ['usa', 'uk', 'uae', 'canada', 'australia'],
     cta: {
       title: 'Hire Strategic Marketing Leaders',
       description: 'Connect with our marketing recruitment practice to source experienced CMOs, VP Marketing, and Brand Directors.',
@@ -801,7 +801,7 @@ export const rolesData: RoleEntity[] = [
     ],
     relatedServices: ['executive-search', 'leadership-recruitment', 'talent-advisory'],
     relatedIndustries: ['technology', 'apparel', 'fmcg', 'healthcare'],
-    relatedLocations: ['bangladesh', 'uae', 'singapore'],
+    relatedLocations: ['usa', 'uk', 'uae', 'canada', 'australia'],
     cta: {
       title: 'Hire Strategic HR Leaders',
       description: 'Connect with our people leadership recruitment practice to source experienced CHROs, VP HR, and Head of People candidates.',
@@ -915,7 +915,7 @@ export const rolesData: RoleEntity[] = [
     ],
     relatedServices: ['executive-search', 'leadership-recruitment', 'specialist-recruitment'],
     relatedIndustries: ['technology', 'apparel', 'fmcg', 'healthcare'],
-    relatedLocations: ['bangladesh', 'uae', 'singapore', 'united-kingdom'],
+    relatedLocations: ['usa', 'uk', 'uae', 'canada', 'australia'],
     cta: {
       title: 'Hire Strategic Finance Leaders',
       description: 'Connect with our finance leadership recruitment practice to source experienced CFOs, VP Finance, and Financial Controllers.',
