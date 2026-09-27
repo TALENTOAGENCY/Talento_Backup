@@ -876,7 +876,6 @@ Ready to find exceptional talent? Contact us to discuss how we can help you buil
 <h4 className="font-semibold text-gray-900 dark:text-white">Email</h4>
 <p className="text-gray-600 dark:text-gray-300">info@talento-glb.com</p>
 <p className="text-gray-600 dark:text-gray-300">rubz@talento-glb.com</p>
-<p className="text-gray-600 dark:text-gray-300">tuli@talento-glb.com</p>
 </div>
 </div>
 
